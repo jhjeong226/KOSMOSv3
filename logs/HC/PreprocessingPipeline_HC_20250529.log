@@ -1,0 +1,443 @@
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing (station=HC)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process started: Processing E1 (file=HC-E1(z6-19850)(z6-19850)-Configuration 2-1726742190.6906087.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Starting FDR data validation for E1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing E1] Critical validation issues in E1: 4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process completed: Processing E1 in 0.05s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process started: Processing E2 (file=HC-E2(z6-19846)(z6-19846)-Configuration 2-1726742157.351288.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Starting FDR data validation for E2
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing E2] Critical validation issues in E2: 3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process completed: Processing E2 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process started: Processing E3 (file=HC-E3(z6-19853)(z6-19853)-Configuration 2-1726742116.9166503.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Starting FDR data validation for E3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing E3] Critical validation issues in E3: 4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process completed: Processing E3 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process started: Processing E4 (file=HC-E4(z6-19843)(z6-19843)-Configuration 2-1726742067.372329.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Starting FDR data validation for E4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing E4] Critical validation issues in E4: 1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process completed: Processing E4 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process started: Processing N1 (file=HC-N1(z6-05589)(z6-05589)-Configuration 2-1726742025.1905735.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Starting FDR data validation for N1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] FDR validation complete: 5 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing N1] Critical validation issues in N1: 3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process completed: Processing N1 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process started: Processing N2 (file=HC-N2(z6-19848)(z6-19848)-Configuration 2-1726741978.0276856.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Starting FDR data validation for N2
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing N2] Critical validation issues in N2: 4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process completed: Processing N2 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process started: Processing S1 (file=HC-S1(z6-19854)(z6-19854)-Configuration 2-1726743053.9708765.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Starting FDR data validation for S1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] FDR validation complete: 7 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing S1] Critical validation issues in S1: 1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process completed: Processing S1 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process started: Processing S2 (file=HC-S2(z6-19847)(z6-19847)-Configuration 1-1726743301.2710044.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Starting FDR data validation for S2
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing S2] Critical validation issues in S2: 4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process completed: Processing S2 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process started: Processing S3 (file=HC-S3(z6-19903)(z6-19903)-Configuration 2-1726743341.6926782.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Starting FDR data validation for S3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing S3] Critical validation issues in S3: 2
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process completed: Processing S3 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process started: Processing S4 (file=HC-S4(z6-19845)(z6-19845)-Configuration 2-1726743422.6848197.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Starting FDR data validation for S4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] FDR validation complete: 4 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing S4] Critical validation issues in S4: 3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process completed: Processing S4 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process started: Processing W1 (file=HC-W1(z6-19852)(z6-19852)-Configuration-1726742241.8616657.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Starting FDR data validation for W1
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] FDR validation complete: 5 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing W1] Critical validation issues in W1: 4
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process completed: Processing W1 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process started: Processing W2 (file=HC-W2(z6-19851)(z6-19851)-Configuration 2-1726742614.5518854.csv)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Starting FDR data validation for W2
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] FDR validation complete: 6 issues found
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing W2] Critical validation issues in W2: 3
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process completed: Processing W2 in 0.02s
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing W2] Error in FDR Data Processing (duration: 0.30s): ValueError: No valid data could be processed from any files
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing W2] Error in FDR Data Processing (duration: 0.30s): ValueError: No valid data could be processed from any files
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - ERROR - error:113 - [station_id=HC | process=Processing W2] Error in FDR data processing: ValueError: No valid data could be processed from any files
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=HC)
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 1 files in data\input\HC\crnp
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 0 files in data\input\HC\crnp
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 15:10:05 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] File read: data\input\HC\crnp\hourly_CRNP.xlsx - attempting (size_mb=1.07)
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Read CRNP file: data\input\HC\crnp\hourly_CRNP.xlsx (17812 records)
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 17812 records (columns=9, file_size_mb=1.07)
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] CRNP validation complete: 3 issues found
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Validation complete: 0 critical, 3 warnings
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.05s
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.01s
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 1 out-of-range values in Ta, setting to NaN
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS, setting to NaN
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS_max, setting to NaN
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 17608 out-of-range values in RN, setting to NaN
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Data loaded: CRNP_Processed - 17809 records (date_range=2022-10-25 15:00:00 to 2024-11-05 15:00:00)
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process started: Quality Control
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Quality Control] Removing 473 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Temperature-Humidity correlation: 0.264
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Data quality metrics:
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   강수량 (mm) (RN): 1.13% complete, 17608 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기온 (°C) (Ta): 99.99% complete, 1 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍속 (m/s) (WS): 99.91% complete, 16 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.91% complete, 16 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   중성자 카운트 (N_counts): 97.34% complete, 473 missing
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 15:10:07 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 15:10:09 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Saved file: data\output\HC\preprocessed\HC_CRNP_input.xlsx (17809 records)
+2025-05-29 15:10:09 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 2.44s
+2025-05-29 15:10:09 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Saved file: data\output\HC\preprocessed\HC_CRNP_daily.xlsx (743 records)
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process completed: Generating daily average file in 0.31s
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: Generating quality report in 0.01s
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing summary: 17809 records, 2022-10-25 15:00:00 to 2024-11-05 15:00:00
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   N_counts: 97.3% complete
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 15:10:10 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 4.16s
+2025-05-29 15:10:11 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 15:10:11 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 5.35s
+2025-05-29 15:10:11 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Station HC preprocessing completed successfully
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing (station=HC)
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process started: Processing E1 (file=HC-E1(z6-19850)(z6-19850)-Configuration 2-1726742190.6906087.csv)
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Starting FDR data validation for E1
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] FDR validation complete: 4 issues found
+2025-05-29 15:31:14 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E1] Validation issues in E1: 4 critical, continuing anyway
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Processed E1: 56625 records
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Data loaded: FDR_E1 - 56625 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process completed: Processing E1 in 0.95s
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process started: Processing E2 (file=HC-E2(z6-19846)(z6-19846)-Configuration 2-1726742157.351288.csv)
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Starting FDR data validation for E2
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] FDR validation complete: 4 issues found
+2025-05-29 15:31:15 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E2] Validation issues in E2: 3 critical, continuing anyway
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Processed E2: 56622 records
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Data loaded: FDR_E2 - 56622 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process completed: Processing E2 in 0.95s
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process started: Processing E3 (file=HC-E3(z6-19853)(z6-19853)-Configuration 2-1726742116.9166503.csv)
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Starting FDR data validation for E3
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] FDR validation complete: 4 issues found
+2025-05-29 15:31:16 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E3] Validation issues in E3: 4 critical, continuing anyway
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Processed E3: 56619 records
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Data loaded: FDR_E3 - 56619 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process completed: Processing E3 in 0.95s
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process started: Processing E4 (file=HC-E4(z6-19843)(z6-19843)-Configuration 2-1726742067.372329.csv)
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Starting FDR data validation for E4
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] FDR validation complete: 4 issues found
+2025-05-29 15:31:17 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E4] Validation issues in E4: 1 critical, continuing anyway
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Processed E4: 56619 records
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Data loaded: FDR_E4 - 56619 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process completed: Processing E4 in 0.96s
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process started: Processing N1 (file=HC-N1(z6-05589)(z6-05589)-Configuration 2-1726742025.1905735.csv)
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Starting FDR data validation for N1
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] FDR validation complete: 5 issues found
+2025-05-29 15:31:18 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing N1] Validation issues in N1: 3 critical, continuing anyway
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Removed 2222 out-of-range theta_v values from N1
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Processed N1: 53065 records
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Data loaded: FDR_N1 - 53065 records (date_range=2022-09-29 to 2024-11-05)
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process completed: Processing N1 in 0.94s
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process started: Processing N2 (file=HC-N2(z6-19848)(z6-19848)-Configuration 2-1726741978.0276856.csv)
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Starting FDR data validation for N2
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] FDR validation complete: 4 issues found
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing N2] Validation issues in N2: 4 critical, continuing anyway
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Processed N2: 56625 records
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Data loaded: FDR_N2 - 56625 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process completed: Processing N2 in 0.09s
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process started: Processing S1 (file=HC-S1(z6-19854)(z6-19854)-Configuration 2-1726743053.9708765.csv)
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Starting FDR data validation for S1
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] FDR validation complete: 7 issues found
+2025-05-29 15:31:19 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S1] Validation issues in S1: 1 critical, continuing anyway
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Processed S1: 55998 records
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Data loaded: FDR_S1 - 55998 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process completed: Processing S1 in 0.95s
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process started: Processing S2 (file=HC-S2(z6-19847)(z6-19847)-Configuration 1-1726743301.2710044.csv)
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Starting FDR data validation for S2
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] FDR validation complete: 4 issues found
+2025-05-29 15:31:20 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S2] Validation issues in S2: 4 critical, continuing anyway
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Processed S2: 56616 records
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Data loaded: FDR_S2 - 56616 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process completed: Processing S2 in 0.96s
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process started: Processing S3 (file=HC-S3(z6-19903)(z6-19903)-Configuration 2-1726743341.6926782.csv)
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Starting FDR data validation for S3
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] FDR validation complete: 4 issues found
+2025-05-29 15:31:21 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S3] Validation issues in S3: 2 critical, continuing anyway
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Processed S3: 56613 records
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Data loaded: FDR_S3 - 56613 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process completed: Processing S3 in 0.99s
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process started: Processing S4 (file=HC-S4(z6-19845)(z6-19845)-Configuration 2-1726743422.6848197.csv)
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Starting FDR data validation for S4
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] FDR validation complete: 4 issues found
+2025-05-29 15:31:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S4] Validation issues in S4: 3 critical, continuing anyway
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Processed S4: 44283 records
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Data loaded: FDR_S4 - 44283 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process completed: Processing S4 in 0.76s
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process started: Processing W1 (file=HC-W1(z6-19852)(z6-19852)-Configuration-1726742241.8616657.csv)
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Starting FDR data validation for W1
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] FDR validation complete: 5 issues found
+2025-05-29 15:31:23 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing W1] Validation issues in W1: 4 critical, continuing anyway
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Removed 9133 out-of-range theta_v values from W1
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Processed W1: 47474 records
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Data loaded: FDR_W1 - 47474 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process completed: Processing W1 in 0.98s
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process started: Processing W2 (file=HC-W2(z6-19851)(z6-19851)-Configuration 2-1726742614.5518854.csv)
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Starting FDR data validation for W2
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] FDR validation complete: 6 issues found
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing W2] Validation issues in W2: 3 critical, continuing anyway
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Processed W2: 50130 records
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Data loaded: FDR_W2 - 50130 records (date_range=2022-08-24 to 2024-09-18)
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process completed: Processing W2 in 0.08s
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Successfully processed 12 out of 12 sensors
+2025-05-29 15:31:24 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Process started: Generating input format
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Saved file: data\output\HC\preprocessed\HC_FDR_input.xlsx (647289 records)
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Process completed: Generating input format in 71.36s
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Process started: Generating daily average format
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Saved file: data\output\HC\preprocessed\HC_FDR_daily_avg.xlsx (805 records)
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Process completed: Generating daily average format in 0.13s
+2025-05-29 15:32:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process started: Generating organized formats
+2025-05-29 15:32:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Saved file: data\output\HC\preprocessed\HC_FDR_all_sites.xlsx (805 records)
+2025-05-29 15:32:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Saved multi-sheet Excel: data\output\HC\preprocessed\HC_FDR_daily_depths.xlsx (3 sheets)
+2025-05-29 15:32:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: Generating organized formats in 1.09s
+2025-05-29 15:32:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] FDR processing complete. Generated 4 output files
+2025-05-29 15:32:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: FDR Data Processing in 82.18s
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] FDR processing completed: 4 output files generated
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: FDR Data Processing in 126.60s
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=HC)
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 1 files in data\input\HC\crnp
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 0 files in data\input\HC\crnp
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 15:33:21 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] File read: data\input\HC\crnp\hourly_CRNP.xlsx - attempting (size_mb=1.07)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Read CRNP file: data\input\HC\crnp\hourly_CRNP.xlsx (17812 records)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 17812 records (columns=9, file_size_mb=1.07)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] CRNP validation complete: 3 issues found
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Validation complete: 0 critical, 3 warnings
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.05s
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.01s
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 1 out-of-range values in Ta, setting to NaN
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS, setting to NaN
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS_max, setting to NaN
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Data loaded: CRNP_Processed - 17809 records (date_range=2022-10-25 15:00:00 to 2024-11-05 15:00:00)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process started: Quality Control
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Quality Control] Removing 473 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Temperature-Humidity correlation: 0.264
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Data quality metrics:
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   레코드 번호 (RN): 100.0% complete, 0 missing (레코드 개수)
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기온 (°C) (Ta): 99.99% complete, 1 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍속 (m/s) (WS): 99.91% complete, 16 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.91% complete, 16 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   중성자 카운트 (N_counts): 97.34% complete, 473 missing
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 15:33:22 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 15:33:25 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Saved file: data\output\HC\preprocessed\HC_CRNP_input.xlsx (17809 records)
+2025-05-29 15:33:25 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 3.29s
+2025-05-29 15:33:25 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Saved file: data\output\HC\preprocessed\HC_CRNP_daily.xlsx (743 records)
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process completed: Generating daily average file in 0.43s
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: Generating quality report in 0.01s
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing summary: 17809 records, 2022-10-25 15:00:00 to 2024-11-05 15:00:00
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   N_counts: 97.3% complete
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 15:33:26 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 4.92s
+2025-05-29 15:33:27 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 15:33:27 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 6.05s
+2025-05-29 15:33:27 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Station HC preprocessing completed successfully
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Process started: FDR Data Processing (station=HC)
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Discovered 12 files in data\input\HC\fdr
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process started: Processing E1 (file=HC-E1(z6-19850)(z6-19850)-Configuration 2-1726742190.6906087.csv)
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Starting FDR data validation for E1
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] FDR validation complete: 4 issues found
+2025-05-29 15:37:35 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E1] Validation issues in E1: 4 critical, continuing anyway
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Processed E1: 56625 records
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Data loaded: FDR_E1 - 56625 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E1] Process completed: Processing E1 in 0.96s
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process started: Processing E2 (file=HC-E2(z6-19846)(z6-19846)-Configuration 2-1726742157.351288.csv)
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Starting FDR data validation for E2
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] FDR validation complete: 4 issues found
+2025-05-29 15:37:36 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E2] Validation issues in E2: 3 critical, continuing anyway
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Processed E2: 56622 records
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Data loaded: FDR_E2 - 56622 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E2] Process completed: Processing E2 in 0.96s
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process started: Processing E3 (file=HC-E3(z6-19853)(z6-19853)-Configuration 2-1726742116.9166503.csv)
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Starting FDR data validation for E3
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] FDR validation complete: 4 issues found
+2025-05-29 15:37:37 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E3] Validation issues in E3: 4 critical, continuing anyway
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Processed E3: 56619 records
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Data loaded: FDR_E3 - 56619 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E3] Process completed: Processing E3 in 0.95s
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process started: Processing E4 (file=HC-E4(z6-19843)(z6-19843)-Configuration 2-1726742067.372329.csv)
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Starting FDR data validation for E4
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] FDR validation complete: 4 issues found
+2025-05-29 15:37:38 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing E4] Validation issues in E4: 1 critical, continuing anyway
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Processed E4: 56619 records
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Data loaded: FDR_E4 - 56619 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing E4] Process completed: Processing E4 in 0.96s
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process started: Processing N1 (file=HC-N1(z6-05589)(z6-05589)-Configuration 2-1726742025.1905735.csv)
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Starting FDR data validation for N1
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] FDR validation complete: 5 issues found
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing N1] Validation issues in N1: 3 critical, continuing anyway
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Removed 2222 out-of-range theta_v values from N1
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Processed N1: 53065 records
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Data loaded: FDR_N1 - 53065 records (date_range=2022-09-29 to 2024-11-05)
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N1] Process completed: Processing N1 in 0.95s
+2025-05-29 15:37:39 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process started: Processing N2 (file=HC-N2(z6-19848)(z6-19848)-Configuration 2-1726741978.0276856.csv)
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Starting FDR data validation for N2
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] FDR validation complete: 4 issues found
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing N2] Validation issues in N2: 4 critical, continuing anyway
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Processed N2: 56625 records
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Data loaded: FDR_N2 - 56625 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing N2] Process completed: Processing N2 in 0.08s
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process started: Processing S1 (file=HC-S1(z6-19854)(z6-19854)-Configuration 2-1726743053.9708765.csv)
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Starting FDR data validation for S1
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] FDR validation complete: 7 issues found
+2025-05-29 15:37:40 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S1] Validation issues in S1: 1 critical, continuing anyway
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Processed S1: 55998 records
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Data loaded: FDR_S1 - 55998 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S1] Process completed: Processing S1 in 0.94s
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process started: Processing S2 (file=HC-S2(z6-19847)(z6-19847)-Configuration 1-1726743301.2710044.csv)
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Starting FDR data validation for S2
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] FDR validation complete: 4 issues found
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S2] Validation issues in S2: 4 critical, continuing anyway
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Processed S2: 56616 records
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Data loaded: FDR_S2 - 56616 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S2] Process completed: Processing S2 in 0.96s
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process started: Processing S3 (file=HC-S3(z6-19903)(z6-19903)-Configuration 2-1726743341.6926782.csv)
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Starting FDR data validation for S3
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] FDR validation complete: 4 issues found
+2025-05-29 15:37:41 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S3] Validation issues in S3: 2 critical, continuing anyway
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Processed S3: 56613 records
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Data loaded: FDR_S3 - 56613 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S3] Process completed: Processing S3 in 0.98s
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process started: Processing S4 (file=HC-S4(z6-19845)(z6-19845)-Configuration 2-1726743422.6848197.csv)
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Starting FDR data validation for S4
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] FDR validation complete: 4 issues found
+2025-05-29 15:37:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing S4] Validation issues in S4: 3 critical, continuing anyway
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Processed S4: 44283 records
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Data loaded: FDR_S4 - 44283 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing S4] Process completed: Processing S4 in 0.74s
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process started: Processing W1 (file=HC-W1(z6-19852)(z6-19852)-Configuration-1726742241.8616657.csv)
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Starting FDR data validation for W1
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] FDR validation complete: 5 issues found
+2025-05-29 15:37:43 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing W1] Validation issues in W1: 4 critical, continuing anyway
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Removed 9133 out-of-range theta_v values from W1
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Processed W1: 47474 records
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Data loaded: FDR_W1 - 47474 records (date_range=2022-08-24 to 2024-10-18)
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W1] Process completed: Processing W1 in 0.97s
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process started: Processing W2 (file=HC-W2(z6-19851)(z6-19851)-Configuration 2-1726742614.5518854.csv)
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Starting FDR data validation for W2
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] FDR validation complete: 6 issues found
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Processing W2] Validation issues in W2: 3 critical, continuing anyway
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Processed W2: 50130 records
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Data loaded: FDR_W2 - 50130 records (date_range=2022-08-24 to 2024-09-18)
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Process completed: Processing W2 in 0.07s
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Processing W2] Successfully processed 12 out of 12 sensors
+2025-05-29 15:37:44 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Process started: Generating input format
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Saved file: data\output\HC\preprocessed\HC_FDR_input.xlsx (647289 records)
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating input format] Process completed: Generating input format in 70.30s
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Process started: Generating daily average format
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Saved file: data\output\HC\preprocessed\HC_FDR_daily_avg.xlsx (805 records)
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average format] Process completed: Generating daily average format in 0.13s
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process started: Generating organized formats
+2025-05-29 15:38:55 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Saved file: data\output\HC\preprocessed\HC_FDR_all_sites.xlsx (805 records)
+2025-05-29 15:38:56 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Saved multi-sheet Excel: data\output\HC\preprocessed\HC_FDR_daily_depths.xlsx (3 sheets)
+2025-05-29 15:38:56 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: Generating organized formats in 1.07s
+2025-05-29 15:38:56 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] FDR processing complete. Generated 4 output files
+2025-05-29 15:38:56 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: FDR Data Processing in 81.04s
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] FDR processing completed: 4 output files generated
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating organized formats] Process completed: FDR Data Processing in 125.76s
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=HC)
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 1 files in data\input\HC\crnp
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Discovered 0 files in data\input\HC\crnp
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 15:39:40 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] File read: data\input\HC\crnp\hourly_CRNP.xlsx - attempting (size_mb=1.07)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Read CRNP file: data\input\HC\crnp\hourly_CRNP.xlsx (17812 records)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 17812 records (columns=9, file_size_mb=1.07)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] CRNP validation complete: 3 issues found
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Validation complete: 0 critical, 3 warnings
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.02s
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.01s
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 1 out-of-range values in Ta, setting to NaN
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS, setting to NaN
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Timestamp Processing] Found 16 out-of-range values in WS_max, setting to NaN
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Timestamp Processing] Data loaded: CRNP_Processed - 17809 records (date_range=2022-10-25 15:00:00 to 2024-11-05 15:00:00)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process started: Quality Control
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - WARNING - warning:109 - [station_id=HC | process=Quality Control] Removing 473 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Temperature-Humidity correlation: 0.264
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Data quality metrics:
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   레코드 번호 (RN): 100.0% complete, 0 missing (레코드 개수)
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기온 (°C) (Ta): 99.99% complete, 1 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍속 (m/s) (WS): 99.91% complete, 16 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.91% complete, 16 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control]   중성자 카운트 (N_counts): 97.34% complete, 473 missing
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 15:39:42 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Saved file: data\output\HC\preprocessed\HC_CRNP_input.xlsx (17809 records)
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 3.24s
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Saved file: data\output\HC\preprocessed\HC_CRNP_daily.xlsx (743 records)
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating daily average file] Process completed: Generating daily average file in 0.37s
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: Generating quality report in 0.01s
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing summary: 17809 records, 2022-10-25 15:00:00 to 2024-11-05 15:00:00
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   N_counts: 97.3% complete
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 15:39:45 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 4.78s
+2025-05-29 15:39:47 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 15:39:47 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Process completed: CRNP Data Processing in 6.05s
+2025-05-29 15:39:47 - PreprocessingPipeline_HC - INFO - info:105 - [station_id=HC | process=Generating quality report] Station HC preprocessing completed successfully

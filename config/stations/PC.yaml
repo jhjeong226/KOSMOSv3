@@ -1,0 +1,148 @@
+calibration:
+  neutron_monitor: MXCO
+  reference_depths:
+  - 10
+  - 30
+  - 60
+  utc_offset: 9
+coordinates:
+  altitude: 538.2774741
+  latitude: 37.53126519
+  longitude: 128.4461
+  utm_zone: 52S
+data_paths:
+  crnp_folder: data/input/PC/crnp/
+  fdr_folder: data/input/PC/fdr/
+  output_folder: data/output/PC/
+file_patterns:
+  crnp_pattern: '*.xlsx'
+  fdr_pattern: z6-*.csv
+metadata:
+  contact: KIHS CRNP Team
+  created_date: '2024-05-29'
+  last_updated: '2024-05-29'
+  notes: 평창 관측소 FDR 센서 12개소 - 실제 측정 좌표 적용 완료
+  version: '1.0'
+quality_control:
+  missing_data_threshold: 0.1
+  outlier_detection:
+    method: mad
+    threshold: 3.0
+  theta_v_range:
+    max: 0.8
+    min: 0.0
+sensor_configuration:
+  depths:
+  - 10
+  - 30
+  - 60
+  fdr_sensor_count: 3
+  total_sensors: 12
+sensors:
+  E50:
+    bulk_density: 1.2
+    description: 동쪽 50m 센서
+    direction: 동쪽
+    distance_from_station: 48.76589
+    latitude: 37.53139256
+    loc_key: '27897'
+    longitude: 128.4467
+  N100:
+    bulk_density: 1.2
+    description: 북쪽 100m 센서
+    direction: 북쪽
+    distance_from_station: 99.30223
+    latitude: 37.532126
+    loc_key: '25666'
+    longitude: 128.4458
+  N50:
+    bulk_density: 1.2
+    description: 북쪽 50m 센서
+    direction: 북쪽
+    distance_from_station: 50.11846
+    latitude: 37.53170031
+    loc_key: '25665'
+    longitude: 128.446
+  NE50:
+    bulk_density: 1.2
+    description: 북동쪽 50m 센서
+    direction: 북동쪽
+    distance_from_station: 50.12719
+    latitude: 37.53163275
+    loc_key: '28109'
+    longitude: 128.4465
+  NE75:
+    bulk_density: 1.2
+    description: 북동쪽 75m 센서
+    direction: 북동쪽
+    distance_from_station: 73.51689
+    latitude: 37.53181806
+    loc_key: '28157'
+    longitude: 128.4466
+  NW100:
+    bulk_density: 1.2
+    description: 북서쪽 100m 센서
+    direction: 북서쪽
+    distance_from_station: 97.0183
+    latitude: 37.53196992
+    loc_key: '27722'
+    longitude: 128.4455
+  NW25:
+    bulk_density: 1.2
+    description: 북서쪽 25m 센서
+    direction: 북서쪽
+    distance_from_station: 24.76993
+    latitude: 37.53143569
+    loc_key: '28110'
+    longitude: 128.446
+  S25:
+    bulk_density: 1.2
+    description: 남쪽 25m 센서
+    direction: 남쪽
+    distance_from_station: 21.66148
+    latitude: 37.53108603
+    loc_key: '25663'
+    longitude: 128.4462
+  S75:
+    bulk_density: 1.2
+    description: 남쪽 75m 센서
+    direction: 남쪽
+    distance_from_station: 73.29251
+    latitude: 37.53063353
+    loc_key: '28158'
+    longitude: 128.4464
+  SE100:
+    bulk_density: 1.2
+    description: 남동쪽 100m 센서
+    direction: 남동쪽
+    distance_from_station: 98.36039
+    latitude: 37.53063417
+    loc_key: '28159'
+    longitude: 128.4469
+  SE75:
+    bulk_density: 1.2
+    description: 남동쪽 75m 센서
+    direction: 남동쪽
+    distance_from_station: 74.13626
+    latitude: 37.53078683
+    loc_key: '28156'
+    longitude: 128.4467
+  SW35:
+    bulk_density: 1.2
+    description: 남서쪽 35m 센서
+    direction: 남서쪽
+    distance_from_station: 35.65449
+    latitude: 37.53100367
+    loc_key: '25668'
+    longitude: 128.4459
+soil_properties:
+  bulk_density: 1.2
+  clay_content: 0.35
+  lattice_water: null
+  soil_type: mountain_soil
+station_info:
+  description: 평창 CRNP 관측소
+  established_date: '2024'
+  id: PC
+  name: Pyeongchang Station
+  operator: KIHS

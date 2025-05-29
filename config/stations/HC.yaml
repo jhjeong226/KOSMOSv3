@@ -1,0 +1,148 @@
+calibration:
+  neutron_monitor: MXCO
+  reference_depths:
+  - 10
+  - 20
+  - 30
+  utc_offset: 9
+coordinates:
+  altitude: 444.3027
+  latitude: 37.7049111
+  longitude: 128.0316412
+  utm_zone: 52S
+data_paths:
+  crnp_folder: data/input/HC/crnp/
+  fdr_folder: data/input/HC/fdr/
+  output_folder: data/output/HC/
+file_patterns:
+  crnp_pattern: '*.xlsx'
+  fdr_pattern: HC-*.csv
+metadata:
+  contact: KIHS CRNP Team
+  created_date: '2024-05-29'
+  last_updated: '2024-05-29'
+  notes: 홍천 관측소 FDR 센서 12개소
+  version: '1.0'
+quality_control:
+  missing_data_threshold: 0.1
+  outlier_detection:
+    method: mad
+    threshold: 3.0
+  theta_v_range:
+    max: 0.8
+    min: 0.0
+sensor_configuration:
+  depths:
+  - 10
+  - 20
+  - 30
+  fdr_sensor_count: 3
+  total_sensors: 12
+sensors:
+  E1:
+    bulk_density: 1.44
+    description: 동쪽 1번 센서
+    direction: 동쪽
+    distance_from_station: 26
+    latitude: 37.705095
+    loc_key: '19850'
+    longitude: 128.031827
+  E2:
+    bulk_density: 1.44
+    description: 동쪽 2번 센서
+    direction: 동쪽
+    distance_from_station: 62
+    latitude: 37.705243
+    loc_key: '19846'
+    longitude: 128.032208
+  E3:
+    bulk_density: 1.44
+    description: 동쪽 3번 센서
+    direction: 동쪽
+    distance_from_station: 99
+    latitude: 37.705527
+    loc_key: '19853'
+    longitude: 128.032452
+  E4:
+    bulk_density: 1.44
+    description: 동쪽 4번 센서
+    direction: 동쪽
+    distance_from_station: 135
+    latitude: 37.705797
+    loc_key: '19843'
+    longitude: 128.032682
+  N1:
+    bulk_density: 1.44
+    description: 북쪽 1번 센서
+    direction: 북쪽
+    distance_from_station: 99
+    latitude: 37.705723
+    loc_key: 05589
+    longitude: 128.031175
+  N2:
+    bulk_density: 1.44
+    description: 북쪽 2번 센서
+    direction: 북쪽
+    distance_from_station: 119
+    latitude: 37.705849
+    loc_key: '19848'
+    longitude: 128.030982
+  S1:
+    bulk_density: 1.44
+    description: 남쪽 1번 센서
+    direction: 남쪽
+    distance_from_station: 37
+    latitude: 37.704633
+    loc_key: '19854'
+    longitude: 128.031398
+  S2:
+    bulk_density: 1.44
+    description: 남쪽 2번 센서
+    direction: 남쪽
+    distance_from_station: 68
+    latitude: 37.704295
+    loc_key: '19847'
+    longitude: 128.031615
+  S3:
+    bulk_density: 1.44
+    description: 남쪽 3번 센서
+    direction: 남쪽
+    distance_from_station: 100
+    latitude: 37.704037
+    loc_key: '19903'
+    longitude: 128.031937
+  S4:
+    bulk_density: 1.44
+    description: 남쪽 4번 센서
+    direction: 남쪽
+    distance_from_station: 113
+    latitude: 37.70389
+    loc_key: '19845'
+    longitude: 128.03169
+  W1:
+    bulk_density: 1.44
+    description: 서쪽 1번 센서
+    direction: 서쪽
+    distance_from_station: 48
+    latitude: 37.704954
+    loc_key: '19852'
+    longitude: 128.031102
+  W2:
+    bulk_density: 1.44
+    description: 서쪽 2번 센서
+    direction: 서쪽
+    distance_from_station: 65
+    latitude: 37.704848
+    loc_key: '19851'
+    longitude: 128.030916
+soil_properties:
+  bulk_density: 1.44
+  clay_content: 0.35
+  lattice_water: null
+  soil_type: forest_soil
+station_info:
+  description: 홍천 CRNP 관측소
+  established_date: '2024'
+  id: HC
+  name: Hongcheon Station
+  operator: KIHS

@@ -1,0 +1,433 @@
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing (station=PC)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process started: Processing S25 (file=z6-25663(S25)(z6-25663)-Configuration 2-1726741455.5373862.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Starting FDR data validation for S25
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing S25] Critical validation issues in S25: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process completed: Processing S25 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process started: Processing N50 (file=z6-25665(N50)(z6-25665)-Configuration 1-1726741385.4503245.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Starting FDR data validation for N50
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing N50] Critical validation issues in N50: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process completed: Processing N50 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process started: Processing N100 (file=z6-25666(N100)(z6-25666)-Configuration 1-1726741200.9711769.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Starting FDR data validation for N100
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing N100] Critical validation issues in N100: 4
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process completed: Processing N100 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process started: Processing SW35 (file=z6-25668(SW35)(z6-25668)-Configuration 1-1726741485.703883.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Starting FDR data validation for SW35
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] FDR validation complete: 3 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SW35] Critical validation issues in SW35: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process completed: Processing SW35 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process started: Processing NW100 (file=z6-27722(NW100)(z6-27722)-Configuration 3-1726741282.80327.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Starting FDR data validation for NW100
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing NW100] Critical validation issues in NW100: 4
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process completed: Processing NW100 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process started: Processing E50 (file=z6-27897(E50)(z6-27897)-Configuration 2-1726741431.3544817.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Starting FDR data validation for E50
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] FDR validation complete: 6 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing E50] Critical validation issues in E50: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process completed: Processing E50 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process started: Processing NE50 (file=z6-28109(NE50)(z6-28109)-Configuration 2-1726741360.5596304.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Starting FDR data validation for NE50
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing NE50] Critical validation issues in NE50: 4
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process completed: Processing NE50 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process started: Processing NW25 (file=z6-28110(NW25)(z6-28110)-Configuration 1-1726741410.2543561.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Starting FDR data validation for NW25
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing NW25] Critical validation issues in NW25: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process completed: Processing NW25 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process started: Processing SE75 (file=z6-28156(SE75)(z6-28156)-Configuration 1-1726741510.1349926.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Starting FDR data validation for SE75
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SE75] Critical validation issues in SE75: 2
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process completed: Processing SE75 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process started: Processing NE75 (file=z6-28157(NE75)(z6-28157)-Configuration 2-1726741326.1168904.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Starting FDR data validation for NE75
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] FDR validation complete: 4 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing NE75] Critical validation issues in NE75: 4
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process completed: Processing NE75 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process started: Processing S75 (file=z6-28158(S75)(z6-28158)-Configuration 1-1726741538.190738.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Starting FDR data validation for S75
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] FDR validation complete: 3 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing S75] Critical validation issues in S75: 2
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process completed: Processing S75 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process started: Processing SE100 (file=z6-28159(SE100)(z6-28159)-Configuration 1-1726741564.9090996.csv)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Starting FDR data validation for SE100
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] FDR validation complete: 3 issues found
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SE100] Critical validation issues in SE100: 3
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process completed: Processing SE100 in 0.01s
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SE100] Error in FDR Data Processing (duration: 0.10s): ValueError: No valid data could be processed from any files
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SE100] Error in FDR Data Processing (duration: 0.10s): ValueError: No valid data could be processed from any files
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - ERROR - error:113 - [station_id=PC | process=Processing SE100] Error in FDR data processing: ValueError: No valid data could be processed from any files
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=PC)
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 1 files in data\input\PC\crnp
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 0 files in data\input\PC\crnp
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 15:10:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] File read: data\input\PC\crnp\hourly_CRNP.xlsx - attempting (size_mb=0.14)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Read CRNP file: data\input\PC\crnp\hourly_CRNP.xlsx (2166 records)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 2166 records (columns=9, file_size_mb=0.14)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] CRNP validation complete: 1 issues found
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Validation complete: 0 critical, 1 warnings
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.01s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.00s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 1 out-of-range values in WS_max, setting to NaN
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 1962 out-of-range values in RN, setting to NaN
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Data loaded: CRNP_Processed - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process started: Quality Control
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Quality Control] Removing 27 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Temperature-Humidity correlation: -0.406
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Data quality metrics:
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   강수량 (mm) (RN): 9.29% complete, 1962 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기온 (°C) (Ta): 100.0% complete, 0 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍속 (m/s) (WS): 100.0% complete, 0 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.95% complete, 1 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   중성자 카운트 (N_counts): 98.75% complete, 27 missing
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Saved file: data\output\PC\preprocessed\PC_CRNP_input.xlsx (2163 records)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 0.29s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Saved file: data\output\PC\preprocessed\PC_CRNP_daily.xlsx (91 records)
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process completed: Generating daily average file in 0.06s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: Generating quality report in 0.00s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing summary: 2163 records, 2024-08-01 12:00:00 to 2024-10-30 14:00:00
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   N_counts: 98.8% complete
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.82s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.97s
+2025-05-29 15:10:22 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Station PC preprocessing completed successfully
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing (station=PC)
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process started: Processing S25 (file=z6-25663(S25)(z6-25663)-Configuration 2-1726741455.5373862.csv)
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Starting FDR data validation for S25
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] FDR validation complete: 4 issues found
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing S25] Validation issues in S25: 3 critical, continuing anyway
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Processed S25: 6975 records
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Data loaded: FDR_S25 - 6975 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process completed: Processing S25 in 0.14s
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process started: Processing N50 (file=z6-25665(N50)(z6-25665)-Configuration 1-1726741385.4503245.csv)
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Starting FDR data validation for N50
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] FDR validation complete: 4 issues found
+2025-05-29 16:06:37 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing N50] Validation issues in N50: 3 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Processed N50: 6978 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Data loaded: FDR_N50 - 6978 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process completed: Processing N50 in 0.14s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process started: Processing N100 (file=z6-25666(N100)(z6-25666)-Configuration 1-1726741200.9711769.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Starting FDR data validation for N100
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing N100] Validation issues in N100: 4 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Processed N100: 6975 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Data loaded: FDR_N100 - 6975 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process completed: Processing N100 in 0.14s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process started: Processing SW35 (file=z6-25668(SW35)(z6-25668)-Configuration 1-1726741485.703883.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Starting FDR data validation for SW35
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] FDR validation complete: 3 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SW35] Validation issues in SW35: 3 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Processed SW35: 6978 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Data loaded: FDR_SW35 - 6978 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process completed: Processing SW35 in 0.14s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process started: Processing NW100 (file=z6-27722(NW100)(z6-27722)-Configuration 3-1726741282.80327.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Starting FDR data validation for NW100
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NW100] Validation issues in NW100: 4 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Processed NW100: 7026 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Data loaded: FDR_NW100 - 7026 records (date_range=2024-07-31 to 2024-11-06)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process completed: Processing NW100 in 0.14s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process started: Processing E50 (file=z6-27897(E50)(z6-27897)-Configuration 2-1726741431.3544817.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Starting FDR data validation for E50
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] FDR validation complete: 6 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing E50] Validation issues in E50: 3 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Processed E50: 6921 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Data loaded: FDR_E50 - 6921 records (date_range=2024-08-01 to 2024-11-05)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process completed: Processing E50 in 0.15s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process started: Processing NE50 (file=z6-28109(NE50)(z6-28109)-Configuration 2-1726741360.5596304.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Starting FDR data validation for NE50
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NE50] Validation issues in NE50: 4 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Processed NE50: 6975 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Data loaded: FDR_NE50 - 6975 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process completed: Processing NE50 in 0.15s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process started: Processing NW25 (file=z6-28110(NW25)(z6-28110)-Configuration 1-1726741410.2543561.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Starting FDR data validation for NW25
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NW25] Validation issues in NW25: 3 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Processed NW25: 6444 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Data loaded: FDR_NW25 - 6444 records (date_range=2024-07-31 to 2024-11-06)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process completed: Processing NW25 in 0.14s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process started: Processing SE75 (file=z6-28156(SE75)(z6-28156)-Configuration 1-1726741510.1349926.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Starting FDR data validation for SE75
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SE75] Validation issues in SE75: 2 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Processed SE75: 6960 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Data loaded: FDR_SE75 - 6960 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process completed: Processing SE75 in 0.03s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process started: Processing NE75 (file=z6-28157(NE75)(z6-28157)-Configuration 2-1726741326.1168904.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Starting FDR data validation for NE75
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] FDR validation complete: 4 issues found
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NE75] Validation issues in NE75: 4 critical, continuing anyway
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Processed NE75: 5088 records
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Data loaded: FDR_NE75 - 5088 records (date_range=2024-08-27 to 2024-11-06)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process completed: Processing NE75 in 0.11s
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process started: Processing S75 (file=z6-28158(S75)(z6-28158)-Configuration 1-1726741538.190738.csv)
+2025-05-29 16:06:38 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Starting FDR data validation for S75
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] FDR validation complete: 3 issues found
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing S75] Validation issues in S75: 2 critical, continuing anyway
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Processed S75: 6969 records
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Data loaded: FDR_S75 - 6969 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process completed: Processing S75 in 0.14s
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process started: Processing SE100 (file=z6-28159(SE100)(z6-28159)-Configuration 1-1726741564.9090996.csv)
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Starting FDR data validation for SE100
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] FDR validation complete: 3 issues found
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SE100] Validation issues in SE100: 3 critical, continuing anyway
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Processed SE100: 5064 records
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Data loaded: FDR_SE100 - 5064 records (date_range=2024-08-27 to 2024-11-05)
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process completed: Processing SE100 in 0.11s
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Successfully processed 12 out of 12 sensors
+2025-05-29 16:06:39 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Process started: Generating input format
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Saved file: data\output\PC\preprocessed\PC_FDR_input.xlsx (79353 records)
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Process completed: Generating input format in 8.95s
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Process started: Generating daily average format
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Saved file: data\output\PC\preprocessed\PC_FDR_daily_avg.xlsx (99 records)
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Process completed: Generating daily average format in 0.03s
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process started: Generating organized formats
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Saved file: data\output\PC\preprocessed\PC_FDR_all_sites.xlsx (99 records)
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Saved multi-sheet Excel: data\output\PC\preprocessed\PC_FDR_daily_depths.xlsx (3 sheets)
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: Generating organized formats in 0.36s
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] FDR processing complete. Generated 4 output files
+2025-05-29 16:06:48 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: FDR Data Processing in 10.87s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] FDR processing completed: 4 output files generated
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: FDR Data Processing in 16.74s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=PC)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 1 files in data\input\PC\crnp
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 0 files in data\input\PC\crnp
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] File read: data\input\PC\crnp\hourly_CRNP.xlsx - attempting (size_mb=0.14)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Read CRNP file: data\input\PC\crnp\hourly_CRNP.xlsx (2166 records)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 2166 records (columns=9, file_size_mb=0.14)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] CRNP validation complete: 1 issues found
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Validation complete: 0 critical, 1 warnings
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.01s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.00s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 1 out-of-range values in WS_max, setting to NaN
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Data loaded: CRNP_Processed - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process started: Quality Control
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Quality Control] Removing 27 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Temperature-Humidity correlation: -0.406
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Data quality metrics:
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   레코드 번호 (RN): 100.0% complete, 0 missing (레코드 개수)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기온 (°C) (Ta): 100.0% complete, 0 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍속 (m/s) (WS): 100.0% complete, 0 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.95% complete, 1 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   중성자 카운트 (N_counts): 98.75% complete, 27 missing
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Saved file: data\output\PC\preprocessed\PC_CRNP_input.xlsx (2163 records)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 0.27s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Saved file: data\output\PC\preprocessed\PC_CRNP_daily.xlsx (91 records)
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process completed: Generating daily average file in 0.08s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: Generating quality report in 0.01s
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing summary: 2163 records, 2024-08-01 12:00:00 to 2024-10-30 14:00:00
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   N_counts: 98.8% complete
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 16:06:54 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.53s
+2025-05-29 16:06:55 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 16:06:55 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.68s
+2025-05-29 16:06:55 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Station PC preprocessing completed successfully
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Process started: FDR Data Processing (station=PC)
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Data loaded: GeoInfo - 13 records (sensors=12, crnp_station=Yes)
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 CSV files
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Discovered 12 files in data\input\PC\fdr
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] FDR file matching: 12 matched, 0 unmatched
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=FDR Data Processing] Successfully matched 12 files with sensor info
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process started: Processing S25 (file=z6-25663(S25)(z6-25663)-Configuration 2-1726741455.5373862.csv)
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Starting FDR data validation for S25
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] FDR validation complete: 4 issues found
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing S25] Validation issues in S25: 3 critical, continuing anyway
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Processed S25: 6975 records
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Data loaded: FDR_S25 - 6975 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S25] Process completed: Processing S25 in 0.16s
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process started: Processing N50 (file=z6-25665(N50)(z6-25665)-Configuration 1-1726741385.4503245.csv)
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Starting FDR data validation for N50
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] FDR validation complete: 4 issues found
+2025-05-29 18:15:02 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing N50] Validation issues in N50: 3 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Processed N50: 6978 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Data loaded: FDR_N50 - 6978 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N50] Process completed: Processing N50 in 0.15s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process started: Processing N100 (file=z6-25666(N100)(z6-25666)-Configuration 1-1726741200.9711769.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Starting FDR data validation for N100
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing N100] Validation issues in N100: 4 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Processed N100: 6975 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Data loaded: FDR_N100 - 6975 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing N100] Process completed: Processing N100 in 0.15s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process started: Processing SW35 (file=z6-25668(SW35)(z6-25668)-Configuration 1-1726741485.703883.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Starting FDR data validation for SW35
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] FDR validation complete: 3 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SW35] Validation issues in SW35: 3 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Processed SW35: 6978 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Data loaded: FDR_SW35 - 6978 records (date_range=2024-07-31 to 2024-11-05)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SW35] Process completed: Processing SW35 in 0.15s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process started: Processing NW100 (file=z6-27722(NW100)(z6-27722)-Configuration 3-1726741282.80327.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Starting FDR data validation for NW100
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NW100] Validation issues in NW100: 4 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Processed NW100: 7026 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Data loaded: FDR_NW100 - 7026 records (date_range=2024-07-31 to 2024-11-06)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW100] Process completed: Processing NW100 in 0.14s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process started: Processing E50 (file=z6-27897(E50)(z6-27897)-Configuration 2-1726741431.3544817.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Starting FDR data validation for E50
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] FDR validation complete: 6 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing E50] Validation issues in E50: 3 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Processed E50: 6921 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Data loaded: FDR_E50 - 6921 records (date_range=2024-08-01 to 2024-11-05)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing E50] Process completed: Processing E50 in 0.14s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process started: Processing NE50 (file=z6-28109(NE50)(z6-28109)-Configuration 2-1726741360.5596304.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Starting FDR data validation for NE50
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NE50] Validation issues in NE50: 4 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Processed NE50: 6975 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Data loaded: FDR_NE50 - 6975 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE50] Process completed: Processing NE50 in 0.14s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process started: Processing NW25 (file=z6-28110(NW25)(z6-28110)-Configuration 1-1726741410.2543561.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Starting FDR data validation for NW25
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NW25] Validation issues in NW25: 3 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Processed NW25: 6444 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Data loaded: FDR_NW25 - 6444 records (date_range=2024-07-31 to 2024-11-06)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NW25] Process completed: Processing NW25 in 0.13s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process started: Processing SE75 (file=z6-28156(SE75)(z6-28156)-Configuration 1-1726741510.1349926.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Starting FDR data validation for SE75
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SE75] Validation issues in SE75: 2 critical, continuing anyway
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Processed SE75: 6960 records
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Data loaded: FDR_SE75 - 6960 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE75] Process completed: Processing SE75 in 0.03s
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process started: Processing NE75 (file=z6-28157(NE75)(z6-28157)-Configuration 2-1726741326.1168904.csv)
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Starting FDR data validation for NE75
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] FDR validation complete: 4 issues found
+2025-05-29 18:15:03 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing NE75] Validation issues in NE75: 4 critical, continuing anyway
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Processed NE75: 5088 records
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Data loaded: FDR_NE75 - 5088 records (date_range=2024-08-27 to 2024-11-06)
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing NE75] Process completed: Processing NE75 in 0.11s
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process started: Processing S75 (file=z6-28158(S75)(z6-28158)-Configuration 1-1726741538.190738.csv)
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Starting FDR data validation for S75
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] FDR validation complete: 3 issues found
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing S75] Validation issues in S75: 2 critical, continuing anyway
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Processed S75: 6969 records
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Data loaded: FDR_S75 - 6969 records (date_range=2024-08-01 to 2024-11-06)
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing S75] Process completed: Processing S75 in 0.14s
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process started: Processing SE100 (file=z6-28159(SE100)(z6-28159)-Configuration 1-1726741564.9090996.csv)
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Starting FDR data validation for SE100
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] FDR validation complete: 3 issues found
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Processing SE100] Validation issues in SE100: 3 critical, continuing anyway
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Processed SE100: 5064 records
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Data loaded: FDR_SE100 - 5064 records (date_range=2024-08-27 to 2024-11-05)
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Process completed: Processing SE100 in 0.11s
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Processing SE100] Successfully processed 12 out of 12 sensors
+2025-05-29 18:15:04 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Process started: Generating input format
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Saved file: data\output\PC\preprocessed\PC_FDR_input.xlsx (79353 records)
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating input format] Process completed: Generating input format in 10.16s
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Process started: Generating daily average format
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Saved file: data\output\PC\preprocessed\PC_FDR_daily_avg.xlsx (99 records)
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average format] Process completed: Generating daily average format in 0.03s
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process started: Generating organized formats
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Saved file: data\output\PC\preprocessed\PC_FDR_all_sites.xlsx (99 records)
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Saved multi-sheet Excel: data\output\PC\preprocessed\PC_FDR_daily_depths.xlsx (3 sheets)
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: Generating organized formats in 0.36s
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] FDR processing complete. Generated 4 output files
+2025-05-29 18:15:14 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: FDR Data Processing in 12.11s
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] FDR processing completed: 4 output files generated
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating organized formats] Process completed: FDR Data Processing in 17.98s
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Process started: CRNP Data Processing (station=PC)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 1 files in data\input\PC\crnp
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Discovered 0 files in data\input\PC\crnp
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Selected CRNP file: hourly_CRNP.xlsx
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] File read: data\input\PC\crnp\hourly_CRNP.xlsx - attempting (size_mb=0.14)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Read CRNP file: data\input\PC\crnp\hourly_CRNP.xlsx (2166 records)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Processing] Data loaded: CRNP_Raw - 2166 records (columns=9, file_size_mb=0.14)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process started: CRNP Data Validation
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Starting CRNP data validation
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] CRNP validation complete: 1 issues found
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Validation complete: 0 critical, 1 warnings
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=CRNP Data Validation] Process completed: CRNP Data Validation in 0.01s
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process started: Timestamp Processing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 3 invalid timestamps
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Removed 3 records with invalid timestamps
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Process completed: Timestamp Processing in 0.00s
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Timestamp Processing] Found 1 out-of-range values in WS_max, setting to NaN
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Timestamp Processing] Data loaded: CRNP_Processed - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process started: Quality Control
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - WARNING - warning:109 - [station_id=PC | process=Quality Control] Removing 27 neutron outliers using MAD method (threshold=3.0)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Temperature-Humidity correlation: -0.406
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Data quality metrics:
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   레코드 번호 (RN): 100.0% complete, 0 missing (레코드 개수)
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기온 (°C) (Ta): 100.0% complete, 0 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   상대습도 (%) (RH): 100.0% complete, 0 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   기압 (hPa) (Pa): 100.0% complete, 0 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍속 (m/s) (WS): 100.0% complete, 0 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   최대풍속 (m/s) (WS_max): 99.95% complete, 1 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   풍향 (도) (WD_VCT): 100.0% complete, 0 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control]   중성자 카운트 (N_counts): 98.75% complete, 27 missing
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Quality Control] Process completed: Quality Control in 0.01s
+2025-05-29 18:15:20 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process started: Generating CRNP input file
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Saved file: data\output\PC\preprocessed\PC_CRNP_input.xlsx (2163 records)
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating CRNP input file] Process completed: Generating CRNP input file in 0.27s
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process started: Generating daily average file
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Saved file: data\output\PC\preprocessed\PC_CRNP_daily.xlsx (91 records)
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating daily average file] Process completed: Generating daily average file in 0.08s
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process started: Generating quality report
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: Generating quality report in 0.01s
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing summary: 2163 records, 2024-08-01 12:00:00 to 2024-10-30 14:00:00
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   N_counts: 98.8% complete
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Ta: 100.0% complete
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   Pa: 100.0% complete
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report]   RH: 100.0% complete
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.54s
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] CRNP processing completed: 3 output files generated
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Process completed: CRNP Data Processing in 0.69s
+2025-05-29 18:15:21 - PreprocessingPipeline_PC - INFO - info:105 - [station_id=PC | process=Generating quality report] Station PC preprocessing completed successfully

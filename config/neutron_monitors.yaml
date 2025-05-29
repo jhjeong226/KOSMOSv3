@@ -1,0 +1,17 @@
+monitors:
+  MXCO:
+    name: "Mexico City"
+    country: "Mexico" 
+    cutoff_rigidity: 8.2
+    
+  ATHN:
+    name: "Athens"
+    country: "Greece"
+    cutoff_rigidity: 8.5
+    
+  ROME:
+    name: "Rome"
+    country: "Italy"
+    cutoff_rigidity: 6.3
+    
+# 추가 모니터들...
