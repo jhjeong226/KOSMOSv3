@@ -22,3 +22,8 @@
 2025-05-30 17:21:49 - CalibrationRunner - ERROR - error:113 - Calibration failed for PC: No matched data available for optimization
 2025-05-30 17:30:33 - CalibrationRunner - INFO - info:105 - Logger initialized: CalibrationRunner
 2025-05-30 17:30:41 - CalibrationRunner - ERROR - error:113 - Calibration failed for PC: No matched data available for optimization
+2025-05-30 17:41:37 - CalibrationRunner - INFO - info:105 - Logger initialized: CalibrationRunner
+2025-05-30 17:41:45 - CalibrationRunner - ERROR - error:113 - Calibration failed for PC: No matched data available for optimization
+2025-05-30 17:49:18 - CalibrationRunner - INFO - info:105 - Logger initialized: CalibrationRunner
+2025-05-30 17:49:26 - CalibrationRunner - ERROR - error:113 - Calibration failed for PC: counts_to_vwc() got an unexpected keyword argument 'N'
+2025-05-30 17:52:58 - CalibrationRunner - INFO - info:105 - Logger initialized: CalibrationRunner

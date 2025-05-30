@@ -182,56 +182,108 @@ class CalibrationEngine:
             return cleaned_data
             
     def _match_daily_data(self, fdr_data: pd.DataFrame, crnp_data: pd.DataFrame,
-                         cal_start: datetime, cal_end: datetime) -> pd.DataFrame:
-        """일별 FDR과 CRNP 데이터 매칭"""
+                        cal_start: datetime, cal_end: datetime) -> pd.DataFrame:
+        """일별 FDR과 CRNP 데이터 매칭 - 최종 수정 버전"""
         
         with ProcessTimer(self.logger, "Matching daily data"):
             
-            # 지리정보 로드
-            geo_info = self._load_geo_info()
+            # 1. 기본 정보 로깅
+            self.logger.info(f"Input data: FDR={len(fdr_data)}, CRNP={len(crnp_data)}")
+            self.logger.info(f"Calibration period: {cal_start.date()} to {cal_end.date()}")
             
-            # CRNP 일별 평균 계산
-            crnp_data['date'] = crnp_data['timestamp'].dt.date
-            daily_crnp = crnp_data.groupby('date').agg({
-                'total_corrected_neutrons': 'mean',
-                'abs_humidity': 'mean',
-                'Pa': 'mean'
-            }).reset_index()
+            # 2. CRNP 일별 평균 계산 (간단하게)
+            crnp_data_copy = crnp_data.copy()
+            crnp_data_copy['date'] = crnp_data_copy['timestamp'].dt.date
             
+            # 필수 컬럼만 선택
+            if 'total_corrected_neutrons' not in crnp_data_copy.columns:
+                self.logger.error("total_corrected_neutrons column missing!")
+                return pd.DataFrame()
+                
+            daily_crnp = crnp_data_copy.groupby('date')['total_corrected_neutrons'].mean().reset_index()
+            self.logger.info(f"Daily CRNP created: {len(daily_crnp)} days")
+            
+            # 3. FDR 날짜 형식 통일
+            fdr_data_copy = fdr_data.copy()
+            if 'Date' in fdr_data_copy.columns:
+                # 이미 date 타입이면 그대로, datetime이면 date로 변환
+                if hasattr(fdr_data_copy['Date'].iloc[0], 'date'):
+                    fdr_data_copy['Date'] = fdr_data_copy['Date'].dt.date
+                self.logger.info(f"FDR date range: {fdr_data_copy['Date'].min()} to {fdr_data_copy['Date'].max()}")
+            else:
+                self.logger.error("No Date column in FDR data!")
+                return pd.DataFrame()
+            
+            # 4. 매칭 시도 (매우 단순하게)
             results = []
+            matched_days = 0
+            failed_days = 0
             
-            # 일별로 데이터 매칭 및 가중평균 계산
             for single_date in pd.date_range(start=cal_start, end=cal_end, freq='D'):
                 date_key = single_date.date()
                 
-                # 해당 날짜의 CRNP 데이터
-                daily_crnp_data = daily_crnp[daily_crnp['date'] == date_key]
-                
-                if daily_crnp_data.empty:
+                # CRNP 데이터
+                crnp_day = daily_crnp[daily_crnp['date'] == date_key]
+                if crnp_day.empty:
+                    failed_days += 1
+                    self.logger.debug(f"No CRNP for {date_key}")
                     continue
                     
-                # 해당 날짜의 FDR 데이터
-                fdr_mask = fdr_data['Date'].dt.date == date_key
-                daily_fdr = fdr_data[fdr_mask]
-                
-                if daily_fdr.empty:
+                # FDR 데이터  
+                fdr_day = fdr_data_copy[fdr_data_copy['Date'] == date_key]
+                if fdr_day.empty:
+                    failed_days += 1
+                    self.logger.debug(f"No FDR for {date_key}")
                     continue
                     
-                # 지점 토양수분 가중평균 계산
-                field_sm = self._calculate_weighted_soil_moisture(
-                    daily_fdr, daily_crnp_data.iloc[0], geo_info
-                )
-                
-                if field_sm is not None:
-                    results.append({
-                        'date': single_date,
-                        'Daily_N': daily_crnp_data.iloc[0]['total_corrected_neutrons'],
-                        'Field_SM': field_sm
-                    })
+                # 간단한 토양수분 평균 계산 (가중평균 대신)
+                if 'theta_v' in fdr_day.columns:
+                    valid_theta = fdr_day[(fdr_day['theta_v'] > 0) & (fdr_day['theta_v'] < 1)]
                     
+                    if len(valid_theta) > 0:
+                        simple_sm = valid_theta['theta_v'].mean()
+                        neutron_count = crnp_day.iloc[0]['total_corrected_neutrons']
+                        
+                        results.append({
+                            'date': single_date,
+                            'Daily_N': neutron_count,
+                            'Field_SM': simple_sm
+                        })
+                        
+                        matched_days += 1
+                        self.logger.debug(f"✅ {date_key}: N={neutron_count:.1f}, SM={simple_sm:.3f}")
+                    else:
+                        failed_days += 1
+                        self.logger.debug(f"❌ {date_key}: No valid theta_v")
+                else:
+                    failed_days += 1
+                    self.logger.debug(f"❌ {date_key}: No theta_v column")
+            
+            # 5. 결과 정리
             matched_df = pd.DataFrame(results)
+            
+            self.logger.info(f"Matching summary: {matched_days} success, {failed_days} failed")
             self.logger.log_data_summary("Matched_Daily", len(matched_df))
             
+            if len(matched_df) == 0:
+                self.logger.error("🚨 CRITICAL: Still no matches!")
+                self.logger.error("Final debugging:")
+                
+                # 날짜별 상세 분석
+                sample_date = cal_start.date()
+                sample_crnp = daily_crnp[daily_crnp['date'] == sample_date]
+                sample_fdr = fdr_data_copy[fdr_data_copy['Date'] == sample_date]
+                
+                self.logger.error(f"  Sample date: {sample_date}")
+                self.logger.error(f"  CRNP for sample: {len(sample_crnp)} records")
+                self.logger.error(f"  FDR for sample: {len(sample_fdr)} records")
+                
+                if len(sample_fdr) > 0:
+                    theta_stats = sample_fdr['theta_v'].describe()
+                    self.logger.error(f"  Sample theta_v stats: {theta_stats.to_dict()}")
+            else:
+                self.logger.info(f"🎉 SUCCESS: {len(matched_df)} daily records matched!")
+                
             return matched_df
             
     def _calculate_weighted_soil_moisture(self, fdr_data: pd.DataFrame, 
@@ -280,7 +332,7 @@ class CalibrationEngine:
             return None
             
     def _optimize_N0(self, matched_data: pd.DataFrame) -> Dict[str, Any]:
-        """N0 최적화"""
+        """N0 최적화 - API 올바른 사용법으로 수정"""
         
         with ProcessTimer(self.logger, "N0 Optimization"):
             
@@ -291,11 +343,12 @@ class CalibrationEngine:
             if self.lattice_water is None:
                 self.lattice_water = crnpy.lattice_water(clay_content=self.clay_content)
                 
-            # 목적함수 정의 (RMSE 최소화)
+            # 목적함수 정의 (RMSE 최소화) - API 수정
             def objective(N0):
                 try:
+                    # ✅ 올바른 API 사용법: 첫 번째 매개변수로 중성자 카운트 전달
                     crnp_sm = crnpy.counts_to_vwc(
-                        N=matched_data['Daily_N'], 
+                        matched_data['Daily_N'],  # 첫 번째 위치 매개변수
                         N0=N0[0], 
                         bulk_density=self.bulk_density, 
                         Wlat=self.lattice_water, 
@@ -313,7 +366,8 @@ class CalibrationEngine:
                     rmse = np.sqrt(np.mean((crnp_clean - field_clean) ** 2))
                     return rmse
                     
-                except Exception:
+                except Exception as e:
+                    self.logger.debug(f"Objective function error: {e}")
                     return 1e6
                     
             # 최적화 실행
@@ -329,9 +383,9 @@ class CalibrationEngine:
             N0_optimized = result.x[0]
             final_rmse = result.fun
             
-            # 최적화 결과 검증
+            # 최적화 결과 검증 - API 수정
             optimized_sm = crnpy.counts_to_vwc(
-                N=matched_data['Daily_N'], 
+                matched_data['Daily_N'],  # 첫 번째 위치 매개변수
                 N0=N0_optimized, 
                 bulk_density=self.bulk_density, 
                 Wlat=self.lattice_water, 

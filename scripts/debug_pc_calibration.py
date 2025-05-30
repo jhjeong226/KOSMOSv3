@@ -1,290 +1,179 @@
-# scripts/debug_crnp_structure.py
+# scripts/debug_pc_calibration.py
 
 """
-CRNP 파일 구조 디버깅 스크립트
-실제 CRNP 파일의 구조를 확인하여 타임스탬프 파싱 문제를 해결합니다.
+PC 관측소 캘리브레이션 문제 디버깅 스크립트
+실제 데이터 기간과 매칭 문제를 확인합니다.
 """
 
 import pandas as pd
 import numpy as np
-import os
 from pathlib import Path
 import sys
-import chardet
 
 # 프로젝트 루트를 Python 경로에 추가
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-def detect_file_encoding(file_path: str) -> str:
-    """파일 인코딩 감지"""
-    try:
-        with open(file_path, 'rb') as f:
-            raw_data = f.read(10000)
-            result = chardet.detect(raw_data)
-            return result['encoding'] or 'utf-8'
-    except:
-        return 'utf-8'
-
-def analyze_crnp_file(file_path: str, station_id: str):
-    """단일 CRNP 파일 상세 분석"""
-    print(f"\n{'='*80}")
-    print(f"CRNP 파일 분석: {os.path.basename(file_path)}")
-    print(f"{'='*80}")
+def debug_pc_calibration():
+    """PC 관측소 캘리브레이션 디버깅"""
     
-    file_ext = Path(file_path).suffix.lower()
+    print("🔍 PC 관측소 캘리브레이션 디버깅")
+    print("=" * 60)
     
-    try:
-        # 파일 기본 정보
-        file_size = os.path.getsize(file_path) / (1024 * 1024)
-        print(f"📁 파일 정보:")
-        print(f"   크기: {file_size:.2f} MB")
-        print(f"   확장자: {file_ext}")
-        
-        if file_ext in ['.csv', '.txt']:
-            encoding = detect_file_encoding(file_path)
-            print(f"   인코딩: {encoding}")
-        
-        # 1. 파일 헤더 구조 분석 (처음 10줄)
-        print(f"\n📋 헤더 구조 분석 (처음 10줄):")
-        print("-" * 50)
-        
-        if file_ext in ['.xlsx', '.xls']:
-            # Excel 파일
-            header_df = pd.read_excel(file_path, header=None, nrows=10)
-        else:
-            # CSV 파일
-            encoding = detect_file_encoding(file_path)
-            header_df = pd.read_csv(file_path, header=None, nrows=10, encoding=encoding)
-        
-        for i, row in header_df.iterrows():
-            row_data = [str(val)[:50] + "..." if len(str(val)) > 50 else str(val) for val in row.values[:5]]
-            print(f"   행 {i}: {row_data}")
-        
-        # 2. TOA5 형식 감지
-        print(f"\n🔍 TOA5 형식 감지:")
-        toa5_detected = False
-        if len(header_df) >= 4:
-            first_cell = str(header_df.iloc[0, 0]).upper()
-            if 'TOA5' in first_cell:
-                toa5_detected = True
-                print("   ✅ TOA5 형식 감지됨 (Campbell Scientific 로거)")
-                print(f"   첫 번째 셀: {first_cell}")
-                
-                # TOA5 메타데이터 분석
-                if len(header_df) >= 2:
-                    station_name = str(header_df.iloc[0, 1]) if len(header_df.columns) > 1 else "Unknown"
-                    model_name = str(header_df.iloc[0, 2]) if len(header_df.columns) > 2 else "Unknown"
-                    print(f"   관측소: {station_name}")
-                    print(f"   모델: {model_name}")
-                
-                # 컬럼명 (3번째 행)
-                if len(header_df) >= 3:
-                    column_names = header_df.iloc[2, :].tolist()
-                    print(f"   컬럼명 (행 2): {column_names[:8]}...")
-                    
-                # 단위 (4번째 행)
-                if len(header_df) >= 4:
-                    units = header_df.iloc[3, :].tolist()
-                    print(f"   단위 (행 3): {units[:8]}...")
-            else:
-                print("   ❌ TOA5 형식 아님")
-        else:
-            print("   ❌ 헤더가 너무 짧음")
-        
-        # 3. 적절한 헤더 행 설정으로 데이터 로드
-        print(f"\n📊 데이터 로드 테스트:")
-        
-        skip_rows = 4 if toa5_detected else 0
-        print(f"   헤더 스킵: {skip_rows}행")
-        
-        if file_ext in ['.xlsx', '.xls']:
-            if toa5_detected:
-                df = pd.read_excel(file_path, skiprows=skip_rows, nrows=20)
-            else:
-                df = pd.read_excel(file_path, nrows=20)
-        else:
-            encoding = detect_file_encoding(file_path)
-            if toa5_detected:
-                df = pd.read_csv(file_path, skiprows=skip_rows, nrows=20, encoding=encoding)
-            else:
-                df = pd.read_csv(file_path, nrows=20, encoding=encoding)
-        
-        print(f"   로드된 데이터 크기: {df.shape}")
-        print(f"   컬럼 수: {len(df.columns)}")
-        print(f"   컬럼명: {list(df.columns)}")
-        
-        # 4. 타임스탬프 컬럼 분석
-        print(f"\n⏰ 타임스탬프 분석:")
-        
-        # 첫 번째 컬럼이 타임스탬프일 가능성이 높음
-        timestamp_col = df.columns[0]
-        timestamp_data = df[timestamp_col]
-        
-        print(f"   타임스탬프 컬럼: '{timestamp_col}'")
-        print(f"   샘플 값들:")
-        
-        for i, val in enumerate(timestamp_data.head(10)):
-            print(f"     [{i}] {repr(val)} (타입: {type(val).__name__})")
-        
-        # 5. 타임스탬프 형식 추론
-        print(f"\n🔧 타임스탬프 형식 추론:")
-        
-        sample_values = timestamp_data.head(5).tolist()
-        
-        # 숫자 형식 확인
-        try:
-            numeric_series = pd.to_numeric(timestamp_data, errors='coerce')
-            numeric_count = numeric_series.notna().sum()
-            numeric_ratio = numeric_count / len(timestamp_data) * 100
-            
-            print(f"   숫자 변환 가능: {numeric_count}/{len(timestamp_data)} ({numeric_ratio:.1f}%)")
-            
-            if numeric_ratio > 80:
-                print("   ✅ Excel 숫자 형식 타임스탬프로 추정")
-                
-                # Excel 날짜 변환 테스트
-                if numeric_count > 0:
-                    sample_numeric = numeric_series.dropna().iloc[0]
-                    print(f"   샘플 숫자값: {sample_numeric}")
-                    
-                    # Excel epoch 변환 테스트
-                    base_date = pd.to_datetime('1899-12-30')
-                    converted_date = base_date + pd.to_timedelta(sample_numeric, unit='D')
-                    print(f"   Excel 변환 결과: {converted_date}")
-                    
-                    # 전체 변환 테스트
-                    converted_series = base_date + pd.to_timedelta(numeric_series, unit='D')
-                    valid_range = ((converted_series >= pd.to_datetime('2020-01-01')) & 
-                                  (converted_series <= pd.to_datetime('2030-12-31')))
-                    valid_count = valid_range.sum()
-                    print(f"   유효한 날짜 범위: {valid_count}/{len(timestamp_data)} ({valid_count/len(timestamp_data)*100:.1f}%)")
-                    
-                    if valid_count > 0:
-                        print(f"   변환된 날짜 범위: {converted_series.min()} ~ {converted_series.max()}")
-            else:
-                print("   ❌ 숫자 형식 아님")
-                
-        except Exception as e:
-            print(f"   ❌ 숫자 변환 실패: {e}")
-        
-        # 문자열 형식 확인
-        print(f"\n   문자열 형식 분석:")
-        string_samples = [str(val) for val in sample_values[:5]]
-        for i, sample in enumerate(string_samples):
-            print(f"     [{i}] '{sample}' (길이: {len(sample)})")
-        
-        # 일반적인 날짜 형식 테스트
-        common_formats = [
-            '%Y-%m-%dT%H:%M:%S.%fZ',
-            '%Y-%m-%dT%H:%M:%SZ',
-            '%Y-%m-%dT%H:%M:%S.%f',
-            '%Y-%m-%dT%H:%M:%S',
-            '%Y-%m-%d %H:%M:%S',
-            '%Y/%m/%d %H:%M:%S',
-            '%m/%d/%Y %H:%M:%S',
-            '%d/%m/%Y %H:%M:%S',
-        ]
-        
-        for fmt in common_formats[:4]:  # 주요 형식만 테스트
-            try:
-                parsed = pd.to_datetime(timestamp_data, format=fmt, errors='coerce')
-                valid_count = parsed.notna().sum()
-                if valid_count > 0:
-                    print(f"   형식 '{fmt}': {valid_count}/{len(timestamp_data)} 성공")
-                    if valid_count > len(timestamp_data) * 0.8:
-                        print(f"     ✅ 추천 형식! 날짜 범위: {parsed.min()} ~ {parsed.max()}")
-            except:
-                continue
-        
-        # 6. 데이터 품질 확인
-        print(f"\n📈 데이터 품질 확인:")
-        
-        for col in df.columns[:8]:  # 처음 8개 컬럼만
-            non_null_count = df[col].notna().sum()
-            completeness = non_null_count / len(df) * 100
-            print(f"   {col}: {completeness:.1f}% 완성도 ({non_null_count}/{len(df)})")
-        
-        # 7. 추천 처리 방법
-        print(f"\n💡 추천 처리 방법:")
-        
-        if toa5_detected:
-            print("   1. TOA5 형식이므로 4행 스킵 (skiprows=4)")
-            print("   2. 표준 CRNP 컬럼명 강제 적용")
-            
-            if numeric_ratio > 80:
-                print("   3. Excel 숫자 타임스탬프 변환 적용")
-                print("      base_date = pd.to_datetime('1899-12-30')")
-                print("      timestamp = base_date + pd.to_timedelta(numeric_values, unit='D')")
-            else:
-                print("   3. 문자열 타임스탬프 파싱 적용")
-        else:
-            print("   1. 헤더 스킵 없음")
-            print("   2. 컬럼명 자동 매핑 또는 위치 기반 매핑")
-            print("   3. 첫 번째 컬럼을 타임스탬프로 처리")
-        
-        return True
-        
-    except Exception as e:
-        print(f"❌ 파일 분석 실패: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return False
-
-def main():
-    """메인 함수"""
-    import argparse
+    # 1. 파일 경로 설정
+    output_dir = project_root / "data" / "output" / "PC" / "preprocessed"
+    fdr_file = output_dir / "PC_FDR_input.xlsx"
+    crnp_file = output_dir / "PC_CRNP_input.xlsx"
     
-    parser = argparse.ArgumentParser(description="CRNP 파일 구조 디버깅")
-    parser.add_argument("--station", "-s", default="PC", help="관측소 ID (HC or PC)")
-    parser.add_argument("--file", "-f", help="특정 파일만 분석")
-    
-    args = parser.parse_args()
-    
-    print("🔍 CRNP 파일 구조 디버깅 시작")
-    print("="*80)
-    
-    # CRNP 폴더 경로
-    crnp_folder = project_root / "data" / "input" / args.station / "crnp"
-    
-    if not crnp_folder.exists():
-        print(f"❌ CRNP 폴더가 없습니다: {crnp_folder}")
+    if not fdr_file.exists():
+        print(f"❌ FDR 파일 없음: {fdr_file}")
         return
-    
-    # 지원하는 파일 찾기
-    excel_files = list(crnp_folder.glob("*.xlsx")) + list(crnp_folder.glob("*.xls"))
-    csv_files = list(crnp_folder.glob("*.csv"))
-    all_files = excel_files + csv_files
-    
-    if not all_files:
-        print(f"❌ CRNP 데이터 파일이 없습니다: {crnp_folder}")
+        
+    if not crnp_file.exists():
+        print(f"❌ CRNP 파일 없음: {crnp_file}")
         return
+        
+    # 2. FDR 데이터 분석
+    print("\n📊 FDR 데이터 분석:")
+    fdr_data = pd.read_excel(fdr_file)
+    print(f"  총 레코드: {len(fdr_data)}")
+    print(f"  컬럼: {list(fdr_data.columns)}")
     
-    print(f"📁 찾은 CRNP 파일: {len(all_files)}개")
-    for i, file_path in enumerate(all_files):
-        print(f"   [{i}] {file_path.name} ({file_path.stat().st_size/(1024*1024):.1f} MB)")
-    
-    if args.file:
-        # 특정 파일만 분석
-        target_file = crnp_folder / args.file
-        if target_file.exists():
-            analyze_crnp_file(str(target_file), args.station)
+    if 'Date' in fdr_data.columns:
+        fdr_data['Date'] = pd.to_datetime(fdr_data['Date'])
+        fdr_date_min = fdr_data['Date'].min()
+        fdr_date_max = fdr_data['Date'].max()
+        print(f"  날짜 범위: {fdr_date_min.date()} ~ {fdr_date_max.date()}")
+        
+        # 필수 컬럼 확인
+        required_cols = ['theta_v', 'FDR_depth', 'distance_from_station']
+        missing_cols = [col for col in required_cols if col not in fdr_data.columns]
+        if missing_cols:
+            print(f"  ❌ 누락 컬럼: {missing_cols}")
         else:
-            print(f"❌ 파일을 찾을 수 없습니다: {target_file}")
+            print(f"  ✅ 필수 컬럼 모두 존재")
+            
+        # 깊이별 데이터 확인
+        if 'FDR_depth' in fdr_data.columns:
+            depths = sorted(fdr_data['FDR_depth'].unique())
+            print(f"  측정 깊이: {depths}")
+            
+        # 센서별 데이터 확인
+        if 'id' in fdr_data.columns:
+            sensors = sorted(fdr_data['id'].unique())
+            print(f"  센서 ID: {sensors[:5]}{'...' if len(sensors) > 5 else ''} (총 {len(sensors)}개)")
+    
+    # 3. CRNP 데이터 분석
+    print("\n🛰️  CRNP 데이터 분석:")
+    crnp_data = pd.read_excel(crnp_file)
+    print(f"  총 레코드: {len(crnp_data)}")
+    print(f"  컬럼: {list(crnp_data.columns)}")
+    
+    # 타임스탬프 처리
+    if 'timestamp' in crnp_data.columns:
+        crnp_data['timestamp'] = pd.to_datetime(crnp_data['timestamp'], errors='coerce')
+        valid_timestamps = crnp_data['timestamp'].notna().sum()
+        print(f"  유효 타임스탬프: {valid_timestamps}/{len(crnp_data)}")
+        
+        if valid_timestamps > 0:
+            crnp_date_min = crnp_data['timestamp'].min()
+            crnp_date_max = crnp_data['timestamp'].max()
+            print(f"  날짜 범위: {crnp_date_min.date()} ~ {crnp_date_max.date()}")
+    
+    # 4. 기간 겹침 확인
+    print("\n🔗 데이터 기간 겹침 확인:")
+    
+    if 'Date' in fdr_data.columns and 'timestamp' in crnp_data.columns:
+        fdr_dates = set(fdr_data['Date'].dt.date)
+        crnp_dates = set(crnp_data['timestamp'].dt.date)
+        
+        overlap_dates = fdr_dates.intersection(crnp_dates)
+        
+        print(f"  FDR 날짜 수: {len(fdr_dates)}")
+        print(f"  CRNP 날짜 수: {len(crnp_dates)}")
+        print(f"  겹치는 날짜: {len(overlap_dates)}")
+        
+        if overlap_dates:
+            min_overlap = min(overlap_dates)
+            max_overlap = max(overlap_dates)
+            print(f"  겹치는 기간: {min_overlap} ~ {max_overlap}")
+            
+            # 캘리브레이션 추천 기간
+            if len(overlap_dates) >= 7:
+                # 충분한 겹치는 기간이 있으면 일주일 단위로 추천
+                sorted_overlap = sorted(overlap_dates)
+                recommended_start = sorted_overlap[0]
+                recommended_end = min(sorted_overlap[6], max_overlap)  # 최소 7일
+                print(f"  🎯 추천 캘리브레이션 기간: {recommended_start} ~ {recommended_end}")
+            else:
+                print(f"  ⚠️  겹치는 기간이 너무 짧음 ({len(overlap_dates)}일)")
+        else:
+            print(f"  ❌ 겹치는 날짜가 없음!")
+    
+    # 5. 토양수분 데이터 품질 확인
+    print("\n💧 토양수분 데이터 품질:")
+    if 'theta_v' in fdr_data.columns:
+        valid_theta = fdr_data['theta_v'].notna().sum()
+        total_theta = len(fdr_data)
+        completeness = (valid_theta / total_theta) * 100
+        
+        print(f"  유효 데이터: {valid_theta}/{total_theta} ({completeness:.1f}%)")
+        
+        if valid_theta > 0:
+            theta_mean = fdr_data['theta_v'].mean()
+            theta_std = fdr_data['theta_v'].std()
+            theta_min = fdr_data['theta_v'].min()
+            theta_max = fdr_data['theta_v'].max()
+            
+            print(f"  평균: {theta_mean:.3f}")
+            print(f"  표준편차: {theta_std:.3f}")
+            print(f"  범위: {theta_min:.3f} ~ {theta_max:.3f}")
+            
+            # 이상값 확인
+            outliers = ((fdr_data['theta_v'] < 0) | (fdr_data['theta_v'] > 1)).sum()
+            if outliers > 0:
+                print(f"  ⚠️  이상값: {outliers}개 (범위 밖)")
+    
+    # 6. 중성자 카운트 데이터 확인
+    print("\n⚛️  중성자 카운트 데이터:")
+    if 'N_counts' in crnp_data.columns:
+        valid_neutrons = crnp_data['N_counts'].notna().sum()
+        total_neutrons = len(crnp_data)
+        n_completeness = (valid_neutrons / total_neutrons) * 100
+        
+        print(f"  유효 데이터: {valid_neutrons}/{total_neutrons} ({n_completeness:.1f}%)")
+        
+        if valid_neutrons > 0:
+            n_mean = crnp_data['N_counts'].mean()
+            n_std = crnp_data['N_counts'].std()
+            n_min = crnp_data['N_counts'].min()
+            n_max = crnp_data['N_counts'].max()
+            
+            print(f"  평균: {n_mean:.1f}")
+            print(f"  표준편차: {n_std:.1f}")
+            print(f"  범위: {n_min:.1f} ~ {n_max:.1f}")
+    
+    # 7. 해결책 제안
+    print("\n🎯 해결책 제안:")
+    
+    if 'overlap_dates' in locals() and overlap_dates:
+        if len(overlap_dates) >= 3:
+            # 겹치는 기간으로 캘리브레이션 실행
+            sorted_overlap = sorted(overlap_dates)
+            start_date = sorted_overlap[0]
+            end_date = sorted_overlap[-1]
+            
+            print(f"1. 겹치는 기간으로 캘리브레이션 실행:")
+            print(f"   python scripts/run_calibration.py --station PC --start {start_date} --end {end_date}")
+        else:
+            print(f"1. 데이터 기간이 부족합니다. 추가 데이터 확보 필요")
     else:
-        # 첫 번째 파일 분석
-        if all_files:
-            analyze_crnp_file(str(all_files[0]), args.station)
-            
-            if len(all_files) > 1:
-                print(f"\n💡 나머지 {len(all_files)-1}개 파일이 더 있습니다.")
-                print("특정 파일 분석: python scripts/debug_crnp_structure.py --file 파일명.xlsx")
+        print(f"1. FDR과 CRNP 데이터 기간이 겹치지 않습니다.")
+        print(f"2. 데이터 재확인 또는 다른 기간의 데이터 필요")
     
-    print(f"\n🎯 다음 단계:")
-    print("1. 위 분석 결과를 바탕으로 CRNP 파일 형식 확인")
-    print("2. CRNPProcessor의 파싱 로직 수정")
-    print("3. 타임스탬프 변환 방법 적용")
-    print("4. 전처리 재실행")
+    print(f"2. 강제 재처리 (문제 해결 후):")
+    print(f"   python scripts/run_calibration.py --station PC --force")
+
 
 if __name__ == "__main__":
-    main()
+    debug_pc_calibration()
