@@ -82,38 +82,86 @@ class CalibrationEngine:
                 raise
                 
     def _load_calibration_data(self, fdr_path: str, crnp_path: str,
-                              cal_start: datetime, cal_end: datetime) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        """캘리브레이션 데이터 로드"""
-        
-        with ProcessTimer(self.logger, "Loading calibration data"):
+                                cal_start: datetime, cal_end: datetime) -> Tuple[pd.DataFrame, pd.DataFrame]:
+            """캘리브레이션 데이터 로드 - 수정된 버전"""
             
-            # FDR 데이터 로드
-            self.logger.info(f"Loading FDR data from {fdr_path}")
-            fdr_data = pd.read_excel(fdr_path)
-            
-            # 날짜 컬럼 처리
-            if 'Date' in fdr_data.columns:
-                fdr_data['Date'] = pd.to_datetime(fdr_data['Date'])
-            else:
-                raise ValueError("Date column not found in FDR data")
+            with ProcessTimer(self.logger, "Loading calibration data"):
                 
-            # CRNP 데이터 로드
-            self.logger.info(f"Loading CRNP data from {crnp_path}")
-            crnp_columns = ['Timestamp', 'RN', 'Ta', 'RH', 'Pa', 'WS', 'WS_max', 'WD_VCT', 'N_counts']
-            crnp_data = pd.read_excel(crnp_path, names=crnp_columns)
-            crnp_data['timestamp'] = pd.to_datetime(crnp_data['Timestamp'], errors='coerce')
-            
-            # 캘리브레이션 기간으로 필터링
-            fdr_mask = (fdr_data['Date'] >= cal_start) & (fdr_data['Date'] <= cal_end)
-            crnp_mask = (crnp_data['timestamp'] >= cal_start) & (crnp_data['timestamp'] <= cal_end)
-            
-            fdr_filtered = fdr_data[fdr_mask].copy()
-            crnp_filtered = crnp_data[crnp_mask].copy()
-            
-            self.logger.log_data_summary("FDR_Calibration", len(fdr_filtered))
-            self.logger.log_data_summary("CRNP_Calibration", len(crnp_filtered))
-            
-            return fdr_filtered, crnp_filtered
+                # FDR 데이터 로드
+                self.logger.info(f"Loading FDR data from {fdr_path}")
+                fdr_data = pd.read_excel(fdr_path)
+                
+                # 날짜 컬럼 처리
+                if 'Date' in fdr_data.columns:
+                    fdr_data['Date'] = pd.to_datetime(fdr_data['Date'])
+                else:
+                    raise ValueError("Date column not found in FDR data")
+                    
+                # CRNP 데이터 로드 - 수정된 부분!
+                self.logger.info(f"Loading CRNP data from {crnp_path}")
+                
+                # 전처리된 파일은 이미 헤더가 있으므로 그대로 읽기
+                crnp_data = pd.read_excel(crnp_path)
+                
+                # 타임스탬프 컬럼 확인 및 처리
+                if 'timestamp' in crnp_data.columns:
+                    # 이미 전처리에서 timestamp 컬럼이 생성되었음
+                    self.logger.info("Using existing timestamp column")
+                    pass  # 그대로 사용
+                elif 'Timestamp' in crnp_data.columns:
+                    # Timestamp 컬럼만 있는 경우 timestamp로 복사
+                    crnp_data['timestamp'] = pd.to_datetime(crnp_data['Timestamp'], errors='coerce')
+                else:
+                    # 첫 번째 컬럼이 타임스탬프일 가능성
+                    first_col = crnp_data.columns[0]
+                    crnp_data['timestamp'] = pd.to_datetime(crnp_data[first_col], errors='coerce')
+                    self.logger.warning(f"Using first column as timestamp: {first_col}")
+                
+                # 타임스탬프 유효성 확인
+                valid_timestamps = crnp_data['timestamp'].notna().sum()
+                self.logger.info(f"Valid timestamps in CRNP data: {valid_timestamps}/{len(crnp_data)}")
+                
+                if valid_timestamps == 0:
+                    raise ValueError("No valid timestamps found in CRNP data")
+                
+                # 캘리브레이션 기간으로 필터링
+                fdr_mask = (fdr_data['Date'] >= cal_start) & (fdr_data['Date'] <= cal_end)
+                crnp_mask = (crnp_data['timestamp'] >= cal_start) & (crnp_data['timestamp'] <= cal_end)
+                
+                fdr_filtered = fdr_data[fdr_mask].copy()
+                crnp_filtered = crnp_data[crnp_mask].copy()
+                
+                self.logger.log_data_summary("FDR_Calibration", len(fdr_filtered))
+                self.logger.log_data_summary("CRNP_Calibration", len(crnp_filtered))
+                
+                # 디버깅 정보 추가
+                if len(crnp_filtered) == 0:
+                    self.logger.error("⚠️ CRNP calibration data is empty!")
+                    self.logger.error(f"CRNP data range: {crnp_data['timestamp'].min()} to {crnp_data['timestamp'].max()}")
+                    self.logger.error(f"Calibration range: {cal_start} to {cal_end}")
+                    self.logger.error(f"Available CRNP columns: {list(crnp_data.columns)}")
+                    
+                    # 중성자 카운트 확인
+                    if 'N_counts' in crnp_data.columns:
+                        neutron_valid = crnp_data['N_counts'].notna().sum()
+                        self.logger.error(f"Neutron counts available: {neutron_valid}/{len(crnp_data)}")
+                    else:
+                        self.logger.error("N_counts column not found!")
+                        
+                    # 기간 내 데이터 재확인
+                    period_data = crnp_data[crnp_mask]
+                    self.logger.error(f"Period data count: {len(period_data)}")
+                    
+                else:
+                    # 중성자 카운트 확인
+                    if 'N_counts' in crnp_filtered.columns:
+                        neutron_valid = crnp_filtered['N_counts'].notna().sum()
+                        self.logger.info(f"Neutron counts in calibration period: {neutron_valid}/{len(crnp_filtered)}")
+                        
+                        if neutron_valid == 0:
+                            self.logger.warning("No valid neutron counts in calibration period!")
+                
+                return fdr_filtered, crnp_filtered
             
     def _apply_neutron_corrections(self, crnp_data: pd.DataFrame) -> pd.DataFrame:
         """중성자 보정 적용"""
