@@ -414,3 +414,5 @@
 2025-05-31 16:36:40 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Calibration result validation passed
 2025-05-31 16:36:40 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_report.txt - success
 2025-05-31 16:36:40 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Process completed: Calibration for PC in 10.47s
+2025-05-31 16:59:58 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)
+2025-05-31 17:14:05 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)

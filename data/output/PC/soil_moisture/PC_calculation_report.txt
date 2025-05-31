@@ -1,0 +1,32 @@
+================================================================================
+CRNP SOIL MOISTURE CALCULATION REPORT
+================================================================================
+Station: PC
+Report Generated: 2025-05-31 17:14:08
+
+Calculation Period: 2024-08-01 to 2024-10-30
+
+Data Summary:
+  Total days: 91
+  Valid VWC days: 91
+  Date range: 2024-08-01 to 2024-10-30
+
+VWC Statistics:
+  Mean: 0.3067
+  Std: 0.0645
+  Min: 0.2026
+  Max: 0.4808
+  Q25: 0.2514
+  Q75: 0.3525
+
+Sensing Depth:
+  Mean: 144.0 mm
+  Range: 144.0 - 144.0 mm
+
+Soil Water Storage:
+  Mean: 151.7 mm
+  Std: 30.3 mm
+
+Exclusion Periods:
+
+================================================================================

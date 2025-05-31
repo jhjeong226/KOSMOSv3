@@ -1,0 +1,66 @@
+{
+  "station_id": "PC",
+  "timestamp": "2025-05-31T17:14:08.471012",
+  "calculation_period": {
+    "start": "2024-08-01",
+    "end": "2024-10-30"
+  },
+  "data_summary": {
+    "total_days": 91,
+    "valid_vwc_days": 91,
+    "date_range": {
+      "start": "2024-08-01",
+      "end": "2024-10-30"
+    },
+    "vwc_statistics": {
+      "mean": 0.30670946234666985,
+      "std": 0.06447511760480784,
+      "min": 0.2026380595351235,
+      "max": 0.4807685015638108,
+      "q25": 0.25142870325904215,
+      "q75": 0.35247527240734033
+    },
+    "sensing_depth": {
+      "mean": 144.0,
+      "min": 144.0,
+      "max": 144.0
+    },
+    "storage": {
+      "mean": 151.6867569484435,
+      "std": 30.344717659505314
+    }
+  },
+  "calibration_parameters": {
+    "N0_rdt": 2566.230922937393,
+    "Pref": 947.796802961918,
+    "Aref": 19.0594720423922,
+    "Iref": 216.37507898448516,
+    "clay_content": 0.35,
+    "soil_bulk_density": 1.2,
+    "lattice_water": 0.03395
+  },
+  "processing_config": {
+    "default_start_date": "2024-09-01",
+    "default_end_date": "2024-09-07",
+    "exclude_periods": {
+      "winter_months": [
+        12,
+        1,
+        2
+      ],
+      "custom_dates": []
+    },
+    "smoothing": {
+      "enabled": false,
+      "method": "savitzky_golay",
+      "window": 11,
+      "order": 3
+    }
+  },
+  "corrections_enabled": {
+    "incoming_flux": true,
+    "pressure": true,
+    "humidity": true,
+    "biomass": false
+  }
+}

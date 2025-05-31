@@ -100,66 +100,137 @@ class SoilMoistureCalculator:
                 raise
                 
     def _load_crnp_data(self, data_path: str) -> pd.DataFrame:
-        """CRNP 데이터 로드"""
+        """CRNP 데이터 로드 - 수정된 버전"""
         
         with ProcessTimer(self.logger, "Loading CRNP data"):
             
             if not Path(data_path).exists():
                 raise FileNotFoundError(f"CRNP data file not found: {data_path}")
                 
-            # 데이터 로드
-            crnp_columns = ['Timestamp', 'RN', 'Ta', 'RH', 'Pa', 'WS', 'WS_max', 'WD_VCT', 'N_counts']
-            df = pd.read_excel(data_path, names=crnp_columns)
+            # 데이터 로드 (컬럼명 지정하지 않음 - 전처리된 데이터이므로)
+            df = pd.read_excel(data_path)
             
-            # 타임스탬프 처리
-            df['timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
+            self.logger.info(f"Original columns: {list(df.columns)}")
             
+            # 타임스탬프 처리 - 수정된 로직
+            timestamp_col = None
+            for col in ['timestamp', 'Timestamp', 'Date']:
+                if col in df.columns:
+                    timestamp_col = col
+                    break
+                    
+            if timestamp_col is None:
+                # 첫 번째 컬럼이 타임스탬프일 가능성
+                timestamp_col = df.columns[0]
+                self.logger.warning(f"Using first column as timestamp: {timestamp_col}")
+                
+            # 타임스탬프 변환
+            try:
+                df['timestamp'] = pd.to_datetime(df[timestamp_col], errors='coerce')
+                
+                # 타임스탬프 검증
+                if df['timestamp'].isna().all():
+                    raise ValueError(f"All timestamp values are invalid in column {timestamp_col}")
+                    
+                # 잘못된 날짜 확인 (1970년 문제)
+                min_date = df['timestamp'].min()
+                if min_date.year < 2000:
+                    self.logger.warning(f"Suspicious timestamp found: {min_date}. Checking for numeric timestamp...")
+                    
+                    # 숫자형 타임스탬프인지 확인
+                    if df[timestamp_col].dtype in ['int64', 'float64']:
+                        # Unix timestamp 또는 Excel serial date 변환 시도
+                        try:
+                            # Excel serial date 변환 시도 (1900-01-01 기준)
+                            df['timestamp'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df[timestamp_col] - 1, unit='D')
+                            self.logger.info("Converted Excel serial dates to datetime")
+                        except:
+                            # Unix timestamp 변환 시도
+                            df['timestamp'] = pd.to_datetime(df[timestamp_col], unit='s', errors='coerce')
+                            self.logger.info("Converted Unix timestamps to datetime")
+                            
+            except Exception as e:
+                self.logger.error(f"Timestamp conversion failed: {e}")
+                raise ValueError(f"Cannot convert timestamp column {timestamp_col}")
+                
             # 유효한 데이터만 유지
+            initial_count = len(df)
             df = df.dropna(subset=['timestamp'])
             df = df.sort_values('timestamp').reset_index(drop=True)
             
-            self.logger.log_data_summary("CRNP_Raw", len(df),
-                                       date_range=f"{df['timestamp'].min()} to {df['timestamp'].max()}")
+            removed_count = initial_count - len(df)
+            if removed_count > 0:
+                self.logger.warning(f"Removed {removed_count} records with invalid timestamps")
+                
+            # 최종 검증
+            if len(df) == 0:
+                raise ValueError("No valid data remaining after timestamp processing")
+                
+            date_range = f"{df['timestamp'].min()} to {df['timestamp'].max()}"
+            self.logger.log_data_summary("CRNP_Raw", len(df), date_range=date_range)
             
             return df
             
     def _determine_calculation_period(self, df: pd.DataFrame,
                                     start_str: Optional[str], 
-                                    end_str: Optional[str]) -> Tuple[datetime, datetime]:
-        """계산 기간 결정"""
+                                    end_str: Optional[str]) -> Tuple[str, str]:
+        """계산 기간 결정 - 수정된 버전"""
         
         if start_str and end_str:
-            calc_start = pd.to_datetime(start_str)
-            calc_end = pd.to_datetime(end_str)
+            calc_start = start_str
+            calc_end = end_str
         else:
             # 전체 데이터 기간 사용
-            calc_start = df['timestamp'].min()
-            calc_end = df['timestamp'].max()
+            calc_start = df['timestamp'].min().strftime('%Y-%m-%d')
+            calc_end = df['timestamp'].max().strftime('%Y-%m-%d')
             
-        self.logger.info(f"Calculation period: {calc_start.date()} to {calc_end.date()}")
+        self.logger.info(f"Calculation period: {calc_start} to {calc_end}")
         return calc_start, calc_end
         
     def _filter_calculation_period(self, df: pd.DataFrame, 
-                                 calc_start: datetime, calc_end: datetime) -> pd.DataFrame:
-        """계산 기간으로 데이터 필터링"""
+                                 calc_start: str, calc_end: str) -> pd.DataFrame:
+        """계산 기간으로 데이터 필터링 - 수정된 버전"""
         
-        mask = (df['timestamp'] >= calc_start) & (df['timestamp'] <= calc_end)
+        start_date = pd.to_datetime(calc_start)
+        end_date = pd.to_datetime(calc_end)
+        
+        mask = (df['timestamp'] >= start_date) & (df['timestamp'] <= end_date)
         filtered_df = df[mask].copy()
         
         self.logger.log_data_summary("CRNP_Filtered", len(filtered_df))
         return filtered_df
         
     def _apply_neutron_corrections(self, df: pd.DataFrame) -> pd.DataFrame:
-        """중성자 보정 적용"""
+        """중성자 보정 적용 - 안정화된 버전"""
         
         with ProcessTimer(self.logger, "Applying neutron corrections"):
             
             # 원시 중성자 카운트 설정
-            df['total_raw_counts'] = df['N_counts']
+            neutron_col = None
+            for col in ['N_counts', 'total_raw_counts']:
+                if col in df.columns:
+                    neutron_col = col
+                    break
+                    
+            if neutron_col is None:
+                raise ValueError("No neutron counts column found")
+                
+            df['total_raw_counts'] = df[neutron_col]
             
             # 중성자 보정 적용 (캘리브레이션 매개변수 사용)
-            corrected_data = self.neutron_corrector.apply_corrections(df, self.calibration_params)
-            
+            try:
+                corrected_data = self.neutron_corrector.apply_corrections(df, self.calibration_params)
+            except Exception as e:
+                self.logger.warning(f"Neutron correction failed: {e}. Using basic corrections only.")
+                
+                # 기본 보정만 적용
+                corrected_data = df.copy()
+                corrected_data['fi'] = 1.0
+                corrected_data['fp'] = 1.0 
+                corrected_data['fw'] = 1.0
+                corrected_data['fb'] = 1.0
+                corrected_data['total_corrected_neutrons'] = corrected_data['total_raw_counts']
+                
             return corrected_data
             
     def _apply_exclusion_periods(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -204,16 +275,26 @@ class SoilMoistureCalculator:
                 return df
                 
     def _calculate_daily_averages(self, df: pd.DataFrame) -> pd.DataFrame:
-        """일평균 데이터 계산"""
+        """일평균 데이터 계산 - 수정된 버전"""
         
         with ProcessTimer(self.logger, "Calculating daily averages"):
+            
+            # 날짜별 그룹화를 위한 date 컬럼 생성
+            df['date'] = df['timestamp'].dt.date
             
             # 수치 컬럼들만 선택
             numeric_columns = ['total_raw_counts', 'total_corrected_neutrons', 'Pa', 'fi', 'fp', 'fw']
             existing_numeric = [col for col in numeric_columns if col in df.columns]
             
+            if not existing_numeric:
+                raise ValueError("No numeric columns found for daily averaging")
+                
             # 일별 그룹화 및 평균 계산
-            daily_data = df.resample('D', on='timestamp')[existing_numeric].mean()
+            daily_data = df.groupby('date')[existing_numeric].mean().reset_index()
+            
+            # 인덱스를 날짜로 설정
+            daily_data['date'] = pd.to_datetime(daily_data['date'])
+            daily_data = daily_data.set_index('date')
             
             # NaN이 있는 행 제거
             daily_data = daily_data.dropna()
@@ -222,13 +303,13 @@ class SoilMoistureCalculator:
             return daily_data
             
     def _calculate_vwc(self, daily_data: pd.DataFrame) -> pd.DataFrame:
-        """체적수분함량 계산"""
+        """체적수분함량 계산 - 수정된 함수 호출"""
         
         with ProcessTimer(self.logger, "Calculating VWC"):
             
-            # VWC 계산
+            # VWC 계산 - 수정된 함수 호출 (positional argument 사용)
             daily_data['VWC'] = crnpy.counts_to_vwc(
-                N=daily_data['total_corrected_neutrons'],
+                daily_data['total_corrected_neutrons'],  # 첫 번째 인자는 positional
                 N0=self.N0,
                 bulk_density=self.bulk_density,
                 Wlat=self.lattice_water,
@@ -243,8 +324,13 @@ class SoilMoistureCalculator:
                 self.logger.warning(f"Removing {invalid_count} invalid VWC values")
                 daily_data.loc[~valid_mask, 'VWC'] = np.nan
                 
-            self.logger.info(f"VWC calculated: mean={daily_data['VWC'].mean():.3f}, "
-                           f"std={daily_data['VWC'].std():.3f}")
+            valid_vwc = daily_data['VWC'].dropna()
+            if len(valid_vwc) > 0:
+                self.logger.info(f"VWC calculated: mean={valid_vwc.mean():.3f}, "
+                               f"std={valid_vwc.std():.3f}, "
+                               f"range=[{valid_vwc.min():.3f}, {valid_vwc.max():.3f}]")
+            else:
+                self.logger.warning("No valid VWC values calculated")
             
             return daily_data
             
@@ -264,8 +350,12 @@ class SoilMoistureCalculator:
                     method="Franz_2012"
                 )
                 
-                avg_depth = daily_data['sensing_depth'].mean()
-                self.logger.info(f"Average sensing depth: {avg_depth:.1f} mm")
+                valid_depths = daily_data['sensing_depth'].dropna()
+                if len(valid_depths) > 0:
+                    avg_depth = valid_depths.mean()
+                    self.logger.info(f"Average sensing depth: {avg_depth:.1f} mm")
+                else:
+                    self.logger.warning("No valid sensing depth calculated")
                 
             except Exception as e:
                 self.logger.warning(f"Sensing depth calculation failed: {e}")
@@ -287,8 +377,10 @@ class SoilMoistureCalculator:
                 daily_data['storage'] = (surface_sm * self.z_surface + 
                                        subsurface_sm * self.z_subsurface)
                 
-                avg_storage = daily_data['storage'].mean()
-                self.logger.info(f"Average soil water storage: {avg_storage:.1f} mm")
+                valid_storage = daily_data['storage'].dropna()
+                if len(valid_storage) > 0:
+                    avg_storage = valid_storage.mean()
+                    self.logger.info(f"Average soil water storage: {avg_storage:.1f} mm")
                 
             except Exception as e:
                 self.logger.warning(f"Storage calculation failed: {e}")
@@ -312,8 +404,10 @@ class SoilMoistureCalculator:
                     fw=daily_data['fw']
                 )
                 
-                avg_uncertainty = daily_data['sigma_VWC'].mean()
-                self.logger.info(f"Average VWC uncertainty: ±{avg_uncertainty:.4f}")
+                valid_uncertainty = daily_data['sigma_VWC'].dropna()
+                if len(valid_uncertainty) > 0:
+                    avg_uncertainty = valid_uncertainty.mean()
+                    self.logger.info(f"Average VWC uncertainty: ±{avg_uncertainty:.4f}")
                 
             except Exception as e:
                 self.logger.warning(f"Uncertainty calculation failed: {e}")
@@ -334,15 +428,20 @@ class SoilMoistureCalculator:
                 
                 try:
                     # VWC에 Savitzky-Golay 필터 적용
-                    smoothed_vwc = crnpy.smooth_1d(
-                        daily_data['VWC'].dropna(),
-                        window=window,
-                        order=order,
-                        method="savitzky_golay"
-                    )
-                    
-                    daily_data['VWC_smoothed'] = smoothed_vwc
-                    self.logger.info(f"Applied Savitzky-Golay smoothing (window={window}, order={order})")
+                    valid_vwc = daily_data['VWC'].dropna()
+                    if len(valid_vwc) >= window:
+                        smoothed_vwc = crnpy.smooth_1d(
+                            valid_vwc,
+                            window=window,
+                            order=order,
+                            method="savitzky_golay"
+                        )
+                        
+                        daily_data['VWC_smoothed'] = smoothed_vwc
+                        self.logger.info(f"Applied Savitzky-Golay smoothing (window={window}, order={order})")
+                    else:
+                        self.logger.warning(f"Insufficient data for smoothing (need ≥{window} points)")
+                        daily_data['VWC_smoothed'] = daily_data['VWC']
                     
                 except Exception as e:
                     self.logger.warning(f"Smoothing failed: {e}")
@@ -366,14 +465,17 @@ class SoilMoistureCalculator:
         output_file = output_path / f"{station_id}_soil_moisture.xlsx"
         
         # 날짜 범위를 포함한 완전한 인덱스 생성
-        full_date_range = pd.date_range(
-            start=daily_data.index.min(),
-            end=daily_data.index.max(),
-            freq='D'
-        )
-        
-        # 완전한 날짜 범위로 재인덱싱 (누락된 날짜는 NaN)
-        daily_data_complete = daily_data.reindex(full_date_range)
+        if len(daily_data) > 0:
+            full_date_range = pd.date_range(
+                start=daily_data.index.min(),
+                end=daily_data.index.max(),
+                freq='D'
+            )
+            
+            # 완전한 날짜 범위로 재인덱싱 (누락된 날짜는 NaN)
+            daily_data_complete = daily_data.reindex(full_date_range)
+        else:
+            daily_data_complete = daily_data
         
         # Excel 파일로 저장
         self.file_handler.save_dataframe(daily_data_complete, str(output_file), index=True)
@@ -383,31 +485,57 @@ class SoilMoistureCalculator:
     def _create_data_summary(self, daily_data: pd.DataFrame) -> Dict[str, Any]:
         """데이터 요약 생성"""
         
+        if len(daily_data) == 0:
+            return {
+                'total_days': 0,
+                'valid_vwc_days': 0,
+                'date_range': {'start': None, 'end': None},
+                'vwc_statistics': {}
+            }
+        
+        valid_vwc = daily_data['VWC'].dropna()
+        
         summary = {
             'total_days': len(daily_data),
-            'valid_vwc_days': daily_data['VWC'].notna().sum(),
+            'valid_vwc_days': len(valid_vwc),
             'date_range': {
                 'start': str(daily_data.index.min().date()),
                 'end': str(daily_data.index.max().date())
             },
-            'vwc_statistics': {
-                'mean': float(daily_data['VWC'].mean()),
-                'std': float(daily_data['VWC'].std()),
-                'min': float(daily_data['VWC'].min()),
-                'max': float(daily_data['VWC'].max()),
-                'q25': float(daily_data['VWC'].quantile(0.25)),
-                'q75': float(daily_data['VWC'].quantile(0.75))
-            },
-            'sensing_depth': {
-                'mean': float(daily_data['sensing_depth'].mean()),
-                'min': float(daily_data['sensing_depth'].min()),
-                'max': float(daily_data['sensing_depth'].max())
-            } if 'sensing_depth' in daily_data.columns else None,
-            'storage': {
-                'mean': float(daily_data['storage'].mean()),
-                'std': float(daily_data['storage'].std())
-            } if 'storage' in daily_data.columns else None
+            'vwc_statistics': {},
+            'sensing_depth': None,
+            'storage': None
         }
+        
+        # VWC 통계
+        if len(valid_vwc) > 0:
+            summary['vwc_statistics'] = {
+                'mean': float(valid_vwc.mean()),
+                'std': float(valid_vwc.std()),
+                'min': float(valid_vwc.min()),
+                'max': float(valid_vwc.max()),
+                'q25': float(valid_vwc.quantile(0.25)),
+                'q75': float(valid_vwc.quantile(0.75))
+            }
+        
+        # 유효깊이 통계
+        if 'sensing_depth' in daily_data.columns:
+            valid_depth = daily_data['sensing_depth'].dropna()
+            if len(valid_depth) > 0:
+                summary['sensing_depth'] = {
+                    'mean': float(valid_depth.mean()),
+                    'min': float(valid_depth.min()),
+                    'max': float(valid_depth.max())
+                }
+        
+        # 저장량 통계
+        if 'storage' in daily_data.columns:
+            valid_storage = daily_data['storage'].dropna()
+            if len(valid_storage) > 0:
+                summary['storage'] = {
+                    'mean': float(valid_storage.mean()),
+                    'std': float(valid_storage.std())
+                }
         
         return summary
         
@@ -445,60 +573,3 @@ class SoilMoistureCalculator:
                 self.logger.warning(f"Error reading result file: {e}")
                 
         return status
-
-
-# 사용 예시
-if __name__ == "__main__":
-    from ..core.logger import setup_logger
-    
-    # 테스트용 설정
-    test_station_config = {
-        'station_info': {'id': 'HC'},
-        'calibration': {'neutron_monitor': 'ATHN', 'utc_offset': 9}
-    }
-    
-    test_processing_config = {
-        'calculation': {
-            'exclude_periods': {
-                'months': [12, 1, 2],
-                'custom_dates': []
-            },
-            'smoothing': {
-                'enabled': False,
-                'method': 'savitzky_golay',
-                'window': 11,
-                'order': 3
-            }
-        },
-        'corrections': {
-            'incoming_flux': True,
-            'pressure': True,
-            'humidity': True,
-            'biomass': False
-        }
-    }
-    
-    test_calibration_params = {
-        'N0_rdt': 1757.86,
-        'Pref': 962.93,
-        'Aref': 12.57,
-        'Iref': 1000.0,
-        'soil_bulk_density': 1.44,
-        'lattice_water': 0.03
-    }
-    
-    # SoilMoistureCalculator 테스트
-    logger = setup_logger("SoilMoistureCalculator_Test")
-    calculator = SoilMoistureCalculator(
-        test_station_config, test_processing_config, test_calibration_params, logger
-    )
-    
-    print("✅ SoilMoistureCalculator 구현 완료!")
-    print("주요 기능:")
-    print("  - 중성자 보정 적용")
-    print("  - 제외 기간 관리")
-    print("  - VWC 계산")
-    print("  - 유효깊이 계산")
-    print("  - 토양수분 저장량 계산")
-    print("  - 불확실성 계산")
-    print("  - 스무딩 적용 (선택사항)")
