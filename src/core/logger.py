@@ -170,10 +170,35 @@ class CRNPLogger:
         result_message = "Calibration result: " + ", ".join(result_parts)
         self.logger.info(result_message)
         
-    def log_validation_result(self, metrics: Dict[str, float]):
-        """검증 결과 로깅"""
-        metrics_str = ", ".join([f"{k}={v:.4f}" for k, v in metrics.items()])
-        self.info(f"Validation result: {metrics_str}")
+    def log_validation_result(self, metrics: Dict[str, Any]):  # float -> Any로 변경
+        """검증 결과 로깅 - 문자열 값 처리 개선"""
+        
+        # 숫자와 문자열 값을 분리
+        numeric_metrics = []
+        string_metrics = []
+        
+        for k, v in metrics.items():
+            if isinstance(v, (int, float)) and not isinstance(v, bool):
+                try:
+                    # NaN, inf 체크
+                    if not (pd.isna(v) or np.isinf(v)):
+                        numeric_metrics.append(f"{k}={v:.4f}")
+                    else:
+                        string_metrics.append(f"{k}={v}")
+                except:
+                    string_metrics.append(f"{k}={v}")
+            else:
+                string_metrics.append(f"{k}={v}")
+        
+        # 로깅 메시지 구성
+        result_parts = []
+        if numeric_metrics:
+            result_parts.append(", ".join(numeric_metrics))
+        if string_metrics:
+            result_parts.append(", ".join(string_metrics))
+        
+        result_message = "Validation result: " + " | ".join(result_parts)
+        self.info(result_message)
         
     def log_error_with_context(self, error: Exception, context: str = ""):
         """에러와 컨텍스트 정보 로깅"""

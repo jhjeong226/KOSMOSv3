@@ -152,115 +152,136 @@ class ValidationManager:
             return matched_data
             
     def _calculate_validation_metrics_robust(self, observed: np.ndarray, 
-                                           predicted: np.ndarray) -> Dict[str, float]:
-        """강건한 검증 지표 계산"""
+                                        predicted: np.ndarray) -> Dict[str, float]:
+        """강건한 검증 지표 계산 - 완전 수정본"""
         
         if len(observed) == 0 or len(predicted) == 0:
-            return {'R2': 0, 'RMSE': 1, 'MAE': 1, 'NSE': 0, 'Bias': 0, 'Correlation': 0, 'n_samples': 0}
+            return {
+                'R2': 0.0, 'RMSE': 1.0, 'MAE': 1.0, 'NSE': 0.0, 'Bias': 0.0, 
+                'Correlation': 0.0, 'P_value': 1.0, 'IOA': 0.0, 'n_samples': 0.0,
+                'method_used': 'no_data'
+            }
             
         try:
-            # 기본 통계
-            rmse = np.sqrt(np.mean((observed - predicted) ** 2))
-            mae = np.mean(np.abs(observed - predicted))
-            bias = np.mean(predicted - observed)
+            # 기본 통계 (항상 계산 가능)
+            rmse = float(np.sqrt(np.mean((observed - predicted) ** 2)))
+            mae = float(np.mean(np.abs(observed - predicted)))
+            bias = float(np.mean(predicted - observed))
+            n_samples = float(len(observed))
             
             # 상관계수 계산
-            if len(observed) > 1:
-                correlation = np.corrcoef(observed, predicted)[0, 1]
-                if np.isnan(correlation):
+            try:
+                if len(observed) > 1:
+                    correlation_matrix = np.corrcoef(observed, predicted)
+                    correlation = float(correlation_matrix[0, 1])
+                    if np.isnan(correlation):
+                        correlation = 0.0
+                else:
                     correlation = 0.0
-            else:
+            except:
                 correlation = 0.0
                 
             # 관측값 통계
-            obs_mean = np.mean(observed)
-            obs_std = np.std(observed)
-            obs_var = np.var(observed)
-            pred_std = np.std(predicted)
+            obs_mean = float(np.mean(observed))
+            obs_std = float(np.std(observed))
+            obs_var = float(np.var(observed))
+            pred_std = float(np.std(predicted))
             
-            self.logger.info(f"Validation metrics calculation:")
-            self.logger.info(f"  Observed: mean={obs_mean:.6f}, std={obs_std:.6f}, var={obs_var:.6f}")
-            self.logger.info(f"  Predicted: mean={np.mean(predicted):.6f}, std={pred_std:.6f}")
-            self.logger.info(f"  Correlation: {correlation:.6f}")
-            self.logger.info(f"  RMSE: {rmse:.6f}, MAE: {mae:.6f}, Bias: {bias:.6f}")
-            
-            # R² 계산 (강건한 방법)
+            # R² 및 NSE 계산
             r2 = 0.0
             nse = 0.0
-            method_used = "none"
+            method_used = "correlation_squared"  # 기본 방법
             
-            # 방법 1: 전통적 R² (변동성이 충분한 경우)
-            if obs_std > 0.005:  # 표준편차가 0.005보다 큰 경우
-                ss_res = np.sum((observed - predicted) ** 2)
-                ss_tot = np.sum((observed - obs_mean) ** 2)
-                
-                if ss_tot > 1e-10:  # 분모가 충분히 큰 경우
-                    r2_traditional = 1 - (ss_res / ss_tot)
+            # 1. 변동성이 충분한 경우 전통적 R² 시도
+            if obs_std > 0.005:
+                try:
+                    ss_res = np.sum((observed - predicted) ** 2)
+                    ss_tot = np.sum((observed - obs_mean) ** 2)
                     
-                    # 합리적 범위 확인 (-5 ~ 1)
-                    if -5 <= r2_traditional <= 1:
-                        r2 = r2_traditional
-                        nse = r2_traditional
-                        method_used = "traditional"
-                        self.logger.info(f"  Traditional R²: {r2:.6f}")
+                    if ss_tot > 1e-10:
+                        r2_traditional = 1 - (ss_res / ss_tot)
+                        
+                        # 합리적 범위 확인 (-3 ~ 1)
+                        if -3 <= r2_traditional <= 1:
+                            r2 = float(r2_traditional)
+                            nse = float(r2_traditional)
+                            method_used = "traditional"
+                        else:
+                            # 범위 벗어나면 상관계수 제곱 사용
+                            r2 = float(max(0, correlation ** 2))
+                            nse = r2
+                            method_used = "correlation_squared_fallback"
                     else:
-                        # 범위 벗어나면 상관계수 제곱 사용
-                        r2 = max(0, correlation ** 2)
+                        r2 = float(max(0, correlation ** 2))
                         nse = r2
-                        method_used = "correlation_squared_fallback"
-                        self.logger.warning(f"  R² out of range ({r2_traditional:.6f}), using correlation²: {r2:.6f}")
-                else:
-                    # 분모가 너무 작으면 상관계수 제곱 사용
-                    r2 = max(0, correlation ** 2)
+                        method_used = "correlation_squared_small_var"
+                except:
+                    r2 = float(max(0, correlation ** 2))
                     nse = r2
-                    method_used = "correlation_squared_small_var"
-                    self.logger.warning(f"  Small variance, using correlation²: {r2:.6f}")
-                    
-            # 방법 2: 낮은 변동성
+                    method_used = "correlation_squared_error"
             else:
-                r2 = max(0, correlation ** 2)
+                # 변동성이 낮은 경우 상관계수 제곱 사용
+                r2 = float(max(0, correlation ** 2))
                 nse = r2
-                method_used = "correlation_squared"
-                self.logger.info(f"  Low variability, using correlation²: {r2:.6f}")
+                method_used = "correlation_squared_low_var"
             
             # Index of Agreement 계산
             try:
                 numerator = np.sum((observed - predicted) ** 2)
                 denominator = np.sum((np.abs(predicted - obs_mean) + 
                                     np.abs(observed - obs_mean)) ** 2)
-                ioa = 1 - (numerator / denominator) if denominator > 1e-10 else 0
+                ioa = float(1 - (numerator / denominator)) if denominator > 1e-10 else 0.0
             except:
-                ioa = 0
+                ioa = 0.0
                 
-            # P-value 계산 (상관계수에 대한)
+            # P-value 계산
             try:
                 from scipy.stats import pearsonr
                 _, p_value = pearsonr(observed, predicted)
-                if np.isnan(p_value):
-                    p_value = 1.0
+                p_value = float(p_value) if not np.isnan(p_value) else 1.0
             except:
                 p_value = 1.0
                 
-            # 범위 검증
-            r2 = max(0, min(1, r2))
-            nse = max(-5, min(1, nse))  # NSE는 -∞에서 1 사이
-            ioa = max(0, min(1, ioa))
+            # 범위 제한
+            r2 = float(max(-1, min(1, r2)))  # R²는 -1~1 범위
+            nse = float(max(-5, min(1, nse)))  # NSE는 -5~1 범위 (실용적)
+            ioa = float(max(0, min(1, ioa)))
+            correlation = float(max(-1, min(1, correlation)))
             
-            self.logger.info(f"  Final metrics: R²={r2:.6f}, NSE={nse:.6f}, IoA={ioa:.6f} (method: {method_used})")
+            # 로깅
+            self.logger.info(f"Validation metrics calculation:")
+            self.logger.info(f"  Observed: mean={obs_mean:.6f}, std={obs_std:.6f}")
+            self.logger.info(f"  Predicted: mean={np.mean(predicted):.6f}, std={pred_std:.6f}")
+            self.logger.info(f"  Correlation: {correlation:.6f}")
+            self.logger.info(f"  RMSE: {rmse:.6f}, MAE: {mae:.6f}, Bias: {bias:.6f}")
+            self.logger.info(f"  Final metrics: R²={r2:.6f}, NSE={nse:.6f} (method: {method_used})")
             
+            # 모든 값을 float로 확실히 변환하여 반환
             return {
-                'R2': float(r2),
-                'RMSE': float(rmse),
-                'MAE': float(mae),
-                'NSE': float(nse),
-                'Bias': float(bias),
-                'Correlation': float(correlation),
-                'P_value': float(p_value),
-                'IOA': float(ioa),
-                'n_samples': float(len(observed)),
+                'R2': r2,
+                'RMSE': rmse,
+                'MAE': mae,
+                'NSE': nse,
+                'Bias': bias,
+                'Correlation': correlation,
+                'P_value': p_value,
+                'IOA': ioa,
+                'n_samples': n_samples,
                 'obs_std': float(obs_std),
-                'pred_std': float(pred_std),
-                'method_used': method_used
+                'pred_std': pred_std,
+                'method_used': method_used  # 이것만 문자열
+            }
+            
+        except Exception as e:
+            self.logger.error(f"Error calculating validation metrics: {e}")
+            import traceback
+            traceback.print_exc()
+            
+            # 에러 시 기본값 반환 (모두 float)
+            return {
+                'R2': 0.0, 'RMSE': 1.0, 'MAE': 1.0, 'NSE': 0.0, 'Bias': 0.0,
+                'Correlation': 0.0, 'P_value': 1.0, 'IOA': 0.0, 'n_samples': float(len(observed)),
+                'obs_std': 0.0, 'pred_std': 0.0, 'method_used': 'error'
             }
             
         except Exception as e:

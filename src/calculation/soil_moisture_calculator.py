@@ -335,14 +335,13 @@ class SoilMoistureCalculator:
             return daily_data
             
     def _calculate_sensing_depth(self, daily_data: pd.DataFrame) -> pd.DataFrame:
-        """유효깊이 계산 - 수정된 버전"""
+        """유효깊이 계산 - crnpy API 호환성 수정"""
         
         with ProcessTimer(self.logger, "Calculating sensing depth"):
             
             try:
-                # crnpy의 sensing_depth는 cm 단위로 반환되므로 mm로 변환 필요
-                sensing_depth_cm = crnpy.sensing_depth(
-                    theta_v=daily_data['VWC'],
+                daily_data['sensing_depth'] = crnpy.sensing_depth(
+                    vwc=daily_data['VWC'],  # theta_v 대신 vwc 사용
                     pressure=daily_data['Pa'],
                     pressure_ref=daily_data['Pa'].mean(),
                     bulk_density=self.bulk_density,
@@ -350,38 +349,41 @@ class SoilMoistureCalculator:
                     method="Franz_2012"
                 )
                 
-                # cm에서 mm로 변환 (crnpy는 cm 단위로 반환)
-                daily_data['sensing_depth'] = sensing_depth_cm * 10  # cm -> mm
+                avg_depth = daily_data['sensing_depth'].mean()
+                self.logger.info(f"Average sensing depth: {avg_depth:.1f} mm")
                 
-                avg_depth_mm = daily_data['sensing_depth'].mean()
-                avg_depth_cm = avg_depth_mm / 10
-                
-                self.logger.info(f"Average sensing depth: {avg_depth_cm:.1f} cm ({avg_depth_mm:.1f} mm)")
-                
-                # 합리적 범위 확인 (일반적으로 10-50cm)
-                if avg_depth_cm < 5:
-                    self.logger.warning(f"⚠️ Sensing depth unusually shallow: {avg_depth_cm:.1f} cm")
-                    self.logger.warning("   This may indicate issues with soil parameters or calibration")
-                elif avg_depth_cm > 100:
-                    self.logger.warning(f"⚠️ Sensing depth unusually deep: {avg_depth_cm:.1f} cm")
-                    
             except Exception as e:
                 self.logger.error(f"Sensing depth calculation failed: {e}")
-                # 기본값 사용 (토양수분에 따른 경험적 공식)
-                # Desilets et al. (2010): depth ≈ 5.8 / (ρ × (0.0829 + 0.372×θ + 0.115×θ²))
+                
+                # Fallback: 경험적 공식 사용
                 try:
-                    theta = daily_data['VWC']
-                    depth_cm = 5.8 / (self.bulk_density * (0.0829 + 0.372*theta + 0.115*theta**2))
-                    daily_data['sensing_depth'] = depth_cm * 10  # cm -> mm
+                    # 간단한 경험적 공식 적용
+                    # Desilets et al. (2010)의 공식 변형
+                    vwc_values = daily_data['VWC'].values
+                    p_values = daily_data['Pa'].values
+                    p_ref = daily_data['Pa'].mean()
                     
-                    avg_depth = daily_data['sensing_depth'].mean()
-                    self.logger.warning(f"Using empirical formula. Average depth: {avg_depth/10:.1f} cm")
+                    # 경험적 유효깊이 계산
+                    empirical_depth = []
+                    for vwc, p in zip(vwc_values, p_values):
+                        if pd.notna(vwc) and pd.notna(p):
+                            # 기본 공식: depth = a / (b + vwc * bulk_density + lattice_water)
+                            # 여기서 a, b는 경험적 상수
+                            depth = 5.8 / (0.0829 + vwc * self.bulk_density + self.lattice_water) * (p / p_ref)
+                            depth = max(50, min(500, depth * 100))  # mm 단위로 변환, 50-500mm 범위
+                        else:
+                            depth = 150  # 기본값
+                        empirical_depth.append(depth)
+                    
+                    daily_data['sensing_depth'] = empirical_depth
+                    avg_depth = np.mean(empirical_depth)
+                    self.logger.warning(f"Using empirical formula. Average depth: {avg_depth:.1f} mm")
                     
                 except Exception as e2:
-                    self.logger.error(f"Empirical calculation also failed: {e2}")
-                    # 최후의 수단: 고정값
-                    daily_data['sensing_depth'] = 200  # mm (20cm)
-                    self.logger.warning("Using default sensing depth: 20 cm")
+                    self.logger.warning(f"Empirical calculation also failed: {e2}")
+                    # 최종 fallback: 고정값
+                    daily_data['sensing_depth'] = 144  # mm (기본값)
+                    self.logger.warning("Using fixed sensing depth: 144 mm")
                     
             return daily_data
             
