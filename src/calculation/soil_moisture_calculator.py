@@ -335,32 +335,54 @@ class SoilMoistureCalculator:
             return daily_data
             
     def _calculate_sensing_depth(self, daily_data: pd.DataFrame) -> pd.DataFrame:
-        """유효깊이 계산"""
+        """유효깊이 계산 - 수정된 버전"""
         
         with ProcessTimer(self.logger, "Calculating sensing depth"):
             
             try:
-                # 유효깊이 계산 (Franz_2012 방법) - positional argument 사용
-                daily_data['sensing_depth'] = crnpy.sensing_depth(
-                    daily_data['VWC'],  # 첫 번째 인자는 positional
-                    daily_data['Pa'],
-                    daily_data['Pa'].mean(),
+                # crnpy의 sensing_depth는 cm 단위로 반환되므로 mm로 변환 필요
+                sensing_depth_cm = crnpy.sensing_depth(
+                    theta_v=daily_data['VWC'],
+                    pressure=daily_data['Pa'],
+                    pressure_ref=daily_data['Pa'].mean(),
                     bulk_density=self.bulk_density,
                     Wlat=self.lattice_water,
                     method="Franz_2012"
                 )
                 
-                valid_depths = daily_data['sensing_depth'].dropna()
-                if len(valid_depths) > 0:
-                    avg_depth = valid_depths.mean()
-                    self.logger.info(f"Average sensing depth: {avg_depth:.1f} mm")
-                else:
-                    self.logger.warning("No valid sensing depth calculated")
+                # cm에서 mm로 변환 (crnpy는 cm 단위로 반환)
+                daily_data['sensing_depth'] = sensing_depth_cm * 10  # cm -> mm
                 
+                avg_depth_mm = daily_data['sensing_depth'].mean()
+                avg_depth_cm = avg_depth_mm / 10
+                
+                self.logger.info(f"Average sensing depth: {avg_depth_cm:.1f} cm ({avg_depth_mm:.1f} mm)")
+                
+                # 합리적 범위 확인 (일반적으로 10-50cm)
+                if avg_depth_cm < 5:
+                    self.logger.warning(f"⚠️ Sensing depth unusually shallow: {avg_depth_cm:.1f} cm")
+                    self.logger.warning("   This may indicate issues with soil parameters or calibration")
+                elif avg_depth_cm > 100:
+                    self.logger.warning(f"⚠️ Sensing depth unusually deep: {avg_depth_cm:.1f} cm")
+                    
             except Exception as e:
-                self.logger.warning(f"Sensing depth calculation failed: {e}")
-                daily_data['sensing_depth'] = self.z_surface  # 기본값 사용
-                
+                self.logger.error(f"Sensing depth calculation failed: {e}")
+                # 기본값 사용 (토양수분에 따른 경험적 공식)
+                # Desilets et al. (2010): depth ≈ 5.8 / (ρ × (0.0829 + 0.372×θ + 0.115×θ²))
+                try:
+                    theta = daily_data['VWC']
+                    depth_cm = 5.8 / (self.bulk_density * (0.0829 + 0.372*theta + 0.115*theta**2))
+                    daily_data['sensing_depth'] = depth_cm * 10  # cm -> mm
+                    
+                    avg_depth = daily_data['sensing_depth'].mean()
+                    self.logger.warning(f"Using empirical formula. Average depth: {avg_depth/10:.1f} cm")
+                    
+                except Exception as e2:
+                    self.logger.error(f"Empirical calculation also failed: {e2}")
+                    # 최후의 수단: 고정값
+                    daily_data['sensing_depth'] = 200  # mm (20cm)
+                    self.logger.warning("Using default sensing depth: 20 cm")
+                    
             return daily_data
             
     def _calculate_storage(self, daily_data: pd.DataFrame) -> pd.DataFrame:

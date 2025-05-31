@@ -417,3 +417,71 @@
 2025-05-31 16:59:58 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)
 2025-05-31 17:14:05 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)
 2025-05-31 18:30:40 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)
+2025-05-31 22:53:43 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2566.23)
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=Calibration for PC] Process started: Calibration for PC
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=Calibration for PC] Calibration period: 2024-08-17 to 2024-08-25
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=Calibration for PC] All required data files found
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=CRNP Calibration] Process started: CRNP Calibration (period=2024-08-17T00:00:00 to 2024-08-25T00:00:00)
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Process started: Loading calibration data
+2025-05-31 22:55:24 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Loading FDR data from data\output\PC\preprocessed\PC_FDR_input.xlsx
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Loading CRNP data from data\output\PC\preprocessed\PC_CRNP_input.xlsx
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Data loaded: FDR_Calibration - 6024 records
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Data loaded: CRNP_Calibration - 193 records
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Loading calibration data] Process completed: Loading calibration data in 5.83s
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Applying neutron corrections] Process started: Applying neutron corrections
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Process started: Neutron Corrections
+2025-05-31 22:55:30 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Downloading neutron flux data from MXCO
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Incoming flux correction applied (Iref=217.24)
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Pressure correction applied (Pref=949.22 hPa)
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Humidity correction applied (Aref=19.4118 g/cm³)
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron correction statistics:
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections]   fi: mean=1.0000, std=0.0067, range=[0.9870, 1.0160]
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections]   fp: mean=1.0001, std=0.0158, range=[0.9797, 1.0530]
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections]   fw: mean=1.0000, std=0.0088, range=[0.9849, 1.0184]
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron counts: raw=1502.0, corrected=1502.2, change=+0.01%
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Neutron Corrections in 1.50s
+2025-05-31 22:55:32 - CalibrationManager_PC - WARNING - warning:109 - [process=Neutron Corrections] Removing 2 outliers from total_corrected_neutrons
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Applying neutron corrections in 1.50s
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Process started: Enhanced daily data matching
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Daily CRNP data: 9 days
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Enhanced matching: 9 matched, 9 failed
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Data loaded: Enhanced_Matched - 9 records
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Field SM range: 0.297 ~ 0.310
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Neutron range: 1420.2 ~ 1567.1
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Field SM std: 0.0048, Neutron std: 57.8
+2025-05-31 22:55:32 - CalibrationManager_PC - WARNING - warning:109 - [process=Enhanced daily data matching] ⚠️ Field SM variability is very low - may affect calibration quality
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced daily data matching] Process completed: Enhanced daily data matching in 0.03s
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Process started: Enhanced N0 Optimization
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Optimization parameters:
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Data points: 9
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Bulk density: 1.2
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Lattice water: 0.0340
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Field SM range: 0.297 - 0.310
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Neutron range: 1420.2 - 1567.1
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Testing N0 values:
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Best initial N0: 2625 (RMSE: 0.0482)
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Starting optimization from N0=2625
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Performance calculation details:
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Observed: mean=0.304231, std=0.004496, var=0.000020
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Predicted: mean=0.296225, std=0.050525
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Correlation: 0.797160
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   RMSE: 0.047697, MAE: 0.043686
+2025-05-31 22:55:32 - CalibrationManager_PC - WARNING - warning:109 - [process=Enhanced N0 Optimization]   Very low variability, using relative error method: 0.608056 (rel_rmse=0.156778)
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization]   Final R² = 0.608056 (method: relative_error_based)
+2025-05-31 22:55:32 - CalibrationManager_PC - WARNING - warning:109 - [process=Enhanced N0 Optimization]   Very low observed variability may limit calibration quality
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - log_calibration_result:171 - Calibration result: N0=2612.86, R2=0.6080558729615713, RMSE=0.04769656489543493, MAE=0.043685842449156534, NSE=0.6080558729615713, Bias=-0.008005986739899548, Correlation=0.7971596789110409, n_samples=9, obs_std=0.004495712946793805, pred_std=0.05052523986653346, obs_mean=0.304230639044366, pred_mean=0.2962246523044664, method_used=relative_error_based
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Process completed: Enhanced N0 Optimization in 0.04s
+2025-05-31 22:55:32 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Calculated reference values: {'Pref': 949.2221393782385, 'Aref': 19.411819509476345, 'Iref': 217.23834715025905}
+2025-05-31 22:55:34 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_diagnostics.png - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_comparison.png - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_debug_data.xlsx - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_result.json - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_Parameters.xlsx - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Calibration completed successfully. N0 = 2612.86
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Process completed: CRNP Calibration in 10.45s
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Calibration result validation passed
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] File save: data\output\PC\calibration\PC_calibration_report.txt - success
+2025-05-31 22:55:35 - CalibrationManager_PC - INFO - info:105 - [process=Enhanced N0 Optimization] Process completed: Calibration for PC in 10.45s
+2025-05-31 23:03:05 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2612.86)
+2025-05-31 23:09:00 - CalibrationManager_PC - INFO - info:105 - Loaded calibration parameters (N0=2612.86)
