@@ -1,0 +1,15 @@
+2025-05-31 18:30:55 - ValidationManager_PC - INFO - info:105 - [process=Validation for PC] Process started: Validation for PC
+2025-05-31 18:30:55 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process started: Loading validation data
+2025-05-31 18:30:55 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading FDR data from data\output\PC\preprocessed\PC_FDR_input.xlsx
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading CRNP SM data from data\output\PC\soil_moisture\PC_soil_moisture.xlsx
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: FDR_Validation - 79353 records
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: CRNP_SM_Validation - 91 records
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process completed: Loading validation data in 5.79s
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process started: Matching validation data
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Matched 91 data points
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Matching validation data in 0.02s
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_result.json - success
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_data.xlsx - success
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_report.txt - success
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation result: R2=-7.9036, RMSE=0.0508, MAE=0.0429, Bias=-0.0113, NSE=-7.9036, Correlation=0.8905, P_value=0.0000, IOA=0.6031, n_samples=91.0000
+2025-05-31 18:31:01 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Validation for PC in 5.87s

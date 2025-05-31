@@ -1,0 +1,42 @@
+======================================================================
+CRNP VALIDATION REPORT
+======================================================================
+Station: PC
+Report Generated: 2025-05-31 18:31:01
+
+Validation Period: 2024-08-01 to 2024-10-30
+Matched Data Points: 91
+
+Overall Performance Metrics:
+  R² (Coefficient of Determination): -7.9036
+  RMSE (Root Mean Square Error): 0.0508
+  MAE (Mean Absolute Error): 0.0429
+  Bias: -0.0113
+  NSE (Nash-Sutcliffe Efficiency): -7.9036
+  Correlation: 0.8905
+  Index of Agreement: 0.6031
+
+Depth-wise Analysis:
+------------------------------
+10cm Depth:
+  Data Points: 91
+  R²: -2.4642
+  RMSE: 0.0437
+  Correlation: 0.9152
+
+30cm Depth:
+  Data Points: 91
+  R²: -10.1476
+  RMSE: 0.0530
+  Correlation: 0.8598
+
+60cm Depth:
+  Data Points: 91
+  R²: -19.7565
+  RMSE: 0.0582
+  Correlation: 0.8129
+
+Performance Assessment:
+  🔴 POOR - Low accuracy
+
+======================================================================

@@ -340,11 +340,11 @@ class SoilMoistureCalculator:
         with ProcessTimer(self.logger, "Calculating sensing depth"):
             
             try:
-                # 유효깊이 계산 (Franz_2012 방법)
+                # 유효깊이 계산 (Franz_2012 방법) - positional argument 사용
                 daily_data['sensing_depth'] = crnpy.sensing_depth(
-                    theta_v=daily_data['VWC'],
-                    pressure=daily_data['Pa'],
-                    pressure_ref=daily_data['Pa'].mean(),
+                    daily_data['VWC'],  # 첫 번째 인자는 positional
+                    daily_data['Pa'],
+                    daily_data['Pa'].mean(),
                     bulk_density=self.bulk_density,
                     Wlat=self.lattice_water,
                     method="Franz_2012"
@@ -394,9 +394,9 @@ class SoilMoistureCalculator:
         with ProcessTimer(self.logger, "Calculating uncertainty"):
             
             try:
-                # VWC 불확실성 계산
+                # VWC 불확실성 계산 - positional argument 사용
                 daily_data['sigma_VWC'] = crnpy.uncertainty_vwc(
-                    N=daily_data['total_raw_counts'],
+                    daily_data['total_raw_counts'],  # 첫 번째 인자는 positional
                     N0=self.N0,
                     bulk_density=self.bulk_density,
                     fp=daily_data['fp'],

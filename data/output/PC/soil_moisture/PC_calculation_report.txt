@@ -2,7 +2,7 @@
 CRNP SOIL MOISTURE CALCULATION REPORT
 ================================================================================
 Station: PC
-Report Generated: 2025-05-31 17:14:08
+Report Generated: 2025-05-31 18:30:43
 
 Calculation Period: 2024-08-01 to 2024-10-30
 
@@ -20,8 +20,8 @@ VWC Statistics:
   Q75: 0.3525
 
 Sensing Depth:
-  Mean: 144.0 mm
-  Range: 144.0 - 144.0 mm
+  Mean: 13.8 mm
+  Range: 9.6 - 17.8 mm
 
 Soil Water Storage:
   Mean: 151.7 mm
