@@ -1,33 +1,41 @@
 {
   "station_id": "PC",
   "calibration_period": {
-    "start": "2024-08-17T00:00:00",
-    "end": "2024-08-25T00:00:00"
+    "start": "2024-08-01T00:00:00",
+    "end": "2024-08-31T00:00:00"
   },
   "coordinates": {
     "lat": 37.53126519,
     "lon": 128.4461
   },
-  "N0_rdt": 2612.858772277832,
-  "Pref": 949.2221393782385,
-  "Aref": 19.411819509476345,
-  "Iref": 217.23834715025905,
+  "N0_rdt": 2566.230922937393,
+  "Pref": 947.796802961918,
+  "Aref": 19.0594720423922,
+  "Iref": 216.37507898448516,
   "clay_content": 0.35,
   "soil_bulk_density": 1.2,
   "lattice_water": 0.03395,
   "optimization": {
     "method": "Nelder-Mead",
     "success": true,
-    "final_rmse": 0.04769656489543441,
-    "matched_data_count": 9
+    "final_rmse": 0.05047965487793096,
+    "matched_data_count": 31,
+    "initial_test_rmse": 0.061876145408317776,
+    "initial_test_N0": 2625.0
   },
   "performance_metrics": {
-    "R2": -111.55817877768918,
-    "RMSE": 0.04769656489543441,
-    "MAE": 0.04368584071282821,
-    "NSE": -111.55817877768918,
-    "Bias": -0.008005993157188276,
-    "n_samples": 9
+    "R2": 0.7542646770106969,
+    "RMSE": 0.05047965487793096,
+    "MAE": 0.04305550739922388,
+    "NSE": 0.7542646770106969,
+    "Bias": -0.009507997218411012,
+    "Correlation": 0.868484125940536,
+    "n_samples": 31,
+    "obs_std": 0.010115635535787555,
+    "pred_std": 0.05810715462316061,
+    "obs_mean": 0.31498779568865537,
+    "pred_mean": 0.3054797984702444,
+    "method_used": "correlation_squared_fallback"
   },
   "settings": {
     "weighting_method": "Schron_2017",
@@ -44,5 +52,5 @@
     },
     "neutron_monitor": "MXCO"
   },
-  "timestamp": "2025-05-30T17:53:05.864480"
+  "timestamp": "2025-05-31T16:36:38.376633"
 }

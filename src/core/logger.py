@@ -138,10 +138,37 @@ class CRNPLogger:
         details_str = ", ".join([f"{k}={v}" for k, v in details.items()])
         self.info(f"File {operation}: {file_path} - {status}" + (f" ({details_str})" if details else ""))
         
-    def log_calibration_result(self, N0: float, metrics: Dict[str, float]):
-        """캘리브레이션 결과 로깅"""
-        metrics_str = ", ".join([f"{k}={v:.4f}" for k, v in metrics.items()])
-        self.info(f"Calibration result: N0={N0:.2f}, {metrics_str}")
+    def log_calibration_result(self, N0: float, metrics: Dict[str, Any]):
+        """캘리브레이션 결과 로깅 - 개선된 버전"""
+        
+        # 숫자 값과 문자열 값을 분리
+        numeric_metrics = []
+        string_metrics = []
+        
+        for k, v in metrics.items():
+            if isinstance(v, (int, float)) and not isinstance(v, bool):
+                try:
+                    # 숫자인지 확인 (NaN, inf 체크)
+                    if not (pd.isna(v) or np.isinf(v)):
+                        numeric_metrics.append(f"{k}={v:.4f}")
+                    else:
+                        string_metrics.append(f"{k}={v}")
+                except:
+                    string_metrics.append(f"{k}={v}")
+            else:
+                string_metrics.append(f"{k}={v}")
+        
+        # 결과 문자열 구성
+        result_parts = [f"N0={N0:.2f}"]
+        
+        if numeric_metrics:
+            result_parts.append(", ".join(numeric_metrics))
+        
+        if string_metrics:
+            result_parts.append(", ".join(string_metrics))
+        
+        result_message = "Calibration result: " + ", ".join(result_parts)
+        self.logger.info(result_message)
         
     def log_validation_result(self, metrics: Dict[str, float]):
         """검증 결과 로깅"""
