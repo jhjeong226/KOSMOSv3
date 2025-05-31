@@ -187,3 +187,93 @@
 2025-05-31 23:32:40 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_report.txt - success
 2025-05-31 23:32:40 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation result: R2=0.7925917010580641, RMSE=0.06646619137297904, MAE=0.05321877032079113, NSE=0.7925917010580641, Bias=0.03093657013627634, Correlation=0.8902761936938807, P_value=3.7499279058105257e-32, IOA=0.5080907265020189, n_samples=91.0, obs_std=0.017033170651889227, pred_std=0.07347810188484069, method_used=correlation_squared_fallback
 2025-05-31 23:32:40 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Validation for PC in 5.87s
+2025-05-31 23:42:11 - ValidationManager_PC - INFO - info:105 - [process=Validation for PC] Process started: Validation for PC
+2025-05-31 23:42:11 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process started: Loading validation data
+2025-05-31 23:42:11 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading FDR data from data\output\PC\preprocessed\PC_FDR_input.xlsx
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading CRNP SM data from data\output\PC\soil_moisture\PC_soil_moisture.xlsx
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: FDR_Validation - 79353 records
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: CRNP_SM_Validation - 91 records
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] FDR data columns: ['Date', 'theta_v_source', 'theta_v', 'FDR_depth', 'id', 'latitude', 'longitude', 'distance_from_station', 'bulk_density']
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] CRNP SM data columns: ['total_raw_counts', 'total_corrected_neutrons', 'Pa', 'fi', 'fp', 'fw', 'VWC', 'sensing_depth', 'storage', 'sigma_VWC']
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] FDR theta_v range: 0.007 - 0.423
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] CRNP VWC range: 0.231 - 0.551
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process completed: Loading validation data in 5.80s
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process started: Matching validation data
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Matched 91 data points
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] FDR range: 0.278 - 0.356
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] CRNP VWC range: 0.231 - 0.551
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Matching validation data in 0.02s
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.317976, std=0.017033
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.890276
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066466, MAE: 0.053219, Bias: 0.030937
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.792592, NSE=0.792592 (method: correlation_squared_fallback)
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.305607, std=0.023473
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.914093
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.068354, MAE: 0.052558, Bias: 0.043305
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.835566, NSE=0.835566 (method: correlation_squared_fallback)
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.320526, std=0.015862
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.860072
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066720, MAE: 0.054074, Bias: 0.028386
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.739724, NSE=0.739724 (method: correlation_squared_fallback)
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.327794, std=0.012775
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.813632
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066938, MAE: 0.055206, Bias: 0.021118
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.661996, NSE=0.661996 (method: correlation_squared_fallback)
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_result.json - success
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_data.xlsx - success
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_report.txt - success
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation result: R2=0.7925917010580641, RMSE=0.06646619137297904, MAE=0.05321877032079113, NSE=0.7925917010580641, Bias=0.03093657013627634, Correlation=0.8902761936938807, P_value=3.7499279058105257e-32, IOA=0.5080907265020189, n_samples=91.0, obs_std=0.017033170651889227, pred_std=0.07347810188484069, method_used=correlation_squared_fallback
+2025-05-31 23:42:17 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Validation for PC in 5.88s
+2025-05-31 23:47:13 - ValidationManager_PC - INFO - info:105 - [process=Validation for PC] Process started: Validation for PC
+2025-05-31 23:47:13 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process started: Loading validation data
+2025-05-31 23:47:13 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading FDR data from data\output\PC\preprocessed\PC_FDR_input.xlsx
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Loading CRNP SM data from data\output\PC\soil_moisture\PC_soil_moisture.xlsx
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: FDR_Validation - 79353 records
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Data loaded: CRNP_SM_Validation - 91 records
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] FDR data columns: ['Date', 'theta_v_source', 'theta_v', 'FDR_depth', 'id', 'latitude', 'longitude', 'distance_from_station', 'bulk_density']
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] CRNP SM data columns: ['total_raw_counts', 'total_corrected_neutrons', 'Pa', 'fi', 'fp', 'fw', 'VWC', 'sensing_depth', 'storage', 'sigma_VWC']
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] FDR theta_v range: 0.007 - 0.423
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] CRNP VWC range: 0.231 - 0.551
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Loading validation data] Process completed: Loading validation data in 5.78s
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process started: Matching validation data
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Matched 91 data points
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] FDR range: 0.278 - 0.356
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] CRNP VWC range: 0.231 - 0.551
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Matching validation data in 0.02s
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.317976, std=0.017033
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.890276
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066466, MAE: 0.053219, Bias: 0.030937
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.792592, NSE=0.792592 (method: correlation_squared_fallback)
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.305607, std=0.023473
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.914093
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.068354, MAE: 0.052558, Bias: 0.043305
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.835566, NSE=0.835566 (method: correlation_squared_fallback)
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.320526, std=0.015862
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.860072
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066720, MAE: 0.054074, Bias: 0.028386
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.739724, NSE=0.739724 (method: correlation_squared_fallback)
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation metrics calculation:
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Observed: mean=0.327794, std=0.012775
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Predicted: mean=0.348912, std=0.073478
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Correlation: 0.813632
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   RMSE: 0.066938, MAE: 0.055206, Bias: 0.021118
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data]   Final metrics: R²=0.661996, NSE=0.661996 (method: correlation_squared_fallback)
+2025-05-31 23:47:18 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_result.json - success
+2025-05-31 23:47:19 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_data.xlsx - success
+2025-05-31 23:47:19 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] File save: data\output\PC\validation\PC_validation_report.txt - success
+2025-05-31 23:47:19 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Validation result: R2=0.7925917010580641, RMSE=0.06646619137297904, MAE=0.05321877032079113, NSE=0.7925917010580641, Bias=0.03093657013627634, Correlation=0.8902761936938807, P_value=3.7499279058105257e-32, IOA=0.5080907265020189, n_samples=91.0, obs_std=0.017033170651889227, pred_std=0.07347810188484069, method_used=correlation_squared_fallback
+2025-05-31 23:47:19 - ValidationManager_PC - INFO - info:105 - [process=Matching validation data] Process completed: Validation for PC in 5.86s
