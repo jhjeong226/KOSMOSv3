@@ -1,0 +1,62 @@
+2025-06-01 23:09:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Starting Soil Moisture Calculation for HC
+2025-06-01 23:09:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Loaded calibration parameters (N0=1726.32)
+2025-06-01 23:09:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Using full data period for calculation
+2025-06-01 23:09:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] All required data files found
+2025-06-01 23:09:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Starting Soil Moisture Calculation
+2025-06-01 23:09:18 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Loaded CRNP data: 17808 records
+2025-06-01 23:09:18 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Calculation period: 2022-10-25 to 2024-11-05
+2025-06-01 23:09:18 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Downloading neutron flux data from MXCO
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Incoming flux correction applied (Iref=217.24)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Pressure correction applied (Pref=962.08 hPa)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Humidity correction applied (Aref=21.2266 g/cm³)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Neutron correction statistics:
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fi: mean=1.0055, std=0.0225, range=[0.8898, 1.5721]
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fp: mean=0.9693, std=0.0484, range=[0.8427, 1.1653]
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fw: mean=0.9352, std=0.0353, range=[0.8883, 1.0230]
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Neutron counts: raw=1060.2, corrected=1017.3, change=-4.04%
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Daily averages calculated: 743 days
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] VWC range: 0.198 - 0.729 (mean: 0.314)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Storage calculated using fixed depth (200mm)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved file: data\output\HC\soil_moisture\HC_soil_moisture.xlsx (743 records)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Results saved: data\output\HC\soil_moisture\HC_soil_moisture.xlsx
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Soil moisture calculation completed: 743 days processed
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation (10.2s)
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Calculation result validation passed
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved: HC_calculation_metadata.json
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved: HC_calculation_report.txt
+2025-06-01 23:09:27 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation for HC (10.3s)
+2025-06-01 23:25:16 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Starting Soil Moisture Calculation for HC
+2025-06-01 23:25:16 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Loaded calibration parameters (N0=1726.32)
+2025-06-01 23:25:16 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Using full data period for calculation
+2025-06-01 23:25:16 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] All required data files found
+2025-06-01 23:25:16 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Starting Soil Moisture Calculation
+2025-06-01 23:25:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Loaded CRNP data: 17808 records
+2025-06-01 23:25:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Calculation period: 2022-10-25 to 2024-11-05
+2025-06-01 23:25:17 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Downloading neutron flux data from MXCO
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Incoming flux correction applied (Iref=217.24)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Pressure correction applied (Pref=962.08 hPa)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Humidity correction applied (Aref=21.2266 g/cm³)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Neutron correction statistics:
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fi: mean=1.0055, std=0.0225, range=[0.8898, 1.5721]
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fp: mean=0.9693, std=0.0484, range=[0.8427, 1.1653]
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fw: mean=0.9352, std=0.0353, range=[0.8883, 1.0230]
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Neutron counts: raw=1060.2, corrected=1017.3, change=-4.04%
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Daily averages calculated: 743 days
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] VWC range: 0.198 - 0.729 (mean: 0.314)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Storage calculated using fixed depth (200mm)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved file: data\output\HC\soil_moisture\HC_soil_moisture.xlsx (743 records)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Results saved: data\output\HC\soil_moisture\HC_soil_moisture.xlsx
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Soil moisture calculation completed: 743 days processed
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation (8.5s)
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Calculation result validation passed
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved: HC_calculation_metadata.json
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Saved: HC_calculation_report.txt
+2025-06-01 23:25:24 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation for HC (8.5s)
+2025-06-01 23:37:59 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Starting Soil Moisture Calculation for HC
+2025-06-01 23:37:59 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Loaded calibration parameters (N0=1726.32)
+2025-06-01 23:37:59 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Using full data period for calculation
+2025-06-01 23:38:00 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Loaded soil moisture data: 743 records
+2025-06-01 23:38:00 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Using existing soil moisture calculation
+2025-06-01 23:38:00 - SoilMoistureManager_HC - INFO - [process=Soil Moisture Calculation for HC] Completed Soil Moisture Calculation for HC (0.1s)

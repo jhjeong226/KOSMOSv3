@@ -1,0 +1,35 @@
+================================================================================
+CRNP CALIBRATION REPORT
+================================================================================
+Station: HC
+Report Generated: 2025-06-01 23:25:16
+
+Calibration Period: 2024-08-17T00:00:00 to 2024-08-25T00:00:00
+
+Calibration Parameters:
+  N0 (Reference neutron count): 1726.32
+  Pref (Reference pressure): 962.08 hPa
+  Aref (Reference humidity): 21.2266 g/cm³
+  Iref (Reference incoming flux): 217.24
+
+Performance Metrics:
+  R² (Coefficient of determination): 0.5096
+  RMSE (Root Mean Square Error): 0.0115
+  MAE (Mean Absolute Error): 0.0096
+  NSE (Nash-Sutcliffe Efficiency): 0.5096
+  Bias: -0.0006
+  Sample size: 9
+
+Configuration:
+  Weighting method: Schron_2017
+  Reference depths: [10, 30, 60] cm
+  Neutron monitor: MXCO
+  Enabled corrections: incoming_flux, pressure, humidity
+
+Optimization Results:
+  Method: Nelder-Mead
+  Success: True
+  Final RMSE: 0.0115
+  Matched data points: 9
+
+================================================================================

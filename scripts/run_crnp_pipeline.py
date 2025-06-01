@@ -1,9 +1,9 @@
 # scripts/run_crnp_pipeline.py
 
 """
-CRNP 데이터 처리 통합 파이프라인
+CRNP 데이터 처리 통합 파이프라인 - 간단한 시각화 버전
 
-전처리 → 캘리브레이션 → 토양수분 계산 → 시각화 → 검증을 
+전처리 → 캘리브레이션 → 토양수분 계산 → 검증 → 간단한 시각화를 
 순차적으로 실행하는 통합 스크립트
 
 사용법:
@@ -28,13 +28,13 @@ sys.path.insert(0, str(project_root))
 from src.preprocessing.preprocessing_pipeline import PreprocessingPipeline
 from src.calibration.calibration_manager import CalibrationManager
 from src.calculation.soil_moisture_manager import SoilMoistureManager
-from src.visualization.visualization_manager import VisualizationManager
 from src.validation.validation_manager import ValidationManager
+from src.visualization.simple_plotter import create_simple_visualization  # 간단한 시각화 사용
 from src.core.logger import setup_logger
 
 
 class CRNPPipelineRunner:
-    """CRNP 전체 파이프라인을 실행하는 클래스"""
+    """CRNP 전체 파이프라인을 실행하는 클래스 - 순서 개선 버전 (검증 → 시각화)"""
     
     def __init__(self, station_id: str):
         self.station_id = station_id
@@ -44,7 +44,6 @@ class CRNPPipelineRunner:
         self.preprocessing_pipeline = PreprocessingPipeline()
         self.calibration_manager = CalibrationManager(station_id)
         self.sm_manager = SoilMoistureManager(station_id)
-        self.viz_manager = VisualizationManager(station_id)
         self.validation_manager = ValidationManager(station_id)
         
         # 파이프라인 결과 저장
@@ -77,19 +76,19 @@ class CRNPPipelineRunner:
             sm_result = self._run_soil_moisture_calculation(calculation_period, force_recalculation)
             self.results['soil_moisture'] = sm_result
             
-            # 4. 시각화
-            print("\n🎨 4단계: 시각화 생성")
-            viz_result = self._run_visualization()
-            self.results['visualization'] = viz_result
-            
-            # 5. 검증 (선택사항)
+            # 4. 검증 (선택사항)
             if not skip_validation:
-                print("\n✅ 5단계: 검증")
+                print("\n✅ 4단계: 검증")
                 validation_result = self._run_validation()
                 self.results['validation'] = validation_result
             else:
-                print("\n⏭️  5단계: 검증 (건너뜀)")
+                print("\n⏭️  4단계: 검증 (건너뜀)")
                 self.results['validation'] = {'status': 'skipped'}
+            
+            # 5. 간단한 시각화 (검증 후 실행으로 모든 데이터 준비됨)
+            print("\n🎨 5단계: 시각화 생성 (간단 버전)")
+            viz_result = self._run_simple_visualization()
+            self.results['visualization'] = viz_result
                 
             # 6. 최종 결과 정리
             pipeline_duration = (datetime.now() - pipeline_start_time).total_seconds()
@@ -158,13 +157,13 @@ class CRNPPipelineRunner:
                     force = kwargs.get('force_recalculation', False)
                     self.results['soil_moisture'] = self._run_soil_moisture_calculation(sm_period, force)
                     
-                elif step == 'visualization':
-                    print("🎨 시각화 생성")
-                    self.results['visualization'] = self._run_visualization()
-                    
                 elif step == 'validation':
                     print("✅ 검증 실행")
                     self.results['validation'] = self._run_validation()
+                    
+                elif step == 'visualization':
+                    print("🎨 간단한 시각화 생성")
+                    self.results['visualization'] = self._run_simple_visualization()
                     
                 else:
                     print(f"⚠️  알 수 없는 단계: {step}")
@@ -208,20 +207,20 @@ class CRNPPipelineRunner:
             sm_status = self.sm_manager.get_calculation_status()
             status['steps']['soil_moisture'] = sm_status
             
-            # 시각화 상태
-            viz_status = self.viz_manager.get_visualization_status()
-            status['steps']['visualization'] = viz_status
-            
             # 검증 상태
             val_status = self.validation_manager.get_validation_status()
             status['steps']['validation'] = val_status
+            
+            # 시각화 상태 (간단 버전)
+            viz_status = self._check_simple_visualization_status()
+            status['steps']['visualization'] = viz_status
             
             # 전체 완성도 계산
             completed_steps = sum(1 for step_status in status['steps'].values() 
                                 if step_status.get('calibration_available') or 
                                    step_status.get('calculation_available') or
-                                   step_status.get('plots_available') or
                                    step_status.get('validation_available') or
+                                   step_status.get('plots_available') or
                                    step_status.get('preprocessing_available'))
             
             status['completion_percentage'] = (completed_steps / 5) * 100
@@ -289,15 +288,36 @@ class CRNPPipelineRunner:
             print(f"   ❌ 토양수분 계산 실패: {e}")
             return {'status': 'failed', 'error': str(e)}
             
-    def _run_visualization(self) -> Dict[str, Any]:
-        """시각화 실행"""
+    def _run_simple_visualization(self) -> Dict[str, Any]:
+        """간단한 시각화 실행"""
         
         try:
-            result = self.viz_manager.generate_all_plots(include_validation=True)
+            output_dir = f"data/output/{self.station_id}/visualization"
+            plot_files = create_simple_visualization(self.station_id, output_dir)
             
-            total_plots = result.get('total_plots', 0)
-            print(f"   ✅ 시각화 완료 ({total_plots}개 플롯)")
-            return {'status': 'success', 'result': result}
+            print(f"   ✅ 간단한 시각화 완료 ({len(plot_files)}개 플롯)")
+            print("   📊 생성된 그래프:")
+            
+            plot_descriptions = {
+                'neutron_comparison': '   • 중성자 카운트 비교',
+                'correction_factors': '   • 보정계수 시계열',
+                'vwc_timeseries': '   • VWC 시계열',
+                'sm_timeseries': '   • 토양수분 비교',
+                'sm_scatter': '   • 토양수분 산점도'
+            }
+            
+            for plot_type in plot_files.keys():
+                description = plot_descriptions.get(plot_type, f"   • {plot_type}")
+                print(description)
+            
+            return {
+                'status': 'success', 
+                'result': {
+                    'plot_files': plot_files,
+                    'total_plots': len(plot_files),
+                    'output_dir': output_dir
+                }
+            }
             
         except Exception as e:
             print(f"   ❌ 시각화 실패: {e}")
@@ -334,6 +354,32 @@ class CRNPPipelineRunner:
             'output_directory': str(output_dir)
         }
         
+    def _check_simple_visualization_status(self) -> Dict[str, Any]:
+        """간단한 시각화 상태 확인"""
+        
+        viz_dir = Path(f"data/output/{self.station_id}/visualization")
+        
+        expected_plots = [
+            f"{self.station_id}_neutron_comparison.png",
+            f"{self.station_id}_correction_factors.png", 
+            f"{self.station_id}_vwc_timeseries.png",
+            f"{self.station_id}_soil_moisture_comparison.png",
+            f"{self.station_id}_soil_moisture_scatter.png"
+        ]
+        
+        existing_plots = []
+        for plot_file in expected_plots:
+            if (viz_dir / plot_file).exists():
+                existing_plots.append(plot_file)
+        
+        return {
+            'plots_available': len(existing_plots) > 0,
+            'total_plots': len(existing_plots),
+            'expected_plots': len(expected_plots),
+            'plot_files': existing_plots,
+            'output_directory': str(viz_dir)
+        }
+        
     def _determine_next_step(self, steps_status: Dict[str, Any]) -> str:
         """다음 실행 가능한 단계 결정"""
         
@@ -343,10 +389,10 @@ class CRNPPipelineRunner:
             return 'calibration'
         elif not steps_status.get('soil_moisture', {}).get('calculation_available'):
             return 'soil_moisture'
-        elif not steps_status.get('visualization', {}).get('plots_available'):
-            return 'visualization'
         elif not steps_status.get('validation', {}).get('validation_available'):
             return 'validation'
+        elif not steps_status.get('visualization', {}).get('plots_available'):
+            return 'visualization'
         else:
             return 'complete'
             
@@ -386,8 +432,8 @@ class CRNPPipelineRunner:
             'preprocessing': '전처리',
             'calibration': '캘리브레이션', 
             'soil_moisture': '토양수분 계산',
-            'visualization': '시각화',
-            'validation': '검증'
+            'validation': '검증',
+            'visualization': '시각화'
         }
         
         for step_key, step_name in step_names.items():
@@ -414,10 +460,7 @@ class CRNPPipelineRunner:
         if 'visualization' in results and results['visualization'].get('status') == 'success':
             viz_result = results['visualization']['result']
             total_plots = viz_result.get('total_plots', 0)
-            html_report = viz_result.get('html_report', '')
-            print(f"🎨 시각화: {total_plots}개 플롯 생성")
-            if html_report:
-                print(f"   HTML 보고서: {os.path.basename(html_report)}")
+            print(f"🎨 시각화: {total_plots}개 간단한 그래프 생성")
                 
         print(f"\n📁 결과 위치: data/output/{self.station_id}/")
         print("=" * 70)
@@ -426,7 +469,7 @@ class CRNPPipelineRunner:
 def main():
     """메인 함수"""
     
-    parser = argparse.ArgumentParser(description="CRNP 통합 파이프라인 실행")
+    parser = argparse.ArgumentParser(description="CRNP 통합 파이프라인 실행 (간단한 시각화)")
     
     # 필수 인자
     parser.add_argument("--station", "-s", required=True, help="관측소 ID (예: HC, PC)")
@@ -435,7 +478,7 @@ def main():
     mode_group = parser.add_mutually_exclusive_group()
     mode_group.add_argument("--all", action="store_true", help="전체 파이프라인 실행")
     mode_group.add_argument("--steps", nargs="+", 
-                           choices=['preprocessing', 'calibration', 'soil_moisture', 'visualization', 'validation'],
+                           choices=['preprocessing', 'calibration', 'soil_moisture', 'validation', 'visualization'],
                            help="특정 단계들만 실행")
     mode_group.add_argument("--status", action="store_true", help="파이프라인 상태만 확인")
     
@@ -471,8 +514,8 @@ def main():
                 'preprocessing': '전처리',
                 'calibration': '캘리브레이션',
                 'soil_moisture': '토양수분 계산', 
-                'visualization': '시각화',
-                'validation': '검증'
+                'validation': '검증',
+                'visualization': '시각화'
             }
             
             print(f"\n📊 단계별 상태:")

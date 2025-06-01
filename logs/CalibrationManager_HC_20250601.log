@@ -1,0 +1,117 @@
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=Calibration for HC] Starting Calibration for HC
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=Calibration for HC] Calibration period: 2024-08-17 to 2024-08-25
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=Calibration for HC] All required data files found
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=CRNP Calibration] Starting CRNP Calibration
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=Loading calibration data] Starting Loading calibration data
+2025-06-01 23:08:23 - CalibrationManager_HC - INFO - [process=Loading calibration data] Loading FDR data from data\output\HC\preprocessed\HC_FDR_input.xlsx
+2025-06-01 23:09:12 - CalibrationManager_HC - INFO - [process=Loading calibration data] Loading CRNP data from data\output\HC\preprocessed\HC_CRNP_input.xlsx
+2025-06-01 23:09:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] FDR_Calibration: 6936 records
+2025-06-01 23:09:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] CRNP_Calibration: 193 records
+2025-06-01 23:09:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed Loading calibration data (49.8s)
+2025-06-01 23:09:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Downloading neutron flux data from MXCO
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Incoming flux correction applied (Iref=217.24)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Pressure correction applied (Pref=962.08 hPa)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Humidity correction applied (Aref=21.2266 g/cm³)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron correction statistics:
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fi: mean=1.0000, std=0.0067, range=[0.9870, 1.0160]
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fp: mean=1.0001, std=0.0158, range=[0.9783, 1.0535]
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fw: mean=1.0000, std=0.0061, range=[0.9862, 1.0156]
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron counts: raw=1032.9, corrected=1033.1, change=+0.01%
+2025-06-01 23:09:15 - CalibrationManager_HC - WARNING - [process=Loading calibration data] Removing 6 outliers from total_corrected_neutrons
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Daily CRNP data: 9 days
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Enhanced matching: 9 matched, 9 failed
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Enhanced_Matched: 9 records
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Field SM range: 0.258 ~ 0.312
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron range: 1007.1 ~ 1060.6
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Field SM std: 0.0175, Neutron std: 18.5
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Optimization parameters:
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Data points: 9
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Bulk density: 1.44
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Lattice water: 0.0340
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Field SM range: 0.258 - 0.312
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Neutron range: 1007.1 - 1060.6
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Testing N0 values:
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Best initial N0: 1750 (RMSE: 0.0226)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Starting optimization from N0=1750
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Performance calculation details:
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Observed: mean=0.290840, std=0.016484, var=0.000272
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Predicted: mean=0.290227, std=0.023047
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Correlation: 0.881793
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   RMSE: 0.011544, MAE: 0.009602
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Traditional R²: 0.509588 (SS_res=0.001199, SS_tot=0.002446)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Final R² = 0.509588 (method: traditional)
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration result: N0=1726.3, R²=0.510, RMSE=0.0115
+2025-06-01 23:09:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calculated reference values: {'Pref': 962.0781725388601, 'Aref': 21.226569642170716, 'Iref': 217.23834715025905}
+2025-06-01 23:09:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_diagnostics.png
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_comparison.png
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_debug_data.xlsx
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_result.json
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_Parameters.xlsx
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration completed successfully. N0 = 1726.32
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed CRNP Calibration (53.8s)
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration result validation passed
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_report.txt
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed Calibration for HC (53.8s)
+2025-06-01 23:09:17 - CalibrationManager_HC - INFO - Loaded calibration parameters (N0=1726.32)
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=Calibration for HC] Starting Calibration for HC
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=Calibration for HC] Calibration period: 2024-08-17 to 2024-08-25
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=Calibration for HC] All required data files found
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=CRNP Calibration] Starting CRNP Calibration
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=Loading calibration data] Starting Loading calibration data
+2025-06-01 23:24:22 - CalibrationManager_HC - INFO - [process=Loading calibration data] Loading FDR data from data\output\HC\preprocessed\HC_FDR_input.xlsx
+2025-06-01 23:25:11 - CalibrationManager_HC - INFO - [process=Loading calibration data] Loading CRNP data from data\output\HC\preprocessed\HC_CRNP_input.xlsx
+2025-06-01 23:25:12 - CalibrationManager_HC - INFO - [process=Loading calibration data] FDR_Calibration: 6936 records
+2025-06-01 23:25:12 - CalibrationManager_HC - INFO - [process=Loading calibration data] CRNP_Calibration: 193 records
+2025-06-01 23:25:12 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed Loading calibration data (49.7s)
+2025-06-01 23:25:12 - CalibrationManager_HC - INFO - [process=Loading calibration data] Downloading neutron flux data from MXCO
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Incoming flux correction applied (Iref=217.24)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Pressure correction applied (Pref=962.08 hPa)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Humidity correction applied (Aref=21.2266 g/cm³)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron correction statistics:
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fi: mean=1.0000, std=0.0067, range=[0.9870, 1.0160]
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fp: mean=1.0001, std=0.0158, range=[0.9783, 1.0535]
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fw: mean=1.0000, std=0.0061, range=[0.9862, 1.0156]
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron counts: raw=1032.9, corrected=1033.1, change=+0.01%
+2025-06-01 23:25:13 - CalibrationManager_HC - WARNING - [process=Loading calibration data] Removing 6 outliers from total_corrected_neutrons
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Daily CRNP data: 9 days
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Enhanced matching: 9 matched, 9 failed
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Enhanced_Matched: 9 records
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Field SM range: 0.258 ~ 0.312
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Neutron range: 1007.1 ~ 1060.6
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Field SM std: 0.0175, Neutron std: 18.5
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Optimization parameters:
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Data points: 9
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Bulk density: 1.44
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Lattice water: 0.0340
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Field SM range: 0.258 - 0.312
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Neutron range: 1007.1 - 1060.6
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Testing N0 values:
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Best initial N0: 1750 (RMSE: 0.0226)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Starting optimization from N0=1750
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Performance calculation details:
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Observed: mean=0.290840, std=0.016484, var=0.000272
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Predicted: mean=0.290227, std=0.023047
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Correlation: 0.881793
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   RMSE: 0.011544, MAE: 0.009602
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Traditional R²: 0.509588 (SS_res=0.001199, SS_tot=0.002446)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data]   Final R² = 0.509588 (method: traditional)
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration result: N0=1726.3, R²=0.510, RMSE=0.0115
+2025-06-01 23:25:13 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calculated reference values: {'Pref': 962.0781725388601, 'Aref': 21.226569642170716, 'Iref': 217.23834715025905}
+2025-06-01 23:25:15 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_diagnostics.png
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_comparison.png
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_debug_data.xlsx
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_result.json
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_Parameters.xlsx
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration completed successfully. N0 = 1726.32
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed CRNP Calibration (53.7s)
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Calibration result validation passed
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Saved: HC_calibration_report.txt
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - [process=Loading calibration data] Completed Calibration for HC (53.7s)
+2025-06-01 23:25:16 - CalibrationManager_HC - INFO - Loaded calibration parameters (N0=1726.32)
+2025-06-01 23:37:59 - CalibrationManager_HC - INFO - [process=Calibration for HC] Starting Calibration for HC
+2025-06-01 23:37:59 - CalibrationManager_HC - INFO - [process=Calibration for HC] Calibration period: 2024-08-17 to 2024-08-25
+2025-06-01 23:37:59 - CalibrationManager_HC - INFO - [process=Calibration for HC] Using existing calibration result
+2025-06-01 23:37:59 - CalibrationManager_HC - INFO - [process=Calibration for HC] Completed Calibration for HC (0.0s)
+2025-06-01 23:37:59 - CalibrationManager_HC - INFO - Loaded calibration parameters (N0=1726.32)

@@ -1,0 +1,56 @@
+{
+  "station_id": "HC",
+  "calibration_period": {
+    "start": "2024-08-17T00:00:00",
+    "end": "2024-08-25T00:00:00"
+  },
+  "coordinates": {
+    "lat": 37.7049111,
+    "lon": 128.0316412
+  },
+  "N0_rdt": 1726.3167142868042,
+  "Pref": 962.0781725388601,
+  "Aref": 21.226569642170716,
+  "Iref": 217.23834715025905,
+  "clay_content": 0.35,
+  "soil_bulk_density": 1.44,
+  "lattice_water": 0.03395,
+  "optimization": {
+    "method": "Nelder-Mead",
+    "success": true,
+    "final_rmse": 0.011543671596233662,
+    "matched_data_count": 9,
+    "initial_test_rmse": 0.022633560047267853,
+    "initial_test_N0": 1750.0
+  },
+  "performance_metrics": {
+    "R2": 0.5095884255996652,
+    "RMSE": 0.011543671596233662,
+    "MAE": 0.009602083433844012,
+    "NSE": 0.5095884255996652,
+    "Bias": -0.0006130082157590292,
+    "Correlation": 0.8817930445381994,
+    "n_samples": 9,
+    "obs_std": 0.016484038010925274,
+    "pred_std": 0.023046568665679657,
+    "obs_mean": 0.2908398429345824,
+    "pred_mean": 0.2902268347188234,
+    "method_used": "traditional"
+  },
+  "settings": {
+    "weighting_method": "Schron_2017",
+    "reference_depths": [
+      10,
+      30,
+      60
+    ],
+    "corrections_enabled": {
+      "incoming_flux": true,
+      "pressure": true,
+      "humidity": true,
+      "biomass": false
+    },
+    "neutron_monitor": "MXCO"
+  },
+  "timestamp": "2025-06-01T23:25:13.958258"
+}

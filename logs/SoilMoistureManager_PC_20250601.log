@@ -366,3 +366,15 @@
 2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_metadata.json
 2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_report.txt
 2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation for PC (2.3s)
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Starting Soil Moisture Calculation for PC
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2614.76)
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Loaded soil moisture data: 91 records
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Using existing soil moisture calculation
+2025-06-01 22:57:02 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Completed Soil Moisture Calculation for PC (0.0s)
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Starting Soil Moisture Calculation for PC
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2614.76)
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Loaded soil moisture data: 91 records
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Using existing soil moisture calculation
+2025-06-01 23:04:15 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Completed Soil Moisture Calculation for PC (0.0s)

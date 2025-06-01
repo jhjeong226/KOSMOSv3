@@ -118,3 +118,13 @@
 2025-06-01 13:57:25 - CalibrationManager_PC - INFO - [process=Loading calibration data] Saved: PC_calibration_report.txt
 2025-06-01 13:57:25 - CalibrationManager_PC - INFO - [process=Loading calibration data] Completed Calibration for PC (9.9s)
 2025-06-01 13:57:45 - CalibrationManager_PC - INFO - Loaded calibration parameters (N0=2614.76)
+2025-06-01 22:57:02 - CalibrationManager_PC - INFO - [process=Calibration for PC] Starting Calibration for PC
+2025-06-01 22:57:02 - CalibrationManager_PC - INFO - [process=Calibration for PC] Calibration period: 2024-08-17 to 2024-08-25
+2025-06-01 22:57:02 - CalibrationManager_PC - INFO - [process=Calibration for PC] Using existing calibration result
+2025-06-01 22:57:02 - CalibrationManager_PC - INFO - [process=Calibration for PC] Completed Calibration for PC (0.0s)
+2025-06-01 22:57:02 - CalibrationManager_PC - INFO - Loaded calibration parameters (N0=2614.76)
+2025-06-01 23:04:15 - CalibrationManager_PC - INFO - [process=Calibration for PC] Starting Calibration for PC
+2025-06-01 23:04:15 - CalibrationManager_PC - INFO - [process=Calibration for PC] Calibration period: 2024-08-17 to 2024-08-25
+2025-06-01 23:04:15 - CalibrationManager_PC - INFO - [process=Calibration for PC] Using existing calibration result
+2025-06-01 23:04:15 - CalibrationManager_PC - INFO - [process=Calibration for PC] Completed Calibration for PC (0.0s)
+2025-06-01 23:04:15 - CalibrationManager_PC - INFO - Loaded calibration parameters (N0=2614.76)

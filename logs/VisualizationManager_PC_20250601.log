@@ -38,3 +38,13 @@
 2025-06-01 22:31:27 - VisualizationManager_PC - WARNING - [process=Creating validation comparison plots] Failed to generate HTML report: Unknown format code 'f' for object of type 'str'
 2025-06-01 22:31:27 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Saved: PC_visualization_metadata.json
 2025-06-01 22:31:27 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Generated 11 plots successfully
+2025-06-01 22:57:05 - VisualizationManager_PC - INFO - Generated 4 neutron plots
+2025-06-01 22:57:10 - VisualizationManager_PC - INFO - Generated 5 soil moisture plots
+2025-06-01 22:57:10 - VisualizationManager_PC - WARNING - Insufficient data for seasonal analysis
+2025-06-01 22:57:16 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Starting Creating validation comparison plots
+2025-06-01 22:57:16 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Matched 91 data points
+2025-06-01 22:57:18 - VisualizationManager_PC - ERROR - [process=Creating validation comparison plots] Error in Creating validation comparison plots: 'Index' object has no attribute 'month'
+2025-06-01 22:57:18 - VisualizationManager_PC - WARNING - [process=Creating validation comparison plots] Failed to generate validation plots: 'Index' object has no attribute 'month'
+2025-06-01 22:57:18 - VisualizationManager_PC - WARNING - [process=Creating validation comparison plots] Failed to generate HTML report: Unknown format code 'f' for object of type 'str'
+2025-06-01 22:57:18 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Saved: PC_visualization_metadata.json
+2025-06-01 22:57:18 - VisualizationManager_PC - INFO - [process=Creating validation comparison plots] Generated 11 plots successfully

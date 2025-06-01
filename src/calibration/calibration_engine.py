@@ -153,8 +153,8 @@ class CalibrationEngine:
             return cleaned_data
             
     def _match_daily_data_enhanced(self, fdr_data: pd.DataFrame, crnp_data: pd.DataFrame,
-                                  geo_info: Dict, cal_start: datetime, cal_end: datetime) -> pd.DataFrame:
-        """향상된 일별 데이터 매칭 - crnpy 가중평균 사용"""
+                                geo_info: Dict, cal_start: datetime, cal_end: datetime) -> pd.DataFrame:
+        """향상된 일별 데이터 매칭 - crnpy 가중평균 사용 (pandas 경고 수정)"""
         
         with ProcessTimer(self.logger, "Enhanced daily data matching"):
             
@@ -194,13 +194,13 @@ class CalibrationEngine:
                     failed_days += 1
                     continue
                 
-                # 유효한 FDR 데이터 필터링
+                # 유효한 FDR 데이터 필터링 - .copy() 추가로 pandas 경고 해결
                 valid_fdr = fdr_day[
                     (fdr_day['theta_v'].notna()) & 
                     (fdr_day['theta_v'] > 0) & 
                     (fdr_day['theta_v'] < 1) &
                     (fdr_day['FDR_depth'].isin(self.depths))
-                ]
+                ].copy()  # 🔧 .copy() 추가하여 SettingWithCopyWarning 해결
                 
                 if len(valid_fdr) == 0:
                     failed_days += 1
@@ -208,7 +208,7 @@ class CalibrationEngine:
                 
                 # crnpy 가중평균 계산
                 try:
-                    # 프로파일 ID 생성
+                    # 프로파일 ID 생성 - 이제 경고 없이 안전하게 할당 가능
                     valid_fdr['profile_id'] = (
                         valid_fdr['latitude'].astype(str) + '_' + 
                         valid_fdr['longitude'].astype(str)
