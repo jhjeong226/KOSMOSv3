@@ -338,3 +338,31 @@
 2025-06-01 10:30:13 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_metadata.json
 2025-06-01 10:30:13 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_report.txt
 2025-06-01 10:30:13 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation for PC (2.3s)
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Starting Soil Moisture Calculation for PC
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2614.76)
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation for PC] All required data files found
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Starting Soil Moisture Calculation
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Loaded CRNP data: 2162 records
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Calculation period: 2024-08-01 to 2024-10-30
+2025-06-01 13:57:45 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Downloading neutron flux data from MXCO
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Incoming flux correction applied (Iref=217.24)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Pressure correction applied (Pref=949.22 hPa)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Humidity correction applied (Aref=19.4118 g/cm³)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Neutron correction statistics:
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation]   fi: mean=0.9786, std=0.0216, range=[0.8898, 1.0160]
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation]   fp: mean=0.9748, std=0.0390, range=[0.8530, 1.0530]
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation]   fw: mean=0.9746, std=0.0259, range=[0.9182, 1.0215]
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Neutron counts: raw=1420.5, corrected=1451.7, change=+2.19%
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Daily averages calculated: 91 days
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] VWC range: 0.232 - 0.553 (mean: 0.350)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Storage calculated using fixed depth (200mm)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved file: data\output\PC\soil_moisture\PC_soil_moisture.xlsx (91 records)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Results saved: data\output\PC\soil_moisture\PC_soil_moisture.xlsx
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Soil moisture calculation completed: 91 days processed
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation (2.3s)
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Calculation result validation passed
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_metadata.json
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Saved: PC_calculation_report.txt
+2025-06-01 13:57:47 - SoilMoistureManager_PC - INFO - [process=Soil Moisture Calculation] Completed Soil Moisture Calculation for PC (2.3s)
