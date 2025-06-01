@@ -1,0 +1,24 @@
+{
+  "station_id": "PC",
+  "generation_timestamp": "2025-06-01T14:35:37.531509",
+  "plots_generated": {
+    "neutron": {
+      "raw_neutron": "data\\output\\PC\\visualization\\PC_raw_neutron_timeseries.png",
+      "corrected_neutron": "data\\output\\PC\\visualization\\PC_corrected_neutron_timeseries.png",
+      "neutron_comparison": "data\\output\\PC\\visualization\\PC_neutron_comparison.png",
+      "correction_factors": "data\\output\\PC\\visualization\\PC_correction_factors.png",
+      "neutron_statistics": "data\\output\\PC\\visualization\\PC_neutron_statistics.png",
+      "correction_summary": "data\\output\\PC\\visualization\\PC_correction_summary.png"
+    },
+    "soil_moisture": {
+      "vwc_timeseries": "data\\output\\PC\\visualization\\PC_vwc_timeseries.png",
+      "vwc_uncertainty": "data\\output\\PC\\visualization\\PC_vwc_uncertainty.png",
+      "storage": "data\\output\\PC\\visualization\\PC_storage.png",
+      "vwc_weather": "data\\output\\PC\\visualization\\PC_vwc_weather.png",
+      "sm_dashboard": "data\\output\\PC\\visualization\\PC_sm_dashboard.png"
+    },
+    "validation": {}
+  },
+  "html_report": "",
+  "total_plots": 11
+}
