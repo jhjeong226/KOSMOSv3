@@ -49,3 +49,264 @@
 2025-06-01 00:00:38 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_metadata.json - success
 2025-06-01 00:00:38 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_report.txt - success
 2025-06-01 00:00:38 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation for PC in 2.51s
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Process started: Soil Moisture Calculation for PC
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2612.86)
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] All required data files found
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation] Process started: Soil Moisture Calculation
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process started: Loading CRNP data
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Original columns: ['Timestamp', 'RN', 'Ta', 'RH', 'Pa', 'WS', 'WS_max', 'WD_VCT', 'N_counts', 'timestamp']
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Raw - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process completed: Loading CRNP data in 0.16s
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Calculation period: 2024-08-01 to 2024-10-30
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Filtered - 2149 records
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying neutron corrections] Process started: Applying neutron corrections
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process started: Neutron Corrections
+2025-06-01 00:26:39 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Downloading neutron flux data from MXCO
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Incoming flux correction applied (Iref=217.24)
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Pressure correction applied (Pref=949.22 hPa)
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Humidity correction applied (Aref=19.4118 g/cm³)
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron correction statistics:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fi: mean=0.9786, std=0.0216, range=[0.8898, 1.0160]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fp: mean=0.9748, std=0.0390, range=[0.8530, 1.0530]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fw: mean=0.9746, std=0.0259, range=[0.9182, 1.0215]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron counts: raw=1419.1, corrected=1450.6, change=+2.22%
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Neutron Corrections in 2.80s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Applying neutron corrections in 2.80s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process started: Applying exclusion periods
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process completed: Applying exclusion periods in 0.00s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process started: Calculating daily averages
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Data loaded: CRNP_Daily - 91 records
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process completed: Calculating daily averages in 0.00s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process started: Calculating VWC
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] VWC calculated: mean=0.349, std=0.074, range=[0.231, 0.551]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process completed: Calculating VWC in 0.00s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process started: Calculating sensing depth
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] === SENSING DEPTH INPUT DIAGNOSTICS ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] VWC Input Analysis:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Count: 91 valid values
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Range: 0.2307 - 0.5513
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Mean: 0.3489
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Std: 0.0739
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Pressure Input Analysis:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Count: 91 valid values
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Range: 944.1 - 967.8 hPa
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Mean: 952.6 hPa
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Reference: 952.6 hPa
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Soil Parameters:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Bulk density: 1.2 g/cm³
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Lattice water: 0.03395
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   N0: 2612.858784198761
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Input data quality looks reasonable
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Trying crnpy.sensing_depth (Franz_2012) ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Function call parameters:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   theta_v: array[91] = [0.4769, ..., 0.3898]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   pressure: array[91] = [944.7, ..., 957.1]
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   pressure_ref: 952.6
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   bulk_density: 1.2
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Wlat: 0.03395
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   method: 'Franz_2012'
+2025-06-01 00:26:42 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Franz_2012 failed: TypeError: sensing_depth() got an unexpected keyword argument 'theta_v'
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Trying crnpy.sensing_depth (Kohli_2015) ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Kohli_2015 failed: TypeError: sensing_depth() got an unexpected keyword argument 'theta_v'
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Trying crnpy.sensing_depth (positional args) ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Positional args failed: TypeError: 'NoneType' object is not iterable
+2025-06-01 00:26:42 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] 
+=== All crnpy methods failed, using physics formula ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== FINAL SENSING DEPTH RESULTS ===
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Calculation method used: physics_formula
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Calculation details: {'mean': 109.79817894715936, 'std': 17.812575059662674, 'min': 73.52145083291738, 'max': 145.33601812111425}
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] VWC vs Sensing Depth correlation: -0.985
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Expected: negative correlation (higher VWC → shallower depth)
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] VWC-Depth relationship samples:
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC=0.477 → Depth=82.6mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC=0.491 → Depth=80.7mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC=0.436 → Depth=89.2mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC=0.429 → Depth=90.4mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC=0.411 → Depth=93.7mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process completed: Calculating sensing depth in 0.01s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process started: Calculating soil water storage
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Average soil water storage: 172.6 mm
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process completed: Calculating soil water storage in 0.00s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process started: Calculating uncertainty
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Average VWC uncertainty: ±0.0461
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Calculating uncertainty in 0.00s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Saved file: data\output\PC\soil_moisture\PC_soil_moisture.xlsx (91 records)
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_soil_moisture.xlsx - success
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Soil moisture calculation completed for 91 days
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation in 3.02s
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Calculation result validation passed
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_metadata.json - success
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_report.txt - success
+2025-06-01 00:26:42 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation for PC in 3.03s
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Process started: Soil Moisture Calculation for PC
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2612.86)
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] All required data files found
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation] Process started: Soil Moisture Calculation
+2025-06-01 00:32:23 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process started: Loading CRNP data
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Original columns: ['Timestamp', 'RN', 'Ta', 'RH', 'Pa', 'WS', 'WS_max', 'WD_VCT', 'N_counts', 'timestamp']
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Raw - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process completed: Loading CRNP data in 0.17s
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Calculation period: 2024-08-01 to 2024-10-30
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Filtered - 2149 records
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying neutron corrections] Process started: Applying neutron corrections
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process started: Neutron Corrections
+2025-06-01 00:32:24 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Downloading neutron flux data from MXCO
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Incoming flux correction applied (Iref=217.24)
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Pressure correction applied (Pref=949.22 hPa)
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Humidity correction applied (Aref=19.4118 g/cm³)
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron correction statistics:
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fi: mean=0.9786, std=0.0216, range=[0.8898, 1.0160]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fp: mean=0.9748, std=0.0390, range=[0.8530, 1.0530]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fw: mean=0.9746, std=0.0259, range=[0.9182, 1.0215]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron counts: raw=1419.1, corrected=1450.6, change=+2.22%
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Neutron Corrections in 2.23s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Applying neutron corrections in 2.23s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process started: Applying exclusion periods
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process completed: Applying exclusion periods
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process started: Calculating daily averages
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Data loaded: CRNP_Daily - 91 records
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process completed: Calculating daily averages in 0.00s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process started: Calculating VWC
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] VWC calculated: mean=0.349, std=0.074, range=[0.231, 0.551]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process completed: Calculating VWC in 0.00s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process started: Calculating sensing depth
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] === SENSING DEPTH INPUT DIAGNOSTICS ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Input data summary:
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC: 91 values, range [0.2307, 0.5513], mean 0.3489
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Pressure: 91 values, range [944.1, 967.8] hPa
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Neutron: 91 values, range [1313.4, 1573.1]
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Bulk density: 1.2, Lattice water: 0.03395, N0: 2612.858784198761
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] crnpy.sensing_depth signature: (vwc, pressure, p_ref, bulk_density, Wlat, dist=None, method='Schron_2017')
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 1: VWC-based sensing depth ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ VWC-based method failed: TypeError: 'NoneType' object is not iterable
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 2: Neutron-based sensing depth ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Neutron-based method failed: TypeError: 'float' object is not iterable
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 3: Simple 3-parameter call ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Simple method failed: TypeError: sensing_depth() missing 2 required positional arguments: 'bulk_density' and 'Wlat'
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 4: Dictionary parameters ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Dict params method failed: TypeError: sensing_depth() got an unexpected keyword argument 'pressure_ref'
+2025-06-01 00:32:26 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] 
+=== All crnpy methods failed, using validated physics formula ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Physics formula SUCCESS: {'mean': 109.79817894715936, 'std': 17.812575059662674, 'min': 73.52145083291738, 'max': 145.33601812111425, 'valid_count': 91, 'formula': 'Franz_2012_with_pressure_correction'}
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] VWC-Depth correlation: -0.985
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Strong negative correlation (expected for VWC-depth relationship)
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== FINAL SENSING DEPTH RESULTS ===
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Method used: validated_physics_formula
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   mean: 109.8 mm
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   std: 17.8 mm
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   min: 73.5 mm
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   max: 145.3 mm
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   valid_count: 91
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   formula: Franz_2012_with_pressure_correction
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Sensing depth values are in reasonable range
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process completed: Calculating sensing depth in 0.01s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process started: Calculating soil water storage
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Average soil water storage: 172.6 mm
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process completed: Calculating soil water storage in 0.00s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process started: Calculating uncertainty
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Average VWC uncertainty: ±0.0461
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Calculating uncertainty in 0.00s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Saved file: data\output\PC\soil_moisture\PC_soil_moisture.xlsx (91 records)
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_soil_moisture.xlsx - success
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Soil moisture calculation completed for 91 days
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation in 2.46s
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Calculation result validation passed
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_metadata.json - success
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_report.txt - success
+2025-06-01 00:32:26 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation for PC in 2.47s
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Process started: Soil Moisture Calculation for PC
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Loaded calibration parameters (N0=2612.86)
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] Using full data period for calculation
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation for PC] All required data files found
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Soil Moisture Calculation] Process started: Soil Moisture Calculation
+2025-06-01 00:36:09 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process started: Loading CRNP data
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Original columns: ['Timestamp', 'RN', 'Ta', 'RH', 'Pa', 'WS', 'WS_max', 'WD_VCT', 'N_counts', 'timestamp']
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Raw - 2163 records (date_range=2024-08-01 12:00:00 to 2024-10-30 14:00:00)
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Process completed: Loading CRNP data in 0.16s
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Calculation period: 2024-08-01 to 2024-10-30
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Loading CRNP data] Data loaded: CRNP_Filtered - 2149 records
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying neutron corrections] Process started: Applying neutron corrections
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process started: Neutron Corrections
+2025-06-01 00:36:10 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Downloading neutron flux data from MXCO
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Incoming flux correction applied (Iref=217.24)
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Pressure correction applied (Pref=949.22 hPa)
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Humidity correction applied (Aref=19.4118 g/cm³)
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron correction statistics:
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fi: mean=0.9786, std=0.0216, range=[0.8898, 1.0160]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fp: mean=0.9748, std=0.0390, range=[0.8530, 1.0530]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fw: mean=0.9746, std=0.0259, range=[0.9182, 1.0215]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections]   fb: mean=1.0000, std=0.0000, range=[1.0000, 1.0000]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Neutron counts: raw=1419.1, corrected=1450.6, change=+2.22%
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Neutron Corrections in 2.10s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Neutron Corrections] Process completed: Applying neutron corrections in 2.10s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process started: Applying exclusion periods
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Applying exclusion periods] Process completed: Applying exclusion periods
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process started: Calculating daily averages
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Data loaded: CRNP_Daily - 91 records
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating daily averages] Process completed: Calculating daily averages in 0.00s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process started: Calculating VWC
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] VWC calculated: mean=0.349, std=0.074, range=[0.231, 0.551]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating VWC] Process completed: Calculating VWC in 0.00s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process started: Calculating sensing depth
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] === SENSING DEPTH INPUT DIAGNOSTICS ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Input data summary:
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   VWC: 91 values, range [0.2307, 0.5513], mean 0.3489
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Pressure: 91 values, range [944.1, 967.8] hPa
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Neutron: 91 values, range [1313.4, 1573.1]
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   Bulk density: 1.2, Lattice water: 0.03395, N0: 2612.858784198761
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] crnpy.sensing_depth signature: (vwc, pressure, p_ref, bulk_density, Wlat, dist=None, method='Schron_2017')
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 1: VWC-based sensing depth ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ VWC-based method failed: TypeError: sensing_depth() missing 1 required positional argument: 'Wlat'
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 2: Neutron-based sensing depth ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Neutron-based method failed: TypeError: 'float' object is not iterable
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 3: Simple 3-parameter call ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Simple method failed: TypeError: sensing_depth() missing 2 required positional arguments: 'bulk_density' and 'Wlat'
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== Method 4: Dictionary parameters ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] ❌ Dict params method failed: TypeError: sensing_depth() got an unexpected keyword argument 'pressure_ref'
+2025-06-01 00:36:12 - SoilMoistureManager_PC - WARNING - warning:109 - [process=Calculating sensing depth] 
+=== All crnpy methods failed, using validated physics formula ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Physics formula SUCCESS: {'mean': 109.79817894715936, 'std': 17.812575059662674, 'min': 73.52145083291738, 'max': 145.33601812111425, 'valid_count': 91, 'formula': 'Franz_2012_with_pressure_correction'}
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] VWC-Depth correlation: -0.985
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Strong negative correlation (expected for VWC-depth relationship)
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] 
+=== FINAL SENSING DEPTH RESULTS ===
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Method used: validated_physics_formula
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   mean: 109.8 mm
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   std: 17.8 mm
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   min: 73.5 mm
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   max: 145.3 mm
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   valid_count: 91
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth]   formula: Franz_2012_with_pressure_correction
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] ✅ Sensing depth values are in reasonable range
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating sensing depth] Process completed: Calculating sensing depth in 0.01s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process started: Calculating soil water storage
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Average soil water storage: 172.6 mm
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating soil water storage] Process completed: Calculating soil water storage in 0.00s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process started: Calculating uncertainty
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Average VWC uncertainty: ±0.0461
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Calculating uncertainty in 0.00s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Saved file: data\output\PC\soil_moisture\PC_soil_moisture.xlsx (91 records)
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_soil_moisture.xlsx - success
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Soil moisture calculation completed for 91 days
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation in 2.33s
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Calculation result validation passed
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_metadata.json - success
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] File save: data\output\PC\soil_moisture\PC_calculation_report.txt - success
+2025-06-01 00:36:12 - SoilMoistureManager_PC - INFO - info:105 - [process=Calculating uncertainty] Process completed: Soil Moisture Calculation for PC in 2.33s

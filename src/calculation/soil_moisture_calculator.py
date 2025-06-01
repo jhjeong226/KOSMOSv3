@@ -333,60 +333,72 @@ class SoilMoistureCalculator:
             return daily_data
             
     def _calculate_sensing_depth_robust(self, daily_data: pd.DataFrame) -> pd.DataFrame:
-        """강건한 유효깊이 계산 - 완전 수정된 버전"""
+        """crnpy API 호환 유효깊이 계산 - 완전 수정"""
         
         with ProcessTimer(self.logger, "Calculating sensing depth"):
             
-            # 1단계: crnpy.sensing_depth 시도 (여러 방법)
-            crnpy_success = False
+            # === 1단계: 입력 데이터 진단 ===
+            self.logger.info("=== SENSING DEPTH INPUT DIAGNOSTICS ===")
             
+            vwc_data = daily_data['VWC'].dropna()
+            pressure_data = daily_data['Pa'].dropna()
+            neutron_data = daily_data['total_corrected_neutrons'].dropna()
+            
+            self.logger.info(f"Input data summary:")
+            self.logger.info(f"  VWC: {len(vwc_data)} values, range [{vwc_data.min():.4f}, {vwc_data.max():.4f}], mean {vwc_data.mean():.4f}")
+            self.logger.info(f"  Pressure: {len(pressure_data)} values, range [{pressure_data.min():.1f}, {pressure_data.max():.1f}] hPa")
+            self.logger.info(f"  Neutron: {len(neutron_data)} values, range [{neutron_data.min():.1f}, {neutron_data.max():.1f}]")
+            self.logger.info(f"  Bulk density: {self.bulk_density}, Lattice water: {self.lattice_water}, N0: {self.N0}")
+            
+            # === 2단계: crnpy 라이브러리 API 탐색 ===
+            calculation_method = "none"
+            calculation_details = {}
+            
+            # crnpy 함수 시그니처 확인
             try:
-                # 방법 1: 기본 Franz_2012
+                import inspect
+                sig = inspect.signature(crnpy.sensing_depth)
+                self.logger.info(f"crnpy.sensing_depth signature: {sig}")
+            except:
+                self.logger.warning("Could not inspect crnpy.sensing_depth signature")
+            
+            # 방법 1: 문서에서 가장 일반적인 호출 방식
+            try:
+                self.logger.info("\n=== Method 1: VWC-based sensing depth ===")
+                
+                # VWC를 사용한 유효깊이 계산
                 depth_result = crnpy.sensing_depth(
-                    theta_v=daily_data['VWC'].values,  # numpy array로 전달
-                    pressure=daily_data['Pa'].values,
-                    pressure_ref=daily_data['Pa'].mean(),
-                    bulk_density=self.bulk_density,
-                    Wlat=self.lattice_water,
-                    method="Franz_2012"
+                    daily_data['VWC'].values, 
+                    daily_data['Pa'].mean(),
+                    self.bulk_density,
+                    self.lattice_water, method="Franz_2012"
                 )
                 
                 if depth_result is not None and not np.all(np.isnan(depth_result)):
-                    daily_data['sensing_depth'] = depth_result
-                    avg_depth = np.nanmean(depth_result)
-                    self.logger.info(f"crnpy sensing depth (Franz_2012): {avg_depth:.1f} mm")
-                    crnpy_success = True
-                    
-            except Exception as e:
-                self.logger.debug(f"Franz_2012 method failed: {e}")
-                
-            # 방법 2: Kohli_2015 시도
-            if not crnpy_success:
-                try:
-                    depth_result = crnpy.sensing_depth(
-                        theta_v=daily_data['VWC'].values,
-                        pressure=daily_data['Pa'].values,
-                        pressure_ref=daily_data['Pa'].mean(),
-                        bulk_density=self.bulk_density,
-                        Wlat=self.lattice_water,
-                        method="Kohli_2015"
-                    )
-                    
-                    if depth_result is not None and not np.all(np.isnan(depth_result)):
+                    valid_depths = depth_result[~np.isnan(depth_result)]
+                    if len(valid_depths) > 0:
                         daily_data['sensing_depth'] = depth_result
-                        avg_depth = np.nanmean(depth_result)
-                        self.logger.info(f"crnpy sensing depth (Kohli_2015): {avg_depth:.1f} mm")
-                        crnpy_success = True
+                        calculation_method = "crnpy_vwc_based"
+                        calculation_details = {
+                            'mean': np.mean(valid_depths),
+                            'std': np.std(valid_depths),
+                            'min': np.min(valid_depths),
+                            'max': np.max(valid_depths),
+                            'valid_count': len(valid_depths)
+                        }
+                        self.logger.info(f"✅ VWC-based method SUCCESS: {calculation_details}")
                         
-                except Exception as e:
-                    self.logger.debug(f"Kohli_2015 method failed: {e}")
-                    
-            # 방법 3: 단순 파라미터로 시도
-            if not crnpy_success:
+            except Exception as e:
+                self.logger.warning(f"❌ VWC-based method failed: {type(e).__name__}: {str(e)}")
+            
+            # 방법 2: 중성자 카운트 기반 (일부 crnpy 버전)
+            if calculation_method == "none":
                 try:
-                    # VWC와 압력만 사용하는 단순한 호출
+                    self.logger.info("\n=== Method 2: Neutron-based sensing depth ===")
+                    
                     depth_result = crnpy.sensing_depth(
-                        daily_data['VWC'].values,
+                        daily_data['total_corrected_neutrons'].values,
+                        self.N0,
                         daily_data['Pa'].values,
                         daily_data['Pa'].mean(),
                         self.bulk_density,
@@ -394,98 +406,207 @@ class SoilMoistureCalculator:
                     )
                     
                     if depth_result is not None and not np.all(np.isnan(depth_result)):
-                        daily_data['sensing_depth'] = depth_result
-                        avg_depth = np.nanmean(depth_result)
-                        self.logger.info(f"crnpy sensing depth (simple): {avg_depth:.1f} mm")
-                        crnpy_success = True
-                        
+                        valid_depths = depth_result[~np.isnan(depth_result)]
+                        if len(valid_depths) > 0:
+                            daily_data['sensing_depth'] = depth_result
+                            calculation_method = "crnpy_neutron_based"
+                            calculation_details = {
+                                'mean': np.mean(valid_depths),
+                                'std': np.std(valid_depths),
+                                'min': np.min(valid_depths),
+                                'max': np.max(valid_depths),
+                                'valid_count': len(valid_depths)
+                            }
+                            self.logger.info(f"✅ Neutron-based method SUCCESS: {calculation_details}")
+                            
                 except Exception as e:
-                    self.logger.debug(f"Simple method failed: {e}")
+                    self.logger.warning(f"❌ Neutron-based method failed: {type(e).__name__}: {str(e)}")
+            
+            # 방법 3: 가장 단순한 호출 (3개 인자만)
+            if calculation_method == "none":
+                try:
+                    self.logger.info("\n=== Method 3: Simple 3-parameter call ===")
                     
-            # 2단계: crnpy 실패시 물리 기반 경험식 사용
-            if not crnpy_success:
-                self.logger.warning("crnpy sensing_depth failed, using physics-based empirical formula")
+                    depth_result = crnpy.sensing_depth(
+                        daily_data['VWC'].values,
+                        self.bulk_density,
+                        self.lattice_water
+                    )
+                    
+                    if depth_result is not None and not np.all(np.isnan(depth_result)):
+                        valid_depths = depth_result[~np.isnan(depth_result)]
+                        if len(valid_depths) > 0:
+                            daily_data['sensing_depth'] = depth_result
+                            calculation_method = "crnpy_simple"
+                            calculation_details = {
+                                'mean': np.mean(valid_depths),
+                                'std': np.std(valid_depths),
+                                'min': np.min(valid_depths),
+                                'max': np.max(valid_depths),
+                                'valid_count': len(valid_depths)
+                            }
+                            self.logger.info(f"✅ Simple method SUCCESS: {calculation_details}")
+                            
+                except Exception as e:
+                    self.logger.warning(f"❌ Simple method failed: {type(e).__name__}: {str(e)}")
+            
+            # 방법 4: dict 형태 파라미터 (일부 버전)
+            if calculation_method == "none":
+                try:
+                    self.logger.info("\n=== Method 4: Dictionary parameters ===")
+                    
+                    params = {
+                        'vwc': daily_data['VWC'].values,
+                        'pressure': daily_data['Pa'].values,
+                        'pressure_ref': daily_data['Pa'].mean(),
+                        'bulk_density': self.bulk_density,
+                        'lattice_water': self.lattice_water
+                    }
+                    
+                    depth_result = crnpy.sensing_depth(**params)
+                    
+                    if depth_result is not None and not np.all(np.isnan(depth_result)):
+                        valid_depths = depth_result[~np.isnan(depth_result)]
+                        if len(valid_depths) > 0:
+                            daily_data['sensing_depth'] = depth_result
+                            calculation_method = "crnpy_dict_params"
+                            calculation_details = {
+                                'mean': np.mean(valid_depths),
+                                'std': np.std(valid_depths),
+                                'min': np.min(valid_depths),
+                                'max': np.max(valid_depths),
+                                'valid_count': len(valid_depths)
+                            }
+                            self.logger.info(f"✅ Dict params method SUCCESS: {calculation_details}")
+                            
+                except Exception as e:
+                    self.logger.warning(f"❌ Dict params method failed: {type(e).__name__}: {str(e)}")
+            
+            # === 3단계: 모든 crnpy 방법 실패시 검증된 물리 공식 사용 ===
+            if calculation_method == "none":
+                self.logger.warning("\n=== All crnpy methods failed, using validated physics formula ===")
                 
                 try:
-                    # Desilets et al. (2010) & Franz et al. (2012) 기반 경험식
-                    vwc_values = daily_data['VWC'].values
-                    pressure_values = daily_data['Pa'].values
-                    p_ref = daily_data['Pa'].mean()
+                    # Franz et al. (2012) + Desilets et al. (2010) 통합 공식
+                    physics_depths = []
                     
-                    # 물리 기반 유효깊이 계산
-                    physics_depth = []
-                    
-                    for i, (vwc, pressure) in enumerate(zip(vwc_values, pressure_values)):
+                    for i, (vwc, pressure) in enumerate(zip(daily_data['VWC'].values, daily_data['Pa'].values)):
                         if pd.notna(vwc) and pd.notna(pressure) and vwc > 0:
+                            # 1. 유효 밀도 계산 (g/cm³)
+                            # ρ_eff = ρ_bd * (θ + W_lat) + ρ_water_equivalent
+                            water_equivalent_density = 0.0829  # g/cm³ (Franz et al. 2012)
+                            effective_density = self.bulk_density * (vwc + self.lattice_water) + water_equivalent_density
                             
-                            # Franz et al. (2012) 공식 기반
-                            # D86 = 5.8 / (ρ_bd * (θ + W_lat) + 0.0829)
+                            # 2. 86% 반응 깊이 계산 (Franz et al. 2012)
+                            # D86 = 5.8 / ρ_eff [cm]
+                            if effective_density > 0.1:  # 최소값 보호
+                                D86_cm = 5.8 / effective_density
+                            else:
+                                D86_cm = 25.0  # fallback
                             
-                            # 유효 밀도 계산
-                            effective_density = self.bulk_density * (vwc + self.lattice_water) + 0.0829
+                            # 3. cm를 mm로 변환
+                            D86_mm = D86_cm * 10
                             
-                            # 86% 관여 깊이 (mm)
-                            D86 = (5.8 / effective_density) * 100  # cm to mm
-                            
-                            # 기압 보정
-                            pressure_correction = pressure / p_ref
-                            D86_corrected = D86 * pressure_correction
-                            
-                            # 현실적 범위 제한 (50-800mm)
-                            depth = max(50, min(800, D86_corrected))
+                            # 4. 기압 보정 (Desilets et al. 2010)
+                            # 대기압이 낮을수록 중성자 침투깊이 증가
+                            pressure_ref = daily_data['Pa'].mean()
+                            if pressure_ref > 0:
+                                pressure_correction = pressure / pressure_ref
+                                depth_corrected = D86_mm * pressure_correction
+                            else:
+                                depth_corrected = D86_mm
+                                
+                            # 5. 현실적 범위 제한 (문헌 기반)
+                            # 일반적으로 50-500mm 범위 (Franz et al. 2012, Zreda et al. 2012)
+                            depth_final = max(50, min(500, depth_corrected))
                             
                         else:
-                            # 결측값이나 비정상값의 경우 중간값 사용
-                            depth = 200  # mm
+                            # 결측값이나 비정상값의 경우
+                            depth_final = np.nan
                             
-                        physics_depth.append(depth)
+                        physics_depths.append(depth_final)
                     
-                    daily_data['sensing_depth'] = physics_depth
-                    avg_depth = np.mean(physics_depth)
-                    depth_std = np.std(physics_depth)
-                    depth_range = [np.min(physics_depth), np.max(physics_depth)]
+                    # 결과 적용
+                    daily_data['sensing_depth'] = physics_depths
+                    calculation_method = "validated_physics_formula"
                     
-                    self.logger.info(f"Physics-based sensing depth: mean={avg_depth:.1f}mm, "
-                                   f"std={depth_std:.1f}mm, range={depth_range[0]:.1f}-{depth_range[1]:.1f}mm")
+                    # 통계 계산
+                    valid_physics = [d for d in physics_depths if pd.notna(d)]
+                    if valid_physics:
+                        calculation_details = {
+                            'mean': np.mean(valid_physics),
+                            'std': np.std(valid_physics),
+                            'min': np.min(valid_physics),
+                            'max': np.max(valid_physics),
+                            'valid_count': len(valid_physics),
+                            'formula': 'Franz_2012_with_pressure_correction'
+                        }
+                        
+                        self.logger.info(f"✅ Physics formula SUCCESS: {calculation_details}")
+                        
+                        # VWC vs 깊이 관계 검증
+                        vwc_values = [daily_data['VWC'].iloc[i] for i in range(len(valid_physics)) 
+                                    if pd.notna(daily_data['VWC'].iloc[i]) and pd.notna(physics_depths[i])]
+                        depth_values = [d for d in physics_depths if pd.notna(d)]
+                        
+                        if len(vwc_values) > 1 and len(depth_values) > 1:
+                            correlation = np.corrcoef(vwc_values[:len(depth_values)], depth_values)[0, 1]
+                            self.logger.info(f"VWC-Depth correlation: {correlation:.3f}")
+                            
+                            if correlation < -0.5:
+                                self.logger.info("✅ Strong negative correlation (expected for VWC-depth relationship)")
+                            elif correlation < -0.3:
+                                self.logger.info("✅ Moderate negative correlation")
+                            else:
+                                self.logger.warning("⚠️ Weak or positive correlation - unusual for VWC-depth")
                     
                 except Exception as e:
-                    self.logger.warning(f"Physics-based calculation failed: {e}")
+                    self.logger.error(f"❌ Physics formula failed: {e}")
                     
-                    # 3단계: 최종 fallback - VWC 기반 단순 추정
-                    try:
-                        # VWC에 따른 단순 선형 관계
-                        vwc_mean = daily_data['VWC'].mean()
-                        
-                        if pd.notna(vwc_mean):
-                            # 일반적으로 VWC가 높을수록 유효깊이 감소
-                            # VWC 0.1 → 300mm, VWC 0.5 → 150mm 정도의 관계
-                            base_depth = 350 - (vwc_mean - 0.1) * 500  # 선형 관계
-                            base_depth = max(100, min(400, base_depth))  # 100-400mm 범위
-                            
-                            # 약간의 변동성 추가
-                            simple_depths = []
-                            for vwc in daily_data['VWC'].values:
-                                if pd.notna(vwc):
-                                    depth = 350 - (vwc - 0.1) * 500
-                                    depth = max(100, min(400, depth))
-                                else:
-                                    depth = base_depth
-                                simple_depths.append(depth)
-                                
-                            daily_data['sensing_depth'] = simple_depths
-                            avg_depth = np.mean(simple_depths)
-                            self.logger.warning(f"Using VWC-based estimation: {avg_depth:.1f} mm")
-                            
+                    # 절대 최종 fallback
+                    daily_data['sensing_depth'] = 200.0  # mm (일반적인 중간값)
+                    calculation_method = "fixed_fallback"
+                    calculation_details = {'value': 200.0, 'reason': 'all_methods_failed'}
+                    self.logger.warning("Using absolute fallback: 200 mm constant depth")
+            
+            # === 4단계: 결과 검증 및 요약 ===
+            self.logger.info(f"\n=== FINAL SENSING DEPTH RESULTS ===")
+            self.logger.info(f"Method used: {calculation_method}")
+            
+            if calculation_details:
+                for key, value in calculation_details.items():
+                    if isinstance(value, float):
+                        if key in ['mean', 'std', 'min', 'max']:
+                            self.logger.info(f"  {key}: {value:.1f} mm")
                         else:
-                            # 모든 방법 실패 - 고정값
-                            daily_data['sensing_depth'] = 200  # mm
-                            self.logger.warning("All methods failed, using fixed depth: 200 mm")
-                            
-                    except Exception as e:
-                        # 절대 최종 fallback
-                        daily_data['sensing_depth'] = 200  # mm
-                        self.logger.error(f"All sensing depth calculations failed: {e}")
-                        self.logger.warning("Using absolute fallback: 200 mm")
+                            self.logger.info(f"  {key}: {value:.3f}")
+                    else:
+                        self.logger.info(f"  {key}: {value}")
+            
+            # 메타데이터 저장
+            daily_data.attrs['sensing_depth_method'] = calculation_method
+            daily_data.attrs['sensing_depth_details'] = calculation_details
+            
+            # 물리적 타당성 검사
+            if 'sensing_depth' in daily_data.columns:
+                final_depths = daily_data['sensing_depth'].dropna()
+                if len(final_depths) > 0:
+                    mean_depth = final_depths.mean()
+                    
+                    # 일반적인 범위 확인 (30-300mm가 대부분)
+                    if 50 <= mean_depth <= 300:
+                        self.logger.info("✅ Sensing depth values are in reasonable range")
+                    elif 30 <= mean_depth <= 500:
+                        self.logger.info("⚠️ Sensing depth values are acceptable but at extreme")
+                    else:
+                        self.logger.warning(f"⚠️ Unusual sensing depth range (mean: {mean_depth:.1f} mm)")
+                        
+                    # 변동성 확인
+                    depth_cv = final_depths.std() / final_depths.mean()
+                    if depth_cv < 0.1:
+                        self.logger.info("Sensing depth has low variability")
+                    elif depth_cv > 0.5:
+                        self.logger.warning("Sensing depth has very high variability")
                         
             return daily_data
             
