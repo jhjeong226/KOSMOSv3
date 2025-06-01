@@ -1,6 +1,6 @@
 {
   "station_id": "PC",
-  "processing_timestamp": "2025-05-29T18:15:21.411370",
+  "processing_timestamp": "2025-06-01T10:29:00.394942",
   "overall_status": "success",
   "fdr": {
     "status": "success",
@@ -21,10 +21,6 @@
       "date_range": {
         "start": "2024-07-31 00:00:00",
         "end": "2024-11-06 00:00:00"
-      },
-      "data_quality": {
-        "missing_theta_v": "0",
-        "valid_records": "79353"
       }
     },
     "processor": "FDRProcessor"
@@ -33,17 +29,16 @@
     "status": "success",
     "output_files": {
       "input_format": "data\\output\\PC\\preprocessed\\PC_CRNP_input.xlsx",
-      "daily_format": "data\\output\\PC\\preprocessed\\PC_CRNP_daily.xlsx",
       "quality_report": "data\\output\\PC\\preprocessed\\PC_CRNP_quality_report.txt"
     },
     "summary": {
-      "total_records": 2163,
+      "total_records": 2162,
       "date_range": {
-        "start": "2024-08-01 12:00:00",
+        "start": "2024-08-01 13:00:00",
         "end": "2024-10-30 14:00:00"
       },
       "data_completeness": {
-        "N_counts": 98.75,
+        "N_counts": 100.0,
         "Ta": 100.0,
         "RH": 100.0,
         "Pa": 100.0
@@ -51,27 +46,5 @@
     },
     "processor": "CRNPProcessor"
   },
-  "output_directory": "data\\output\\PC\\preprocessed",
-  "integrated_summary": {
-    "data_types_processed": [
-      "FDR",
-      "CRNP"
-    ],
-    "temporal_coverage": {
-      "earliest_start": "2024-07-31 00:00:00",
-      "latest_end": "2024-11-06 00:00:00"
-    },
-    "data_quality_overview": {
-      "fdr": {
-        "missing_theta_v": "0",
-        "valid_records": "79353"
-      },
-      "crnp": {
-        "N_counts": 98.75,
-        "Ta": 100.0,
-        "RH": 100.0,
-        "Pa": 100.0
-      }
-    }
-  }
+  "output_directory": "data\\output\\PC\\preprocessed"
 }

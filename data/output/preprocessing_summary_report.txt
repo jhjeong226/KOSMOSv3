@@ -1,17 +1,16 @@
 ================================================================================
 CRNP DATA PREPROCESSING SUMMARY REPORT
 ================================================================================
-Report Generated: 2025-05-29 18:15:21
+Report Generated: 2025-06-01 10:29:00
 Total Stations Processed: 1
 
 STATION: PC
 ----------------------------------------
 Overall Status: success
-Processing Time: 2025-05-29T18:15:21.411370
 FDR Processing: success
   - Sensors: 12
   - Records: 79353
 CRNP Processing: success
-  - Records: 2163
+  - Records: 2162
 
 ================================================================================

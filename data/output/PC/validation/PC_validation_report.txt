@@ -2,26 +2,26 @@
 CRNP VALIDATION REPORT
 ================================================================================
 Station: PC
-Report Generated: 2025-06-01 00:32:34
+Report Generated: 2025-06-01 10:30:21
 
 Data Summary:
   Matched days: 91
   Date range: 2024-08-01 to 2024-10-30
 
 Overall Performance Metrics:
-  R² = 0.7926
-  RMSE = 0.0665
-  MAE = 0.0532
-  NSE = 0.7926
-  Bias = 0.0309
-  Correlation = 0.8903
+  R² = 0.7947
+  RMSE = 0.0680
+  MAE = 0.0545
+  NSE = 0.7947
+  Bias = 0.0319
+  Correlation = 0.8915
   P-value = 0.000000
-  Index of Agreement = 0.5081
+  Index of Agreement = 0.5015
   Method used: correlation_squared_fallback
 
 Depth-wise Performance:
-  10cm: R² = 0.8356, RMSE = 0.0684
-  30cm: R² = 0.7397, RMSE = 0.0667
-  60cm: R² = 0.6620, RMSE = 0.0669
+  10cm: R² = 0.8390, RMSE = 0.0698
+  30cm: R² = 0.7411, RMSE = 0.0682
+  60cm: R² = 0.6625, RMSE = 0.0684
 
 ================================================================================

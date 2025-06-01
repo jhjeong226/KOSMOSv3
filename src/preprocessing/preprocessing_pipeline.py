@@ -18,13 +18,11 @@ from src.preprocessing.crnp_processor import CRNPProcessor
 
 
 class PreprocessingPipeline:
-    """데이터 전처리 통합 파이프라인"""
+    """데이터 전처리 통합 파이프라인 - 간소화된 버전"""
     
     def __init__(self, config_root: str = "config"):
         self.config_manager = ConfigManager(config_root)
         self.main_logger = CRNPLogger("PreprocessingPipeline")
-        
-        # 처리 결과 저장
         self.results = {}
         
     def run_station_preprocessing(self, station_id: str, 
@@ -54,7 +52,7 @@ class PreprocessingPipeline:
                     station_config, processing_config, station_logger, str(output_dir)
                 )
                 
-                # 6. 결과 통합 및 요약
+                # 6. 결과 통합
                 combined_results = self._combine_results(
                     station_id, fdr_results, crnp_results, str(output_dir)
                 )
@@ -63,8 +61,8 @@ class PreprocessingPipeline:
                 self._save_metadata(combined_results, str(output_dir))
                 
                 self.results[station_id] = combined_results
+                station_logger.info("Preprocessing completed successfully")
                 
-                station_logger.info(f"Station {station_id} preprocessing completed successfully")
                 return combined_results
                 
             except Exception as e:
@@ -84,23 +82,19 @@ class PreprocessingPipeline:
     def _load_configurations(self, station_id: str) -> tuple:
         """설정 파일들 로드"""
         
-        with ProcessTimer(self.main_logger, f"Loading {station_id} Configuration"):
+        try:
+            station_config = self.config_manager.load_station_config(station_id)
+            processing_config = self.config_manager.load_processing_config()
             
-            try:
-                station_config = self.config_manager.load_station_config(station_id)
-                processing_config = self.config_manager.load_processing_config()
-                
-                self.main_logger.info(f"Loaded configuration for {station_id}")
-                
-                # 필수 경로 검증
-                self._validate_station_paths(station_config)
-                
-                return station_config, processing_config
-                
-            except Exception as e:
-                self.main_logger.log_error_with_context(e, f"Loading configuration for {station_id}")
-                raise
-                
+            # 필수 경로 검증
+            self._validate_station_paths(station_config)
+            
+            return station_config, processing_config
+            
+        except Exception as e:
+            self.main_logger.log_error_with_context(e, f"Loading configuration for {station_id}")
+            raise
+            
     def _validate_station_paths(self, station_config: Dict) -> None:
         """관측소 경로 유효성 검증"""
         
@@ -117,32 +111,28 @@ class PreprocessingPipeline:
                 missing_paths.append(f"{description}: {path}")
                 
         if missing_paths:
-            self.main_logger.warning(f"Missing paths found:\n" + "\n".join(f"  - {p}" for p in missing_paths))
+            self.main_logger.warning(f"Missing paths: {', '.join(missing_paths)}")
             
     def _process_fdr_data(self, station_config: Dict, processing_config: Dict,
                          logger: CRNPLogger, output_dir: str) -> Dict[str, Any]:
         """FDR 데이터 처리"""
         
         try:
-            with ProcessTimer(logger, "FDR Data Processing"):
-                
-                fdr_processor = FDRProcessor(station_config, processing_config, logger)
-                
-                # FDR 데이터 처리 실행
-                output_files = fdr_processor.process_all_fdr_data(output_dir)
-                
-                # 처리 요약 생성 (실제 데이터에서)
-                summary = self._get_fdr_summary(output_files.get('input_format'))
-                
-                logger.info(f"FDR processing completed: {len(output_files)} output files generated")
-                
-                return {
-                    'status': 'success',
-                    'output_files': output_files,
-                    'summary': summary,
-                    'processor': 'FDRProcessor'
-                }
-                
+            fdr_processor = FDRProcessor(station_config, processing_config, logger)
+            output_files = fdr_processor.process_all_fdr_data(output_dir)
+            
+            # 처리 요약 생성
+            summary = self._get_fdr_summary(output_files.get('input_format'))
+            
+            logger.info(f"FDR processing completed: {len(output_files)} files")
+            
+            return {
+                'status': 'success',
+                'output_files': output_files,
+                'summary': summary,
+                'processor': 'FDRProcessor'
+            }
+            
         except Exception as e:
             logger.log_error_with_context(e, "FDR data processing")
             return {
@@ -158,25 +148,21 @@ class PreprocessingPipeline:
         """CRNP 데이터 처리"""
         
         try:
-            with ProcessTimer(logger, "CRNP Data Processing"):
-                
-                crnp_processor = CRNPProcessor(station_config, processing_config, logger)
-                
-                # CRNP 데이터 처리 실행
-                output_files = crnp_processor.process_crnp_data(output_dir)
-                
-                # 처리 요약 생성
-                summary = self._get_crnp_summary(output_files.get('input_format'))
-                
-                logger.info(f"CRNP processing completed: {len(output_files)} output files generated")
-                
-                return {
-                    'status': 'success',
-                    'output_files': output_files,
-                    'summary': summary,
-                    'processor': 'CRNPProcessor'
-                }
-                
+            crnp_processor = CRNPProcessor(station_config, processing_config, logger)
+            output_files = crnp_processor.process_crnp_data(output_dir)
+            
+            # 처리 요약 생성
+            summary = self._get_crnp_summary(output_files.get('input_format'))
+            
+            logger.info(f"CRNP processing completed: {len(output_files)} files")
+            
+            return {
+                'status': 'success',
+                'output_files': output_files,
+                'summary': summary,
+                'processor': 'CRNPProcessor'
+            }
+            
         except Exception as e:
             logger.log_error_with_context(e, "CRNP data processing")
             return {
@@ -204,10 +190,6 @@ class PreprocessingPipeline:
                 'date_range': {
                     'start': str(df['Date'].min()) if 'Date' in df.columns else None,
                     'end': str(df['Date'].max()) if 'Date' in df.columns else None
-                },
-                'data_quality': {
-                    'missing_theta_v': df['theta_v'].isna().sum() if 'theta_v' in df.columns else 0,
-                    'valid_records': df['theta_v'].notna().sum() if 'theta_v' in df.columns else 0
                 }
             }
             
@@ -230,17 +212,18 @@ class PreprocessingPipeline:
                 'date_range': {
                     'start': str(df['timestamp'].min()) if 'timestamp' in df.columns else None,
                     'end': str(df['timestamp'].max()) if 'timestamp' in df.columns else None
-                },
-                'data_completeness': {}
+                }
             }
             
             # 주요 변수들의 완성도 계산
             key_columns = ['N_counts', 'Ta', 'RH', 'Pa']
+            completeness = {}
             for col in key_columns:
                 if col in df.columns:
-                    completeness = (df[col].notna().sum() / len(df)) * 100
-                    summary['data_completeness'][col] = round(completeness, 2)
+                    complete_pct = (df[col].notna().sum() / len(df)) * 100
+                    completeness[col] = round(complete_pct, 1)
                     
+            summary['data_completeness'] = completeness
             return summary
             
         except Exception as e:
@@ -267,52 +250,7 @@ class PreprocessingPipeline:
         if fdr_results.get('status') == 'failed' and crnp_results.get('status') == 'failed':
             combined_results['overall_status'] = 'failed'
             
-        # 통합 요약 생성
-        combined_results['integrated_summary'] = self._create_integrated_summary(
-            fdr_results.get('summary', {}), 
-            crnp_results.get('summary', {})
-        )
-        
         return combined_results
-        
-    def _create_integrated_summary(self, fdr_summary: Dict, crnp_summary: Dict) -> Dict:
-        """FDR과 CRNP 통합 요약 생성"""
-        
-        integrated = {
-            'data_types_processed': [],
-            'temporal_coverage': {},
-            'data_quality_overview': {}
-        }
-        
-        # 처리된 데이터 타입
-        if fdr_summary:
-            integrated['data_types_processed'].append('FDR')
-        if crnp_summary:
-            integrated['data_types_processed'].append('CRNP')
-            
-        # 시간적 범위 통합
-        date_ranges = []
-        for summary in [fdr_summary, crnp_summary]:
-            if summary.get('date_range'):
-                date_ranges.append(summary['date_range'])
-                
-        if date_ranges:
-            all_starts = [dr.get('start') for dr in date_ranges if dr.get('start')]
-            all_ends = [dr.get('end') for dr in date_ranges if dr.get('end')]
-            
-            if all_starts and all_ends:
-                integrated['temporal_coverage'] = {
-                    'earliest_start': min(all_starts),
-                    'latest_end': max(all_ends)
-                }
-                
-        # 데이터 품질 개요
-        if fdr_summary.get('data_quality'):
-            integrated['data_quality_overview']['fdr'] = fdr_summary['data_quality']
-        if crnp_summary.get('data_completeness'):
-            integrated['data_quality_overview']['crnp'] = crnp_summary['data_completeness']
-            
-        return integrated
         
     def _save_metadata(self, results: Dict, output_dir: str) -> None:
         """처리 메타데이터 저장"""
@@ -326,7 +264,7 @@ class PreprocessingPipeline:
             self.main_logger.log_file_operation("save", str(metadata_file), "success")
             
         except Exception as e:
-            self.main_logger.log_error_with_context(e, f"Saving metadata to {metadata_file}")
+            self.main_logger.log_error_with_context(e, f"Saving metadata")
             
     def _run_sequential_preprocessing(self, station_ids: List[str], 
                                     output_base_dir: str) -> Dict[str, Any]:
@@ -336,7 +274,6 @@ class PreprocessingPipeline:
         
         for station_id in station_ids:
             try:
-                self.main_logger.info(f"Starting preprocessing for station {station_id}")
                 station_result = self.run_station_preprocessing(station_id, output_base_dir)
                 results[station_id] = station_result
                 
@@ -373,7 +310,7 @@ class PreprocessingPipeline:
                         'error': str(e)
                     }
                     
-        max_workers = min(len(station_ids), 4)  # 최대 4개 동시 처리
+        max_workers = min(len(station_ids), 4)
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(process_station, station_id): station_id 
@@ -383,7 +320,7 @@ class PreprocessingPipeline:
                 station_id = futures[future]
                 try:
                     future.result()
-                    self.main_logger.info(f"Completed processing for station {station_id}")
+                    self.main_logger.info(f"Completed {station_id}")
                 except Exception as e:
                     self.main_logger.log_error_with_context(e, f"Parallel processing of {station_id}")
                     
@@ -404,7 +341,6 @@ class PreprocessingPipeline:
             lines.append(f"STATION: {station_id}")
             lines.append("-" * 40)
             lines.append(f"Overall Status: {result.get('overall_status', 'Unknown')}")
-            lines.append(f"Processing Time: {result.get('processing_timestamp', 'Unknown')}")
             
             # FDR 요약
             fdr_status = result.get('fdr', {}).get('status', 'Unknown')
@@ -434,7 +370,7 @@ class PreprocessingPipeline:
         try:
             with open(report_file, 'w', encoding='utf-8') as f:
                 f.write(report_content)
-            self.main_logger.info(f"Summary report saved to {report_file}")
+            self.main_logger.info(f"Summary report saved")
         except Exception as e:
             self.main_logger.warning(f"Could not save summary report: {e}")
             
@@ -451,29 +387,22 @@ def main():
     # 파이프라인 초기화
     pipeline = PreprocessingPipeline()
     
-    # 단일 관측소 처리 (HC)
+    # 단일 관측소 처리
     try:
-        print("📍 홍천(HC) 관측소 데이터 처리 중...")
+        print("📍 관측소 데이터 처리 중...")
         
         hc_results = pipeline.run_station_preprocessing("HC")
         
         if hc_results['overall_status'] == 'success':
-            print("✅ 홍천 관측소 처리 완료!")
+            print("✅ 관측소 처리 완료!")
         else:
-            print(f"⚠️  홍천 관측소 처리 부분 완료: {hc_results['overall_status']}")
+            print(f"⚠️  관측소 처리 부분 완료: {hc_results['overall_status']}")
             
         # 결과 출력
         print("\n📊 처리 결과:")
         print(f"  FDR 처리: {hc_results['fdr']['status']}")
         print(f"  CRNP 처리: {hc_results['crnp']['status']}")
         
-        # 출력 파일 목록
-        print("\n📁 생성된 파일들:")
-        for data_type in ['fdr', 'crnp']:
-            output_files = hc_results[data_type].get('output_files', {})
-            for file_type, file_path in output_files.items():
-                print(f"  {data_type.upper()} {file_type}: {os.path.basename(file_path)}")
-                
         # 요약 보고서 생성
         print("\n📋 요약 보고서 생성 중...")
         summary_report = pipeline.generate_summary_report()

@@ -11,7 +11,7 @@ import json
 
 
 class CRNPLogger:
-    """CRNP 시스템용 통합 로깅 클래스"""
+    """CRNP 시스템용 간소화된 로깅 클래스"""
     
     def __init__(self, 
                  name: str = "CRNP",
@@ -40,7 +40,7 @@ class CRNPLogger:
             
         # 포매터 설정
         self.formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s',
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S'
         )
         
@@ -51,7 +51,7 @@ class CRNPLogger:
         if save_to_file:
             self._add_file_handler(max_file_size, backup_count)
             
-        # 프로세스 추적을 위한 컨텍스트
+        # 프로세스 컨텍스트
         self.process_context = {}
         
     def _add_console_handler(self):
@@ -68,7 +68,7 @@ class CRNPLogger:
         self.logger.addHandler(console_handler)
         
     def _add_file_handler(self, max_file_size: int, backup_count: int):
-        """파일 핸들러 추가 (로테이션 지원)"""
+        """파일 핸들러 추가"""
         log_file = self.log_dir / f"{self.name}_{datetime.now().strftime('%Y%m%d')}.log"
         
         file_handler = logging.handlers.RotatingFileHandler(
@@ -82,7 +82,7 @@ class CRNPLogger:
         self.logger.addHandler(file_handler)
         
     def set_context(self, **kwargs):
-        """로깅 컨텍스트 설정 (관측소 ID, 처리 단계 등)"""
+        """로깅 컨텍스트 설정"""
         self.process_context.update(kwargs)
         
     def clear_context(self):
@@ -117,92 +117,43 @@ class CRNPLogger:
         self.logger.critical(self._format_message(message), **kwargs)
         
     def log_process_start(self, process_name: str, **details):
-        """프로세스 시작 로깅"""
-        self.set_context(process=process_name)
-        details_str = ", ".join([f"{k}={v}" for k, v in details.items()])
-        self.info(f"Process started: {process_name}" + (f" ({details_str})" if details else ""))
+        """프로세스 시작 로깅 - 주요 프로세스만"""
+        if any(keyword in process_name.lower() for keyword in ['preprocessing', 'calibration', 'calculation', 'validation']):
+            self.set_context(process=process_name)
+            self.info(f"Starting {process_name}")
         
     def log_process_end(self, process_name: str, duration: Optional[float] = None, **results):
-        """프로세스 종료 로깅"""
-        duration_str = f" in {duration:.2f}s" if duration else ""
-        results_str = ", ".join([f"{k}={v}" for k, v in results.items()])
-        self.info(f"Process completed: {process_name}{duration_str}" + (f" ({results_str})" if results else ""))
+        """프로세스 종료 로깅 - 주요 프로세스만"""
+        if any(keyword in process_name.lower() for keyword in ['preprocessing', 'calibration', 'calculation', 'validation']):
+            duration_str = f" ({duration:.1f}s)" if duration else ""
+            self.info(f"Completed {process_name}{duration_str}")
         
     def log_data_summary(self, data_type: str, count: int, **metadata):
-        """데이터 요약 로깅"""
-        metadata_str = ", ".join([f"{k}={v}" for k, v in metadata.items()])
-        self.info(f"Data loaded: {data_type} - {count} records" + (f" ({metadata_str})" if metadata else ""))
+        """데이터 요약 로깅 - 중요한 데이터만"""
+        if any(keyword in data_type.lower() for keyword in ['fdr', 'crnp', 'matched', 'calibration', 'daily']):
+            self.info(f"{data_type}: {count} records")
         
     def log_file_operation(self, operation: str, file_path: str, status: str = "success", **details):
-        """파일 작업 로깅"""
-        details_str = ", ".join([f"{k}={v}" for k, v in details.items()])
-        self.info(f"File {operation}: {file_path} - {status}" + (f" ({details_str})" if details else ""))
+        """파일 작업 로깅 - 저장 작업만"""
+        if operation == "save" and status == "success":
+            filename = os.path.basename(file_path)
+            self.info(f"Saved: {filename}")
         
     def log_calibration_result(self, N0: float, metrics: Dict[str, Any]):
-        """캘리브레이션 결과 로깅 - 개선된 버전"""
+        """캘리브레이션 결과 로깅"""
+        r2 = metrics.get('R2', 0)
+        rmse = metrics.get('RMSE', 0)
+        self.info(f"Calibration result: N0={N0:.1f}, R²={r2:.3f}, RMSE={rmse:.4f}")
         
-        # 숫자 값과 문자열 값을 분리
-        numeric_metrics = []
-        string_metrics = []
-        
-        for k, v in metrics.items():
-            if isinstance(v, (int, float)) and not isinstance(v, bool):
-                try:
-                    # 숫자인지 확인 (NaN, inf 체크)
-                    if not (pd.isna(v) or np.isinf(v)):
-                        numeric_metrics.append(f"{k}={v:.4f}")
-                    else:
-                        string_metrics.append(f"{k}={v}")
-                except:
-                    string_metrics.append(f"{k}={v}")
-            else:
-                string_metrics.append(f"{k}={v}")
-        
-        # 결과 문자열 구성
-        result_parts = [f"N0={N0:.2f}"]
-        
-        if numeric_metrics:
-            result_parts.append(", ".join(numeric_metrics))
-        
-        if string_metrics:
-            result_parts.append(", ".join(string_metrics))
-        
-        result_message = "Calibration result: " + ", ".join(result_parts)
-        self.logger.info(result_message)
-        
-    def log_validation_result(self, metrics: Dict[str, Any]):  # float -> Any로 변경
-        """검증 결과 로깅 - 문자열 값 처리 개선"""
-        
-        # 숫자와 문자열 값을 분리
-        numeric_metrics = []
-        string_metrics = []
-        
-        for k, v in metrics.items():
-            if isinstance(v, (int, float)) and not isinstance(v, bool):
-                try:
-                    # NaN, inf 체크
-                    if not (pd.isna(v) or np.isinf(v)):
-                        numeric_metrics.append(f"{k}={v:.4f}")
-                    else:
-                        string_metrics.append(f"{k}={v}")
-                except:
-                    string_metrics.append(f"{k}={v}")
-            else:
-                string_metrics.append(f"{k}={v}")
-        
-        # 로깅 메시지 구성
-        result_parts = []
-        if numeric_metrics:
-            result_parts.append(", ".join(numeric_metrics))
-        if string_metrics:
-            result_parts.append(", ".join(string_metrics))
-        
-        result_message = "Validation result: " + " | ".join(result_parts)
-        self.info(result_message)
+    def log_validation_result(self, metrics: Dict[str, Any]):
+        """검증 결과 로깅"""
+        r2 = metrics.get('R2', 0)
+        rmse = metrics.get('RMSE', 0)
+        self.info(f"Validation result: R²={r2:.3f}, RMSE={rmse:.4f}")
         
     def log_error_with_context(self, error: Exception, context: str = ""):
         """에러와 컨텍스트 정보 로깅"""
-        error_msg = f"Error in {context}: {type(error).__name__}: {str(error)}" if context else f"Error: {type(error).__name__}: {str(error)}"
+        error_msg = f"Error in {context}: {str(error)}" if context else f"Error: {str(error)}"
         self.error(error_msg)
         
     def create_station_logger(self, station_id: str) -> 'CRNPLogger':
@@ -238,7 +189,7 @@ class ProcessTimer:
         if exc_type is None:
             self.logger.log_process_end(self.process_name, duration=duration)
         else:
-            self.logger.log_error_with_context(exc_val, f"{self.process_name} (duration: {duration:.2f}s)")
+            self.logger.log_error_with_context(exc_val, f"{self.process_name}")
 
 
 def setup_logger(name: str = "CRNP", 
@@ -258,29 +209,4 @@ def setup_logger(name: str = "CRNP",
         save_to_file=config.get('save_to_file', True)
     )
     
-    logger.info(f"Logger initialized: {name}")
     return logger
-
-
-# 사용 예시
-if __name__ == "__main__":
-    # 메인 로거 생성
-    main_logger = setup_logger("CRNP_Main")
-    
-    # 관측소별 로거 생성
-    hc_logger = main_logger.create_station_logger("HC")
-    
-    # 프로세스 로깅 예시
-    with ProcessTimer(hc_logger, "Data Preprocessing", files=12, station="Hongcheon"):
-        hc_logger.info("데이터 전처리 진행 중...")
-        # 실제 작업 시뮬레이션
-        import time
-        time.sleep(1)
-        
-    # 데이터 요약 로깅
-    hc_logger.log_data_summary("FDR", 1440, period="2024-08-17 to 2024-08-25")
-    
-    # 캘리브레이션 결과 로깅
-    hc_logger.log_calibration_result(1757.86, {"RMSE": 0.023, "R2": 0.89})
-    
-    print("Logger 시스템 구현 완료!")
