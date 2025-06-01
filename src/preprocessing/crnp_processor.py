@@ -200,16 +200,12 @@ class CRNPProcessor:
         # 1. 전체 헤더 구조 분석 (처음 6행)
         header_df = pd.read_excel(file_path, header=None, nrows=6)
         
-        self.logger.info("Analyzing TOA5 header structure:")
         for i in range(min(6, len(header_df))):
-            row_data = header_df.iloc[i, :5].tolist()  # 처음 5개 컬럼만
-            self.logger.info(f"  Row {i}: {row_data}")
+            row_data = header_df.iloc[i, :5].tolist()  
         
         # 2. TOA5 형식 확인
         if len(header_df) < 4 or 'TOA5' not in str(header_df.iloc[0, 0]):
             raise ValueError("Not a valid TOA5 format file")
-            
-        self.logger.info("Processing Excel TOA5 format")
         
         # 3. 실제 컬럼명 추출 (행 1, 0-based) - 대문자 컬럼명들
         actual_columns = []
@@ -217,37 +213,30 @@ class CRNPProcessor:
             row1_data = header_df.iloc[1, :].tolist()
             # NaN이 아닌 값들만 컬럼명으로 사용
             actual_columns = [str(col) for col in row1_data if pd.notna(col)]
-            self.logger.info(f"TOA5 columns from row 1: {actual_columns}")
         
         # 4. 행 2의 축약형도 확인 (TS, RN, DegC 등)
         abbreviations = []
         if len(header_df) > 2:
             row2_data = header_df.iloc[2, :].tolist()
             abbreviations = [str(abbr) for abbr in row2_data if pd.notna(abbr)]
-            self.logger.info(f"TOA5 abbreviations from row 2: {abbreviations}")
         
         # 5. 데이터 부분 읽기 (4행 스킵: 0=TOA5메타, 1=컬럼명, 2=축약형, 3=공란)
         data_df = pd.read_excel(file_path, skiprows=4)
         
-        self.logger.info(f"Data shape after reading: {data_df.shape}")
-        self.logger.info(f"Original data columns: {list(data_df.columns)}")
         
         # 6. 컬럼명 설정
         if actual_columns and len(actual_columns) <= len(data_df.columns):
             # 실제 컬럼명이 있고 데이터 컬럼 수보다 적거나 같으면
             final_columns = actual_columns + [f"Col_{i}" for i in range(len(actual_columns), len(data_df.columns))]
             data_df.columns = final_columns[:len(data_df.columns)]
-            self.logger.info(f"Applied TOA5 column names: {list(data_df.columns)}")
         else:
             # 컬럼명 추출에 실패했으면 기존 컬럼명 유지
             self.logger.warning("Failed to extract proper column names, keeping original")
             
         # 7. 데이터 샘플 로깅 (디버깅용)
         if len(data_df) > 0:
-            self.logger.info("Sample data (first 3 rows):")
             for i in range(min(3, len(data_df))):
                 sample_row = data_df.iloc[i, :min(5, len(data_df.columns))].tolist()
-                self.logger.info(f"  Data row {i}: {sample_row}")
         
         # 8. 표준 CRNP 컬럼으로 매핑
         mapped_df = self._map_toa5_to_standard(data_df)
@@ -262,16 +251,12 @@ class CRNPProcessor:
         # 1. 전체 헤더 구조 분석 (처음 6행)
         header_df = pd.read_csv(file_path, encoding=encoding, header=None, nrows=6)
         
-        self.logger.info("Analyzing CSV TOA5 header structure:")
         for i in range(min(6, len(header_df))):
             row_data = header_df.iloc[i, :5].tolist()  # 처음 5개 컬럼만
-            self.logger.info(f"  Row {i}: {row_data}")
         
         # 2. TOA5 형식 확인
         if len(header_df) < 4 or 'TOA5' not in str(header_df.iloc[0, 0]):
             raise ValueError("Not a valid TOA5 format file")
-            
-        self.logger.info("Processing CSV TOA5 format")
         
         # 3. 실제 컬럼명 추출 (행 1, 0-based) - 대문자 컬럼명들
         actual_columns = []
@@ -279,37 +264,29 @@ class CRNPProcessor:
             row1_data = header_df.iloc[1, :].tolist()
             # NaN이 아닌 값들만 컬럼명으로 사용
             actual_columns = [str(col) for col in row1_data if pd.notna(col)]
-            self.logger.info(f"TOA5 columns from row 1: {actual_columns}")
         
         # 4. 행 2의 축약형도 확인 (TS, RN, DegC 등)
         abbreviations = []
         if len(header_df) > 2:
             row2_data = header_df.iloc[2, :].tolist()
             abbreviations = [str(abbr) for abbr in row2_data if pd.notna(abbr)]
-            self.logger.info(f"TOA5 abbreviations from row 2: {abbreviations}")
         
         # 5. 데이터 부분 읽기 (4행 스킵: 0=TOA5메타, 1=컬럼명, 2=축약형, 3=공란)
         data_df = pd.read_csv(file_path, encoding=encoding, skiprows=4)
-        
-        self.logger.info(f"Data shape after reading: {data_df.shape}")
-        self.logger.info(f"Original data columns: {list(data_df.columns)}")
-        
+                
         # 6. 컬럼명 설정
         if actual_columns and len(actual_columns) <= len(data_df.columns):
             # 실제 컬럼명이 있고 데이터 컬럼 수보다 적거나 같으면
             final_columns = actual_columns + [f"Col_{i}" for i in range(len(actual_columns), len(data_df.columns))]
             data_df.columns = final_columns[:len(data_df.columns)]
-            self.logger.info(f"Applied TOA5 column names: {list(data_df.columns)}")
         else:
             # 컬럼명 추출에 실패했으면 기존 컬럼명 유지
             self.logger.warning("Failed to extract proper column names, keeping original")
             
         # 7. 데이터 샘플 로깅 (디버깅용)
         if len(data_df) > 0:
-            self.logger.info("Sample data (first 3 rows):")
             for i in range(min(3, len(data_df))):
                 sample_row = data_df.iloc[i, :min(5, len(data_df.columns))].tolist()
-                self.logger.info(f"  Data row {i}: {sample_row}")
         
         # 8. 표준 CRNP 컬럼으로 매핑
         mapped_df = self._map_toa5_to_standard(data_df)
@@ -318,9 +295,6 @@ class CRNPProcessor:
         
     def _map_toa5_to_standard(self, df: pd.DataFrame) -> pd.DataFrame:
         """TOA5 컬럼을 표준 CRNP 컬럼으로 매핑 - 개선된 버전"""
-        
-        self.logger.info("Mapping TOA5 columns to standard CRNP format")
-        self.logger.info(f"Available columns: {list(df.columns)}")
         
         # 새 데이터프레임 생성 (표준 컬럼명으로)
         mapped_df = pd.DataFrame()
@@ -358,7 +332,6 @@ class CRNPProcessor:
                             if numeric_data.notna().sum() > 0:
                                 mapped_value = df[col]
                                 source_col = col
-                                self.logger.info(f"Found potential neutron column: {col}")
                                 break
                         except:
                             continue
@@ -373,21 +346,18 @@ class CRNPProcessor:
                         if numeric_data.notna().sum() > 0 and numeric_data.mean() > 10:  # 중성자 카운트는 보통 큰 값
                             mapped_value = df[last_col]
                             source_col = f"{last_col} (position-based)"
-                            self.logger.info(f"Using last column as neutron counts: {last_col}")
                     except:
                         pass
                         
             # 매핑 결과 적용
             if mapped_value is not None:
                 mapped_df[standard_col] = mapped_value
-                self.logger.info(f"  ✅ {standard_col} ← {source_col}")
             else:
                 mapped_df[standard_col] = np.nan
                 self.logger.warning(f"  ❌ {standard_col} ← (missing)")
                 
         # 매핑 결과 요약 및 특별 처리
         mapped_count = sum(1 for col in self.standard_columns if mapped_df[col].notna().any())
-        self.logger.info(f"Mapping complete: {mapped_count}/{len(self.standard_columns)} columns mapped")
         
         # 중성자 카운트가 없는 경우 특별 로깅
         if mapped_df['N_counts'].isna().all():
@@ -497,10 +467,7 @@ class CRNPProcessor:
         """CRNP 데이터 전처리"""
         
         processed_df = df.copy()
-        
-        self.logger.info("CRNP data preprocessing started")
-        self.logger.info(f"Original data shape: {processed_df.shape}")
-        
+                
         # 1. 타임스탬프 처리
         with ProcessTimer(self.logger, "Timestamp Processing"):
             
@@ -509,10 +476,8 @@ class CRNPProcessor:
                 sample_timestamp = processed_df['Timestamp'].iloc[0] if len(processed_df) > 0 else None
                 
                 if isinstance(sample_timestamp, (pd.Timestamp, datetime)):
-                    self.logger.info("Timestamp already in datetime format")
                     processed_df['timestamp'] = processed_df['Timestamp']
                 else:
-                    self.logger.info("Converting timestamp from string/numeric format")
                     processed_df['timestamp'] = pd.to_datetime(processed_df['Timestamp'], errors='coerce')
                     
                 # 유효하지 않은 타임스탬프 확인
@@ -531,7 +496,6 @@ class CRNPProcessor:
                 # 최종 타임스탬프 검증
                 if len(processed_df) > 0:
                     final_date_range = f"{processed_df['timestamp'].min()} to {processed_df['timestamp'].max()}"
-                    self.logger.info(f"Final timestamp range: {final_date_range}")
             else:
                 raise ValueError("Timestamp column not found")
                 
@@ -708,8 +672,8 @@ class CRNPProcessor:
         # 중성자 카운트 누락 시 추가 안내
         if summary['completeness'].get('N_counts', 0) == 0:
             self.logger.warning("⚠️ IMPORTANT: No neutron count data processed")
-            self.logger.warning("  - Calibration will not be possible")
-            self.logger.warning("  - Only meteorological data is available")
+            # self.logger.warning("  - Calibration will not be possible")
+            # self.logger.warning("  - Only meteorological data is available")
             self.logger.warning("  - Check original TOA5 file for neutron detector columns")
 
 
