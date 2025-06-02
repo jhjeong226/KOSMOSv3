@@ -204,8 +204,12 @@ class ConfigManager:
                 if not os.path.exists(path_value):
                     self.logger.warning(f"Folder not found: {path_value}")
             elif path_key.endswith('_file'):
-                if not os.path.exists(path_value):
-                    self.logger.warning(f"File not found: {path_value}")
+                if path_key == 'geo_info_file':
+                    if not os.path.exists(path_value):
+                        self.logger.info(f"geo_info_file not found, will use YAML sensor data: {path_value}")
+                    else:
+                        if not os.path.exists(path_value):
+                            self.logger.warning(f"File not found: {path_value}")
                     
     def _create_default_processing_config(self) -> Dict:
         """기본 처리 설정 생성"""

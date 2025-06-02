@@ -1,0 +1,48 @@
+station_info:
+  id: SWCR
+  name: Suwon Crop
+  description: Crop test
+coordinates:
+  latitude: 37.2711223
+  longitude: 126.9877887
+  altitude: 30.8792
+soil_properties:
+  bulk_density: 1.44
+  clay_content: 0.35
+  lattice_water: null
+sensor_configuration:
+  depths: &id001
+  - 10
+  - 30
+  - 70
+  fdr_sensor_count: 3
+data_paths:
+  crnp_folder: data/input/SWCR/crnp/
+  fdr_folder: data/input/SWCR/fdr/
+  geo_info_file: data/input/SWCR/geo_info.xlsx
+file_patterns:
+  crnp_pattern: '*.xlsx'
+  fdr_pattern: '*z6*.csv'
+calibration:
+  neutron_monitor: MXCO
+  utc_offset: 9
+  reference_depths: *id001
+sensors:
+  S1:
+    latitude: 37.271122
+    longitude: 126.9878
+    distance_from_station: 1.0
+    loc_key: '10811'
+    bulk_density: 1.44
+  SE30:
+    latitude: 37.2712853
+    longitude: 126.9875252
+    distance_from_station: 30.0
+    loc_key: '25664'
+    bulk_density: 1.2
+  NW30:
+    latitude: 37.2711204
+    longitude: 126.9881552
+    distance_from_station: 30.0
+    loc_key: '25667'
+    bulk_density: 1.3

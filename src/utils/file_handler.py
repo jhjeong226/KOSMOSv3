@@ -30,7 +30,8 @@ class FileHandler:
         self.file_patterns = {
             'PC': r'z6-(\d+)\([^)]+\)\(z6-\1\)-Configuration.*\.csv$',
             'HC': r'HC-[^(]+\(z6-(\d+)\)\(z6-\1\)-Configuration.*\.csv$',
-            'unified': r'(?:HC-[^(]+)?\(z6-(\d+)\)\(z6-\1\)-Configuration.*\.csv$',
+            'SWCR': r'z6-\d+\s+[^(]+\(z6-(\d+)\)-Configuration.*\.csv$',
+            'unified': r'z6-\d+.*?\(z6-(\d+)\).*?-Configuration.*\.csv$',
             'crnp': r'.*CRNP.*\.(xlsx|csv)$'
         }
         
