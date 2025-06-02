@@ -1,0 +1,2 @@
+2025-06-02 09:42:00 - CRNPPipeline_PC - WARNING - Could not save pipeline results: Object of type int64 is not JSON serializable
+2025-06-02 09:58:21 - CRNPPipeline_PC - WARNING - Could not save pipeline results: Object of type int64 is not JSON serializable

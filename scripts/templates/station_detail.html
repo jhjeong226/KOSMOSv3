@@ -1,0 +1,292 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ station_id }} 관측소 - CRNP Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="fas fa-map-marker-alt me-2"></i>{{ station_id }} 관측소
+            </h1>
+            <div>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i>뒤로
+                </a>
+                <a href="/reports/{{ station_id }}" class="btn btn-success" target="_blank">
+                    <i class="fas fa-file-alt me-1"></i>전체 리포트
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 상태 카드들 -->
+<div class="row mb-4">
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-database fa-2x text-primary mb-2"></i>
+                <h5>전처리</h5>
+                <span class="badge bg-secondary" id="preprocessing-status">로딩중</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-cogs fa-2x text-info mb-2"></i>
+                <h5>캘리브레이션</h5>
+                <span class="badge bg-secondary" id="calibration-status">로딩중</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-tint fa-2x text-success mb-2"></i>
+                <h5>토양수분</h5>
+                <span class="badge bg-secondary" id="soil-moisture-status">로딩중</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-chart-line fa-2x text-warning mb-2"></i>
+                <h5>시각화</h5>
+                <span class="badge bg-secondary" id="visualization-status">로딩중</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 데이터 차트 -->
+<div class="row mb-4">
+    <div class="col-lg-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-tint me-2"></i>토양수분 변화
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="soilMoistureChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-satellite-dish me-2"></i>중성자 카운트
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="neutronChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 플롯 갤러리 -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-images me-2"></i>분석 결과 플롯
+                </h5>
+            </div>
+            <div class="card-body" id="plots-gallery">
+                <div class="text-center">
+                    <div class="spinner-border" role="status"></div>
+                    <p class="mt-2">플롯 로딩 중...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let soilMoistureChart = null;
+let neutronChart = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadStationData();
+    loadPlots();
+});
+
+async function loadStationData() {
+    try {
+        // 상태 정보 로드
+        const statusResponse = await fetch(`/api/station/{{ station_id }}/status`);
+        const status = await statusResponse.json();
+        updateStatusCards(status);
+        
+        // 토양수분 데이터 로드
+        const smResponse = await fetch(`/api/station/{{ station_id }}/data?type=soil_moisture&days=30`);
+        const smData = await smResponse.json();
+        createSoilMoistureChart(smData);
+        
+        // 중성자 데이터 로드
+        const neutronResponse = await fetch(`/api/station/{{ station_id }}/data?type=neutron&days=30`);
+        const neutronData = await neutronResponse.json();
+        createNeutronChart(neutronData);
+        
+    } catch (error) {
+        console.error('Error loading station data:', error);
+    }
+}
+
+function updateStatusCards(status) {
+    const statusMap = {
+        'completed': { class: 'bg-success', text: '완료' },
+        'missing': { class: 'bg-warning', text: '미완료' },
+        'error': { class: 'bg-danger', text: '오류' },
+        'unknown': { class: 'bg-secondary', text: '알 수 없음' }
+    };
+    
+    ['preprocessing', 'calibration', 'soil-moisture', 'visualization'].forEach(step => {
+        const element = document.getElementById(`${step}-status`);
+        const stepStatus = status[step.replace('-', '_')].status;
+        const statusInfo = statusMap[stepStatus] || statusMap['unknown'];
+        
+        element.className = `badge ${statusInfo.class}`;
+        element.textContent = statusInfo.text;
+    });
+}
+
+function createSoilMoistureChart(data) {
+    const ctx = document.getElementById('soilMoistureChart').getContext('2d');
+    
+    if (soilMoistureChart) {
+        soilMoistureChart.destroy();
+    }
+    
+    const labels = data.records.map(r => r.date);
+    const vwcData = data.records.map(r => r.VWC);
+    
+    soilMoistureChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'VWC (m³/m³)',
+                data: vwcData,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1
+                }
+            }
+        }
+    });
+}
+
+function createNeutronChart(data) {
+    const ctx = document.getElementById('neutronChart').getContext('2d');
+    
+    if (neutronChart) {
+        neutronChart.destroy();
+    }
+    
+    const labels = data.records.map(r => r.date);
+    const neutronData = data.records.map(r => r.N_counts);
+    
+    neutronChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Neutron Counts',
+                data: neutronData,
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
+
+async function loadPlots() {
+    try {
+        const response = await fetch(`/api/station/{{ station_id }}/plots`);
+        const plotsData = await response.json();
+        
+        displayPlots(plotsData);
+    } catch (error) {
+        document.getElementById('plots-gallery').innerHTML = 
+            '<div class="alert alert-warning">플롯을 로드할 수 없습니다.</div>';
+    }
+}
+
+function displayPlots(plotsData) {
+    const gallery = document.getElementById('plots-gallery');
+    
+    if (plotsData.total_count === 0) {
+        gallery.innerHTML = `
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>
+                생성된 플롯이 없습니다. 
+                <button class="btn btn-primary btn-sm ms-2" onclick="generatePlots()">
+                    <i class="fas fa-sync me-1"></i>플롯 생성
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '';
+    
+    Object.entries(plotsData.categories).forEach(([category, plots]) => {
+        if (plots.length > 0) {
+            html += `
+                <h6 class="mt-3 mb-2">${category.toUpperCase()}</h6>
+                <div class="row">
+            `;
+            
+            plots.forEach(plot => {
+                html += `
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card">
+                            <div class="plot-container">
+                                <img src="${plot.url}" class="card-img-top" alt="${plot.title}">
+                            </div>
+                            <div class="card-body p-2">
+                                <small class="text-muted">${plot.title}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+        }
+    });
+    
+    gallery.innerHTML = html;
+}
+
+async function generatePlots() {
+    // 플롯 생성 로직 (메인 페이지와 동일)
+    // ... (생략)
+}
+</script>
+{% endblock %}
+    
