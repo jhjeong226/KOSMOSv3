@@ -174,20 +174,28 @@ class CalibrationManager:
         
     def _determine_calibration_period(self, start_str: Optional[str], 
                                     end_str: Optional[str]) -> Tuple[datetime, datetime]:
-        """캘리브레이션 기간 결정"""
+        """캘리브레이션 기간 결정 - processing_options.yaml 설정 우선 고려"""
         
         if start_str and end_str:
-            # 사용자 지정 기간
+            # 스크립트에서 직접 지정한 기간 (최우선)
             cal_start = pd.to_datetime(start_str)
             cal_end = pd.to_datetime(end_str)
         else:
-            # 설정 파일에서 기간 가져오기
+            # processing_options.yaml에서 캘리브레이션 기간 가져오기
             cal_config = self.processing_config.get('calibration', {})
-            default_start = cal_config.get('default_start_date', '2024-08-17')
-            default_end = cal_config.get('default_end_date', '2024-08-25')
+            default_start = cal_config.get('default_start_date')
+            default_end = cal_config.get('default_end_date')
             
-            cal_start = pd.to_datetime(default_start)
-            cal_end = pd.to_datetime(default_end)
+            if default_start and default_end:
+                # YAML에서 지정된 기간 사용
+                cal_start = pd.to_datetime(default_start)
+                cal_end = pd.to_datetime(default_end)
+                self.logger.info(f"Using calibration period from config: {default_start} to {default_end}")
+            else:
+                # 기본값 사용
+                cal_start = pd.to_datetime('2024-10-01')
+                cal_end = pd.to_datetime('2024-10-25')
+                self.logger.info("Using default calibration period")
             
         # 기간 유효성 검증
         if cal_start >= cal_end:

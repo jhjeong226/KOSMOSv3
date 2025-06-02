@@ -116,7 +116,7 @@ class ValidationManager:
             
     def _match_validation_data(self, fdr_data: pd.DataFrame, 
                               crnp_sm_data: pd.DataFrame) -> pd.DataFrame:
-        """검증 데이터 매칭 - 올바른 VWC vs VWC 비교"""
+        """검증 데이터 매칭 - 제외 기간 고려하여 VWC vs VWC 비교"""
         
         with ProcessTimer(self.logger, "Matching validation data"):
             
@@ -133,8 +133,30 @@ class ValidationManager:
             crnp_daily.columns = ['date', 'crnp_vwc']
             crnp_daily['date'] = pd.to_datetime(crnp_daily['date'])
             
+            # 제외 기간 정보도 가져오기 (있는 경우)
+            exclude_info = None
+            if 'exclude_from_calculation' in crnp_sm_data.columns:
+                exclude_daily = crnp_sm_data[['exclude_from_calculation']].reset_index()
+                exclude_daily.columns = ['date', 'excluded']
+                exclude_daily['date'] = pd.to_datetime(exclude_daily['date'])
+                exclude_info = exclude_daily
+            
             # 날짜 기준으로 매칭
             matched_data = pd.merge(fdr_daily, crnp_daily, on='date', how='inner')
+            
+            # 제외 기간 정보 추가
+            if exclude_info is not None:
+                matched_data = pd.merge(matched_data, exclude_info, on='date', how='left')
+                matched_data['excluded'] = matched_data['excluded'].fillna(False)
+            else:
+                matched_data['excluded'] = False
+            
+            # 제외 기간 데이터 필터링 (성능 평가에서 제외)
+            initial_count = len(matched_data)
+            excluded_count = matched_data['excluded'].sum()
+            
+            # 제외되지 않은 데이터만 유지 (excluded=False 또는 NaN인 데이터)
+            matched_data = matched_data[~matched_data['excluded']].copy()
             
             # NaN 제거
             matched_data = matched_data.dropna(subset=['field_sm', 'crnp_vwc'])
@@ -142,7 +164,7 @@ class ValidationManager:
             # 인덱스 설정
             matched_data = matched_data.set_index('date')
             
-            self.logger.info(f"Matched {len(matched_data)} data points")
+            self.logger.info(f"Matched {len(matched_data)} data points (excluded {excluded_count} from calculation periods)")
             
             # 매칭된 데이터 범위 확인 (디버깅)
             if len(matched_data) > 0:

@@ -7,7 +7,7 @@ coordinates:
   longitude: 126.9877887
   altitude: 30.8792
 soil_properties:
-  bulk_density: 1.44
+  bulk_density: 1.8
   clay_content: 0.35
   lattice_water: null
 sensor_configuration:

@@ -121,7 +121,7 @@ class UniversalCalibrationRunner:
             
             if not fdr_file.exists():
                 print("   ⚠️  FDR data not found, using default period")
-                return start_date or "2024-08-17", end_date or "2024-08-25"
+                return start_date, end_date
                 
             # FDR 데이터 로드
             fdr_data = pd.read_excel(fdr_file)

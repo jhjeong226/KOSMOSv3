@@ -204,9 +204,10 @@ class SoilMoistureManager:
         
     def _determine_calculation_period(self, start_str: Optional[str], 
                                     end_str: Optional[str]) -> Tuple[Optional[datetime], Optional[datetime]]:
-        """계산 기간 결정"""
+        """계산 기간 결정 - processing_options.yaml 설정 우선 고려"""
         
         if start_str and end_str:
+            # 스크립트에서 직접 지정한 기간 (최우선)
             calc_start = pd.to_datetime(start_str)
             calc_end = pd.to_datetime(end_str)
             
@@ -217,8 +218,26 @@ class SoilMoistureManager:
             self.logger.info(f"Calculation period: {calc_start.date()} to {calc_end.date()}")
             return calc_start, calc_end
         else:
-            self.logger.info("Using full data period for calculation")
-            return None, None
+            # processing_options.yaml에서 계산 기간 가져오기
+            calc_config = self.processing_config.get('calculation', {})
+            default_start = calc_config.get('default_start_date')
+            default_end = calc_config.get('default_end_date')
+            
+            if default_start and default_end:
+                # YAML에서 지정된 기간 사용
+                calc_start = pd.to_datetime(default_start)
+                calc_end = pd.to_datetime(default_end)
+                
+                # 기간 유효성 검증
+                if calc_start >= calc_end:
+                    raise ValueError(f"Invalid calculation period from config: {calc_start} to {calc_end}")
+                    
+                self.logger.info(f"Using calculation period from config: {default_start} to {default_end}")
+                return calc_start, calc_end
+            else:
+                # 전체 데이터 기간 사용
+                self.logger.info("Using full data period for calculation")
+                return None, None
             
     def _check_existing_calculation(self, calc_start: Optional[datetime], 
                                   calc_end: Optional[datetime]) -> Optional[Dict[str, Any]]:
