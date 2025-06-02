@@ -8,5 +8,10 @@ __pycache__/
 *.csv
 *.xlsx
 
+# === 폴더유지 ===
+!data/output/**/.gitkeep
+!data/input/**/.gitkeep
+!logs/**/.gitkeep
+
 # === output ===
 data/output/
