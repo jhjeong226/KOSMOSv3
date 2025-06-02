@@ -1,5 +1,0 @@
-2025-05-29 14:08:45 - CRNP_Main_HC - INFO - info:105 - [station_id=HC | process=Data Preprocessing] Process started: Data Preprocessing (files=12, station=Hongcheon)
-2025-05-29 14:08:45 - CRNP_Main_HC - INFO - info:105 - [station_id=HC | process=Data Preprocessing] 데이터 전처리 진행 중...
-2025-05-29 14:08:46 - CRNP_Main_HC - INFO - info:105 - [station_id=HC | process=Data Preprocessing] Process completed: Data Preprocessing in 1.00s
-2025-05-29 14:08:46 - CRNP_Main_HC - INFO - info:105 - [station_id=HC | process=Data Preprocessing] Data loaded: FDR - 1440 records (period=2024-08-17 to 2024-08-25)
-2025-05-29 14:08:46 - CRNP_Main_HC - INFO - info:105 - [station_id=HC | process=Data Preprocessing] Calibration result: N0=1757.86, RMSE=0.0230, R2=0.8900

@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.log
 
 # === 입력 데이터 무시 ===
 *.csv
