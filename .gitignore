@@ -6,3 +6,6 @@ __pycache__/
 # === 입력 데이터 무시 ===
 *.csv
 *.xlsx
+
+# === output ===
+data/output/
