@@ -1,0 +1,36 @@
+station_info:
+  id: SWRP
+  name: Suwon Rice paddy
+  description: 수원 농장 논 관측소
+coordinates:
+  latitude: 37.2693315
+  longitude: 126.9899319
+  altitude: 29.209
+soil_properties:
+  bulk_density: 1.1
+  clay_content: 0.3
+  lattice_water: null
+sensor_configuration:
+  depths: &id001
+  - 10
+  - 30
+  - 50
+  fdr_sensor_count: 1
+data_paths:
+  crnp_folder: data/input/SWRP/crnp/
+  fdr_folder: data/input/SWRP/fdr/
+  geo_info_file: data/input/SWRP/geo_info.xlsx
+file_patterns:
+  crnp_pattern: '*.xlsx'
+  fdr_pattern: '*z6*.csv'
+calibration:
+  neutron_monitor: MXCO
+  utc_offset: 9
+  reference_depths: *id001
+sensors:
+  FDR_RP:
+    latitude: 37.2693391
+    longitude: 126.9899292
+    distance_from_station: 0.5
+    loc_key: '10811'
+    bulk_density: 1.1
