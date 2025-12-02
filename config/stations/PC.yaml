@@ -3,7 +3,7 @@ calibration:
   reference_depths:
   - 10
   - 30
-  - 60
+  - 50
   utc_offset: 9
 coordinates:
   altitude: 538.2774741
@@ -35,7 +35,7 @@ sensor_configuration:
   depths:
   - 10
   - 30
-  - 60
+  - 50
   fdr_sensor_count: 3
   total_sensors: 12
 sensors:

@@ -15,7 +15,7 @@ calculation:
   default_start_date: null  # "2024-09-01"
   default_end_date: null    # "2024-09-07"
   exclude_periods:
-    months: [11, 12, 1, 2]
+    months: []
     custom_dates: []  # ["2024-01-01:2024-01-31", "2024-06-15:2024-06-20"]
   
   smoothing:

@@ -324,7 +324,6 @@ tail -f logs/PreprocessingPipeline_*.log
 - 데이터 형식 지원: `src/utils/file_handler.py`
 
 ## 라이선스
-
 이 프로젝트는 연구 목적으로 개발되었습니다.
 
 ## 지원
